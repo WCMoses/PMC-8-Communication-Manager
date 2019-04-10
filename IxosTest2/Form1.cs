@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace IxosTest2
@@ -127,9 +128,12 @@ namespace IxosTest2
                 {
                     comPort = version.Remove(delimiter - 1);
                     firmWare = version.Remove(0, delimiter + 2);
-
                     DumpLine("Com Port: " + comPort);
                 }
+                FinalizePropellent();
+                Cursor.Current = Cursors.WaitCursor;
+                Thread.Sleep(4000);
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception)
             {
@@ -274,13 +278,16 @@ namespace IxosTest2
 
         public void Dump(string msg)
         {
-            txtOutput.Text = txtOutput.Text + " " + msg;
+            //string l0 = txtOutput.Lines[0];
+            //txtOutput.Lines[0] += msg;
+            //txtOutput.Text = txtOutput.Text + " " + msg;
+            DumpLine(txtOutput.Lines[0] + msg);
         }
 
         public void DumpLine(string msg)
         {
             //txtOutput.Text += Environment.NewLine + lineCount.ToString() + " " + msg;
-            txtOutput.Text = lineCount.ToString() + " " + msg + Environment.NewLine + txtOutput.Text;
+            txtOutput.Text = lineCount.ToString() + "       " + msg + Environment.NewLine + txtOutput.Text;
             lineCount++;
         }
 
@@ -345,6 +352,11 @@ namespace IxosTest2
         #region Custom Commands
         private void CmdSendCustomCommand_Click(object sender, EventArgs e)
         {
+            if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
+            {
+                MessageBox.Show("Please select a communication method first");
+                return;
+            }
             Cursor.Current = Cursors.WaitCursor;
             SendCustomCommand(txtCommandToSend.Text);
             Cursor.Current = Cursors.Default;
@@ -352,6 +364,7 @@ namespace IxosTest2
 
         private void SendCustomCommand(string cmd)
         {
+
             string ip = txtBasic2IpAddress.Text;
             Int32 ipPort = Convert.ToInt32(txtBasic2IpPort.Text);
             string comPort = cmbBasic2SerialPort.Text;
@@ -396,7 +409,12 @@ namespace IxosTest2
 
         private void CmdAdvancedEsx_Click(object sender, EventArgs e)
         {
-            DumpLine("Sending ESX!");
+            if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
+            {
+                MessageBox.Show("Please select a communication method first");
+                return;
+            }
+            //DumpLine("Sending ESX!");
             Cursor.Current = Cursors.WaitCursor;
             SendCustomCommand("ESX!");
             Cursor.Current = Cursors.Default;
@@ -404,7 +422,12 @@ namespace IxosTest2
 
         private void CmdAdvancedESY_Click(object sender, EventArgs e)
         {
-            DumpLine("Sending ESY!");
+            if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
+            {
+                MessageBox.Show("Please select a communication method first");
+                return;
+            }
+            //DumpLine("Sending ESY!");
             Cursor.Current = Cursors.WaitCursor;
             SendCustomCommand("ESY!");
             Cursor.Current = Cursors.Default;
@@ -412,7 +435,12 @@ namespace IxosTest2
 
         private void CmdAdvancedEsgp0_Click(object sender, EventArgs e)
         {
-            DumpLine("Sending ESGp0!!");
+            if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
+            {
+                MessageBox.Show("Please select a communication method first");
+                return;
+            }
+            //DumpLine("Sending ESGp0!!");
             Cursor.Current = Cursors.WaitCursor;
             SendCustomCommand("ESGp0!");
             Cursor.Current = Cursors.Default;
@@ -422,19 +450,27 @@ namespace IxosTest2
         #region Change Connection Methods
         private void CmdBasic2ViaAscom_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(cmbBasic2SerialPort.Text))
+            {
+                MessageBox.Show("Please select a com port before switching to serial.");
+                return;
+            }
             DumpLine("Switching to ASCOM...");
             EsMount mount = GetMountFromGUI();
             try
             {
                 mount = MountManager.ConnectMount(mount);
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.Serial);
+                Dump("Sucessfully switched to serial (ASCOM) mode");
             }
             catch (EsException esEx)
             {
+                Dump("Could not switch.");
                 MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + esEx.Message);
             }
             catch (Exception ex)
             {
+                Dump("Could not switch.");
                 MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + ex.ToString());
             }
             UpdateTabStripConnection(mount);
@@ -454,22 +490,27 @@ namespace IxosTest2
                 MountManager.ConnectMount(mount);
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.TCP)
                 {
+                    Dump("Already on TCP");
                     MessageBox.Show("Mount is already connected via TCP", "Information");
                     return;
                 }
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
                 {
+                    Dump("Switching from UDP...");
                     MessageBox.Show("Switching may disconnect computer from PMC-8 network.  Please reconnect after switching", "Information");
                 }
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.TCP);
+                Dump("Success - switched to TCP");
             }
             catch (EsException esEx)
             {
-                MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + esEx.Message);
+                Dump("ERROR - could not switch to TCP");
+                MessageBox.Show("Could not switch to TCP." + Environment.NewLine + esEx.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + ex.ToString());
+                Dump("ERROR - could not switch to TCP");
+                MessageBox.Show("Could not switch to TCP." + Environment.NewLine + ex.ToString());
             }
             UpdateTabStripConnection(mount);
         }
@@ -489,6 +530,7 @@ namespace IxosTest2
                 MountManager.ConnectMount(mount);
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
                 {
+                    Dump("Mount is already on UDP");
                     MessageBox.Show("Mount is already connected via UDP", "Information");
                     return;
                 }
@@ -497,13 +539,16 @@ namespace IxosTest2
                     MessageBox.Show("Switching may disconnect computer from PMC-8 network.  Please reconnect after switching", "Information");
                 }
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.UDP);
+                Dump("Succesfully switched to UDP");
             }
             catch (EsException esEx)
             {
+                Dump("Could not switch to  UDP");
                 MessageBox.Show("Could not switch to UDP." + Environment.NewLine);
             }
             catch (Exception ex)
             {
+                Dump("Could not switch to  UDP");
                 MessageBox.Show("Could not switch to UDP." + Environment.NewLine);
             }
             UpdateTabStripConnection(mount);
@@ -531,22 +576,26 @@ namespace IxosTest2
             {
                 return;
             }
-            DialogResult r = MessageBox.Show("Only perform this operation if you are 100% certain you know the implications.", "Warning", MessageBoxButtons.OKCancel);
+
+            DialogResult r = MessageBox.Show("Only perform this operation if you are 100% certain you know the implications.", "Warning - Experimental Feature !!", MessageBoxButtons.OKCancel);
             if (r == DialogResult.Cancel)
             {
                 return;
             }
 
             MessageBox.Show("This may take a few moments.  Press OK to start", "Information");
+            DumpLine("Attempting to upload ROM");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
                 InitPropellent(this.Handle, false, "c:\\");
                 SaveImage(true, openFileDialog.FileName, false);
                 MessageBox.Show("ROM successfully loaded.", "Information");
+                Dump("ROM uploaded.");
             }
             catch (Exception ex)
             {
+                Dump("Could not load ROM");
                 string msg = "ROM failed to load" + Environment.NewLine + Environment.NewLine + ex?.ToString();
                 MessageBox.Show(msg, "Error");
             }

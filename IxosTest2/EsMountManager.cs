@@ -231,8 +231,7 @@ namespace IxosTest2
         }
         private EsMount ConvertToSerialPConnectedMount(EsMount mount)
         {
-            string ipAddr = mount.ConnectionSettings.IpAddr;
-            int ipPort = mount.ConnectionSettings.IpPort;
+
             if (mount == null)
             {
                 throw new EsException("The mount must be connected before its connection can be changed");
@@ -240,13 +239,13 @@ namespace IxosTest2
             if (mount.ConnectionSettings.IsConnected == ConnectionEnum.NONE)
             {
                 throw new EsException("The mount must be connected before its connection can be changed");
-
             }
             if (mount.ConnectionSettings.IsConnected == ConnectionEnum.Serial)
             {
                 throw new EsException("The mount is already in ASCOM (serial) mode");
-
             }
+            string ipAddr = mount.ConnectionSettings.IpAddr;
+            int ipPort = mount.ConnectionSettings.IpPort;
             //If it is in udp ,ode, switch it to tcp
             if (mount.MountModel == MountModelEnum.iXos100 && mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
             {

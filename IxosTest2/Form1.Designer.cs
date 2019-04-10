@@ -38,6 +38,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Basic = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmdRefreshComPorts = new System.Windows.Forms.Button();
+            this.cmdFindComPort = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBasic2IpAddress = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -94,8 +96,8 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmdFindComPort = new System.Windows.Forms.Button();
-            this.cmdRefreshComPorts = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -183,9 +187,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.Instructions);
             this.tabControl1.Controls.Add(this.Basic);
             this.tabControl1.Controls.Add(this.Advaced);
-            this.tabControl1.Controls.Add(this.Instructions);
             this.tabControl1.Location = new System.Drawing.Point(3, 149);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -224,6 +228,26 @@
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Connection Settings";
+            // 
+            // cmdRefreshComPorts
+            // 
+            this.cmdRefreshComPorts.Location = new System.Drawing.Point(345, 239);
+            this.cmdRefreshComPorts.Name = "cmdRefreshComPorts";
+            this.cmdRefreshComPorts.Size = new System.Drawing.Size(110, 49);
+            this.cmdRefreshComPorts.TabIndex = 19;
+            this.cmdRefreshComPorts.Text = "Refresh";
+            this.cmdRefreshComPorts.UseVisualStyleBackColor = true;
+            this.cmdRefreshComPorts.Click += new System.EventHandler(this.CmdRefreshComPorts_Click);
+            // 
+            // cmdFindComPort
+            // 
+            this.cmdFindComPort.Location = new System.Drawing.Point(250, 239);
+            this.cmdFindComPort.Name = "cmdFindComPort";
+            this.cmdFindComPort.Size = new System.Drawing.Size(88, 49);
+            this.cmdFindComPort.TabIndex = 18;
+            this.cmdFindComPort.Text = "Find";
+            this.cmdFindComPort.UseVisualStyleBackColor = true;
+            this.cmdFindComPort.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label2
             // 
@@ -312,6 +336,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox5);
+            this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.cmdBasic2CheckCurrentConnection);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.cmdBasic2ViaUdp);
@@ -350,7 +376,7 @@
             // 
             // cmdBasic2ViaUdp
             // 
-            this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(540, 238);
+            this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(540, 282);
             this.cmdBasic2ViaUdp.Name = "cmdBasic2ViaUdp";
             this.cmdBasic2ViaUdp.Size = new System.Drawing.Size(167, 50);
             this.cmdBasic2ViaUdp.TabIndex = 13;
@@ -360,7 +386,7 @@
             // 
             // cmdBasic2ViaTCP
             // 
-            this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(540, 156);
+            this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(540, 180);
             this.cmdBasic2ViaTCP.Name = "cmdBasic2ViaTCP";
             this.cmdBasic2ViaTCP.Size = new System.Drawing.Size(167, 48);
             this.cmdBasic2ViaTCP.TabIndex = 12;
@@ -381,7 +407,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(57, 263);
+            this.label16.Location = new System.Drawing.Point(101, 307);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(236, 25);
             this.label16.TabIndex = 10;
@@ -390,7 +416,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(57, 179);
+            this.label15.Location = new System.Drawing.Point(89, 203);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(277, 25);
             this.label15.TabIndex = 9;
@@ -399,7 +425,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(57, 101);
+            this.label14.Location = new System.Drawing.Point(89, 104);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(201, 25);
             this.label14.TabIndex = 8;
@@ -683,13 +709,12 @@
             // rtbInstructions
             // 
             this.rtbInstructions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
             this.rtbInstructions.Name = "rtbInstructions";
             this.rtbInstructions.Size = new System.Drawing.Size(1501, 381);
             this.rtbInstructions.TabIndex = 0;
-            this.rtbInstructions.Text = "Communication Manager Instructions and Information\nInstructions\nHow to use\nKnown " +
-    "Limitations\nTroubleshooting\nGetting Additional Help\nGroups.io\nWiki\nSDK Docs\nCred" +
-    "its\n";
+            this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
             // panel1
             // 
@@ -795,25 +820,25 @@
             this.txtOutput.Size = new System.Drawing.Size(1517, 335);
             this.txtOutput.TabIndex = 0;
             // 
-            // cmdFindComPort
+            // pictureBox4
             // 
-            this.cmdFindComPort.Location = new System.Drawing.Point(250, 239);
-            this.cmdFindComPort.Name = "cmdFindComPort";
-            this.cmdFindComPort.Size = new System.Drawing.Size(88, 49);
-            this.cmdFindComPort.TabIndex = 18;
-            this.cmdFindComPort.Text = "Find";
-            this.cmdFindComPort.UseVisualStyleBackColor = true;
-            this.cmdFindComPort.Click += new System.EventHandler(this.Button1_Click);
+            this.pictureBox4.Image = global::IxosTest2.Properties.Resources._13085_up_down_arrow;
+            this.pictureBox4.Location = new System.Drawing.Point(584, 234);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(73, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 16;
+            this.pictureBox4.TabStop = false;
             // 
-            // cmdRefreshComPorts
+            // pictureBox5
             // 
-            this.cmdRefreshComPorts.Location = new System.Drawing.Point(345, 239);
-            this.cmdRefreshComPorts.Name = "cmdRefreshComPorts";
-            this.cmdRefreshComPorts.Size = new System.Drawing.Size(100, 49);
-            this.cmdRefreshComPorts.TabIndex = 19;
-            this.cmdRefreshComPorts.Text = "Refresh";
-            this.cmdRefreshComPorts.UseVisualStyleBackColor = true;
-            this.cmdRefreshComPorts.Click += new System.EventHandler(this.CmdRefreshComPorts_Click);
+            this.pictureBox5.Image = global::IxosTest2.Properties.Resources._13085_up_down_arrow;
+            this.pictureBox5.Location = new System.Drawing.Point(584, 124);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(73, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
             // 
             // Form1
             // 
@@ -853,6 +878,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -925,6 +952,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button cmdFindComPort;
         private System.Windows.Forms.Button cmdRefreshComPorts;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 
