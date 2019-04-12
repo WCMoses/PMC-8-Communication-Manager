@@ -36,6 +36,8 @@
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Instructions = new System.Windows.Forms.TabPage();
+            this.rtbInstructions = new System.Windows.Forms.RichTextBox();
             this.Basic = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cmdRefreshComPorts = new System.Windows.Forms.Button();
@@ -82,8 +84,6 @@
             this.cmdSendCustomCommand = new System.Windows.Forms.Button();
             this.txtCommandToSend = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Instructions = new System.Windows.Forms.TabPage();
-            this.rtbInstructions = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -96,14 +96,14 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.Instructions.SuspendLayout();
             this.Basic.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -113,14 +113,11 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.Instructions.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -195,6 +192,26 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1517, 428);
             this.tabControl1.TabIndex = 1;
+            // 
+            // Instructions
+            // 
+            this.Instructions.Controls.Add(this.rtbInstructions);
+            this.Instructions.Location = new System.Drawing.Point(8, 39);
+            this.Instructions.Name = "Instructions";
+            this.Instructions.Size = new System.Drawing.Size(1501, 381);
+            this.Instructions.TabIndex = 2;
+            this.Instructions.Text = "Instructions";
+            this.Instructions.UseVisualStyleBackColor = true;
+            // 
+            // rtbInstructions
+            // 
+            this.rtbInstructions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
+            this.rtbInstructions.Name = "rtbInstructions";
+            this.rtbInstructions.Size = new System.Drawing.Size(1501, 381);
+            this.rtbInstructions.TabIndex = 0;
+            this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
             // Basic
             // 
@@ -336,8 +353,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.cmdBasic2CheckCurrentConnection);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.cmdBasic2ViaUdp);
@@ -376,6 +391,7 @@
             // 
             // cmdBasic2ViaUdp
             // 
+            this.cmdBasic2ViaUdp.Enabled = false;
             this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(540, 282);
             this.cmdBasic2ViaUdp.Name = "cmdBasic2ViaUdp";
             this.cmdBasic2ViaUdp.Size = new System.Drawing.Size(167, 50);
@@ -386,6 +402,7 @@
             // 
             // cmdBasic2ViaTCP
             // 
+            this.cmdBasic2ViaTCP.Enabled = false;
             this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(540, 180);
             this.cmdBasic2ViaTCP.Name = "cmdBasic2ViaTCP";
             this.cmdBasic2ViaTCP.Size = new System.Drawing.Size(167, 48);
@@ -396,6 +413,7 @@
             // 
             // cmdBasic2ViaAscom
             // 
+            this.cmdBasic2ViaAscom.Enabled = false;
             this.cmdBasic2ViaAscom.Location = new System.Drawing.Point(540, 79);
             this.cmdBasic2ViaAscom.Name = "cmdBasic2ViaAscom";
             this.cmdBasic2ViaAscom.Size = new System.Drawing.Size(167, 50);
@@ -434,6 +452,7 @@
             // Advaced
             // 
             this.Advaced.BackColor = System.Drawing.Color.LightGray;
+            this.Advaced.Controls.Add(this.label4);
             this.Advaced.Controls.Add(this.groupBox7);
             this.Advaced.Controls.Add(this.groupBox6);
             this.Advaced.Controls.Add(this.groupBox3);
@@ -591,7 +610,7 @@
             // rbSerial
             // 
             this.rbSerial.AutoSize = true;
-            this.rbSerial.Location = new System.Drawing.Point(323, 77);
+            this.rbSerial.Location = new System.Drawing.Point(496, 30);
             this.rbSerial.Name = "rbSerial";
             this.rbSerial.Size = new System.Drawing.Size(98, 29);
             this.rbSerial.TabIndex = 3;
@@ -602,7 +621,7 @@
             // rbUdp
             // 
             this.rbUdp.AutoSize = true;
-            this.rbUdp.Location = new System.Drawing.Point(323, 30);
+            this.rbUdp.Location = new System.Drawing.Point(267, 30);
             this.rbUdp.Name = "rbUdp";
             this.rbUdp.Size = new System.Drawing.Size(87, 29);
             this.rbUdp.TabIndex = 2;
@@ -613,7 +632,7 @@
             // rbTcp
             // 
             this.rbTcp.AutoSize = true;
-            this.rbTcp.Location = new System.Drawing.Point(94, 66);
+            this.rbTcp.Location = new System.Drawing.Point(40, 30);
             this.rbTcp.Name = "rbTcp";
             this.rbTcp.Size = new System.Drawing.Size(85, 29);
             this.rbTcp.TabIndex = 1;
@@ -695,26 +714,6 @@
             this.label10.Size = new System.Drawing.Size(196, 25);
             this.label10.TabIndex = 0;
             this.label10.Text = "Command To Send";
-            // 
-            // Instructions
-            // 
-            this.Instructions.Controls.Add(this.rtbInstructions);
-            this.Instructions.Location = new System.Drawing.Point(8, 39);
-            this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(1501, 381);
-            this.Instructions.TabIndex = 2;
-            this.Instructions.Text = "Instructions";
-            this.Instructions.UseVisualStyleBackColor = true;
-            // 
-            // rtbInstructions
-            // 
-            this.rtbInstructions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
-            this.rtbInstructions.Name = "rtbInstructions";
-            this.rtbInstructions.Size = new System.Drawing.Size(1501, 381);
-            this.rtbInstructions.TabIndex = 0;
-            this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
             // panel1
             // 
@@ -806,7 +805,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 40);
-            this.toolStripStatusLabel3.Text = "Version: 0.0.1";
+            this.toolStripStatusLabel3.Text = "Version: 0.0.3";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -820,25 +819,14 @@
             this.txtOutput.Size = new System.Drawing.Size(1517, 335);
             this.txtOutput.TabIndex = 0;
             // 
-            // pictureBox4
+            // label4
             // 
-            this.pictureBox4.Image = global::IxosTest2.Properties.Resources._13085_up_down_arrow;
-            this.pictureBox4.Location = new System.Drawing.Point(584, 234);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::IxosTest2.Properties.Resources._13085_up_down_arrow;
-            this.pictureBox5.Location = new System.Drawing.Point(584, 124);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(73, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 17;
-            this.pictureBox5.TabStop = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(868, 333);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(597, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "You may need to \"Find\" your mount after sending commands.";
             // 
             // Form1
             // 
@@ -855,12 +843,14 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.Instructions.ResumeLayout(false);
             this.Basic.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Advaced.ResumeLayout(false);
+            this.Advaced.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -871,15 +861,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.Instructions.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -952,8 +939,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button cmdFindComPort;
         private System.Windows.Forms.Button cmdRefreshComPorts;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label4;
     }
 }
 

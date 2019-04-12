@@ -117,30 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>217, 17</value>
-  </metadata>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="rtbInstructions.Text" xml:space="preserve">
-    <value>KNOWN ISSUES FOR BETA TESTERS TO BE AWARE OF:
+    <value>Chang Log
+1. Numerous checks and warnings added to the gui.
 
-1. Sometimes you have to get the current configuration twice before it comes up
+Known Issues
+1 - iXOS100 - trying to switch from serial to udp or vice versa results in an error.  This is because the connection is dropped after switching to TCP.
+    I have verified the dropped connection is not an error, but the gui should not allow the user to try it.
+2 - Need to click Get Connection twice sometimes.
+3 - ROM upload needs work
 
-2. DISCONNECTS - I am frequently disconnected from the network when switching methods.
-I'm not sure if it is machine or  mount model related or a bug.  It has the effect of not allowing switching from serial&lt;--&gt;UDP in one step.
 
-3. Text Display - Sometimes the indenting is off
-
-4.  Exploratory Testing - please tinker around and try to break it.
-
-5 Scaling and/or Size - Wes reported this.  I will need to test on monitors with different resolutions
-
-6. Not all debug messages are displayed.
-
-Please send me any bugs, comments or suggestions.</value>
+Other Issues
+1 - iXOS100 - Disconnects from network when switching between tcp and udp.  IU have verified that this happens using other programs. It isn't a bug, just behavior
+2 - Scaling/Size and GUI changes - I think Jerry is working on this, so I won't touch the GUI until he is done.</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>217, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

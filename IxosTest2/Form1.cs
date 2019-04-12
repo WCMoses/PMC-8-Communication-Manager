@@ -76,6 +76,10 @@ namespace IxosTest2
             {
                 cmbBasic2SerialPort.Items.Add(s);
             }
+            if (cmbBasic2SerialPort.Items.Count>0)
+            {
+                cmbBasic2SerialPort.SelectedIndex = 0;
+            }
             cmbBasic2MountType.SelectedIndex = 1;
             ComManager.SsidTimerHit += ComManager_SsidTimerHit;
             EsEventManager.EsEventRaised += EsEventManager_EsEventRaised;
@@ -83,6 +87,41 @@ namespace IxosTest2
         }
 
         #region GUI Events
+
+        private void UpdateChangeMethodsButtonsAccess(EsMount mount)
+        {
+            if (mount == null)
+            {
+                return;
+            }
+            if (mount.MountModel == MountModelEnum.iXos100)
+            {
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.Serial)
+                {
+                    cmdBasic2ViaAscom.Enabled = false;
+                    cmdBasic2ViaTCP.Enabled = true;
+                    cmdBasic2ViaUdp.Enabled = false;
+                }
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.TCP)
+                {
+                    cmdBasic2ViaAscom.Enabled = true;
+                    cmdBasic2ViaTCP.Enabled = false;
+                    cmdBasic2ViaUdp.Enabled = true;
+                }
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
+                {
+                    cmdBasic2ViaAscom.Enabled = false;
+                    cmdBasic2ViaTCP.Enabled = true;
+                    cmdBasic2ViaUdp.Enabled = false;
+                }
+            }
+            else
+            {
+                cmdBasic2ViaAscom.Enabled = true;
+                cmdBasic2ViaTCP.Enabled = true;
+                cmdBasic2ViaUdp.Enabled = true;
+            }
+        }
         private void RbGeneralInfo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbGeneralInfo.Checked)
@@ -108,7 +147,11 @@ namespace IxosTest2
 
         private void CmdCopyToClipboard_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Clipboard.SetText(txtOutput.Text);
+            if (!String.IsNullOrWhiteSpace(txtOutput.Text))
+            {
+                System.Windows.Forms.Clipboard.SetText(txtOutput.Text);
+            }
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -118,7 +161,7 @@ namespace IxosTest2
             try
             {
                 SetGUIMode(3);
-                InitPropellent(this.Handle, false, "c:\\");
+                InitPropellent(this.Handle, false, Environment.CurrentDirectory);
                 var y = GetPorts();
 
                 var versionPtr = GetPropellerVersion();
@@ -146,7 +189,7 @@ namespace IxosTest2
             }
             else
             {
-                MessageBox.Show("The PMC-8 is connected on com port: " + comPort, "Information");
+                MessageBox.Show("The PMC-8 is connected on com port: " + comPort +". NOTE - This does not mean your mount is connected via serial.", "Information");
             }
         }
 
@@ -162,8 +205,11 @@ namespace IxosTest2
 
         private void ComManager_SsidTimerHit(object sender, SsidEventArgs e)
         {
+
             lock (_lockObject)
             {
+                //Color oldColor = Color.DarkBlue;
+                //this.BeginInvoke((Action)(() => oldColor = tsCurrentNetwork.BackColor));
                 if (e.CurrentSsid != null)
                 {
                     if (e.CurrentSsid.Contains("PMC"))
@@ -181,7 +227,16 @@ namespace IxosTest2
                     tsCurrentNetwork.Text = "NOT CONNECTED";
                     this.BeginInvoke((Action)(() => tsCurrentNetwork.BackColor = Color.Red));
                 }
+
+                //Console.WriteLine("Old color: " + oldColor + "   Current color: " + tsCurrentNetwork.BackColor);
+
+                //if (oldColor == Color.Green && tsCurrentNetwork.BackColor == Color.Red)
+                //{
+                //    MessageBox.Show("Connection to PMC-8 network was lost.  Please reconnect.", "Important");
+                //}
+
             }
+
         }
 
         #region Create Mount From GUI
@@ -232,6 +287,7 @@ namespace IxosTest2
                 DumpLine("Mount appears to be connected on " + mount?.ConnectionSettings.IsConnected.ToString());
                 UpdateTabStripConnection(mount);
                 Cursor.Current = Cursors.Default;
+                UpdateChangeMethodsButtonsAccess(mount);
             }
             catch (Exception)
             {
@@ -281,7 +337,13 @@ namespace IxosTest2
             //string l0 = txtOutput.Lines[0];
             //txtOutput.Lines[0] += msg;
             //txtOutput.Text = txtOutput.Text + " " + msg;
-            DumpLine(txtOutput.Lines[0] + msg);
+            int len = txtOutput.Lines[0].Length;
+            string line = txtOutput.Lines[0].Substring(3);
+
+            char c = ' ';
+
+            line = line.Trim(c);
+            DumpLine(line + "..." + msg);
         }
 
         public void DumpLine(string msg)
@@ -311,10 +373,12 @@ namespace IxosTest2
 
         public void UpdateTabStripConnection(EsMount mount)
         {
+            Color oldColor = tsCurrentConnection.BackColor;
             switch (mount.ConnectionSettings.IsConnected)
             {
                 case ConnectionEnum.NONE:
                     {
+
                         tsCurrentConnection.Text = "NONE";
                         tsCurrentConnection.BackColor = Color.Red;
                     }
@@ -340,6 +404,10 @@ namespace IxosTest2
                 default:
                     break;
             }
+            if (oldColor == Color.Green && tsCurrentConnection.BackColor == Color.Red)
+            {
+                MessageBox.Show("Connection to the PMC-8 network has been lost.", "Important");
+            }
         }
 
         private void CmdClear_Click(object sender, EventArgs e)
@@ -355,6 +423,11 @@ namespace IxosTest2
             if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
             {
                 MessageBox.Show("Please select a communication method first");
+                return;
+            }
+            if (rbSerial.Checked && String.IsNullOrWhiteSpace(cmbBasic2SerialPort.Text))
+            {            
+                MessageBox.Show("Please select a com port first", "ERROR");
                 return;
             }
             Cursor.Current = Cursors.WaitCursor;
@@ -376,6 +449,15 @@ namespace IxosTest2
 
                 //    //Mount.SendRawCommand(cmd);
                 //}
+                if (rbTcp.Checked || rbUdp.Checked)
+                {
+                    if (!ComManager.ConnectedToPmcNetwork)
+                    {
+                        DumpLine("Not connected to a PMC-8 network.  Can not send: " + cmd);
+                        MessageBox.Show("Please connect to a PMC-8 network before using TCP or UDP", "Information");
+                        return;
+                    }
+                }
                 if (rbTcp.Checked)
                 {
                     DumpLine("Sending via TCP: " + cmd);
@@ -456,12 +538,19 @@ namespace IxosTest2
                 return;
             }
             DumpLine("Switching to ASCOM...");
+            Cursor.Current = Cursors.WaitCursor;
             EsMount mount = GetMountFromGUI();
             try
             {
                 mount = MountManager.ConnectMount(mount);
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.Serial)
+                {
+                    MessageBox.Show("Mount is already connected via serial");
+                    return;
+                }
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.Serial);
                 Dump("Sucessfully switched to serial (ASCOM) mode");
+                UpdateChangeMethodsButtonsAccess(mount);
             }
             catch (EsException esEx)
             {
@@ -473,7 +562,12 @@ namespace IxosTest2
                 Dump("Could not switch.");
                 MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + ex.ToString());
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
             UpdateTabStripConnection(mount);
+            
         }
 
         private void CmdBasic2ViaTCP_Click(object sender, EventArgs e)
@@ -494,13 +588,16 @@ namespace IxosTest2
                     MessageBox.Show("Mount is already connected via TCP", "Information");
                     return;
                 }
+
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
                 {
                     Dump("Switching from UDP...");
                     MessageBox.Show("Switching may disconnect computer from PMC-8 network.  Please reconnect after switching", "Information");
                 }
+                Cursor.Current = Cursors.WaitCursor;
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.TCP);
                 Dump("Success - switched to TCP");
+                UpdateChangeMethodsButtonsAccess(mount);
             }
             catch (EsException esEx)
             {
@@ -512,6 +609,10 @@ namespace IxosTest2
                 Dump("ERROR - could not switch to TCP");
                 MessageBox.Show("Could not switch to TCP." + Environment.NewLine + ex.ToString());
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
             UpdateTabStripConnection(mount);
         }
 
@@ -520,6 +621,11 @@ namespace IxosTest2
             EsMount mount = null;
             try
             {
+                if (cmbBasic2MountType.Text == "G11" || cmbBasic2MountType.Text == "Exos-2")
+                {
+                    MessageBox.Show("G-11 and EXOS-2 user do not need to use UDP mode.");
+                    return;
+                }
                 if (ComManager.ConnectedToPmcNetwork == false)
                 {
                     MessageBox.Show("You must be connected to a PMC-8 network. Please connect to a PMC-8 network and try again", "Information");
@@ -540,6 +646,7 @@ namespace IxosTest2
                 }
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.UDP);
                 Dump("Succesfully switched to UDP");
+                UpdateChangeMethodsButtonsAccess(mount);
             }
             catch (EsException esEx)
             {
@@ -566,6 +673,9 @@ namespace IxosTest2
 
         private void FindEepromFile_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(Environment.CurrentDirectory);
+            openFileDialog.Title = "Find .eeprom File";
+            openFileDialog.Filter = "EEPROM Files (*.eeprom)|*.eeprom| All Files(*.*)|*.*";
             openFileDialog.ShowDialog();
             txtEepromPath.Text = openFileDialog.FileName;
         }

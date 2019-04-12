@@ -122,7 +122,7 @@ namespace IxosTest2
                                                                      mount.ConnectionSettings.IpPort, UDP_QUERY);
 
                 versionGood = result.Contains(UDP_RESPONSE);
-                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DebugInfo, "    End Verify UDP Connection: " + versionGood);
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DebugInfo, "     End Verify UDP Connection: " + versionGood);
 
                 return versionGood;
             }
