@@ -52,6 +52,7 @@
             this.txtBasic2IpPort = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmdBasic2CheckCurrentConnection = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.cmdBasic2ViaUdp = new System.Windows.Forms.Button();
@@ -61,9 +62,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Advaced = new System.Windows.Forms.TabPage();
+            this.cmdUploadRom = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.cmdUploadRom = new System.Windows.Forms.Button();
             this.FindEepromFile = new System.Windows.Forms.Button();
             this.txtEepromPath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,6 +87,8 @@
             this.txtCommandToSend = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -97,9 +100,6 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,7 +127,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -141,9 +141,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.txtOutput);
-            this.splitContainer1.Size = new System.Drawing.Size(707, 621);
-            this.splitContainer1.SplitterDistance = 421;
-            this.splitContainer1.SplitterWidth = 2;
+            this.splitContainer1.Size = new System.Drawing.Size(1414, 1194);
+            this.splitContainer1.SplitterDistance = 809;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel2
@@ -152,19 +151,19 @@
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 385);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 740);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(707, 36);
+            this.panel2.Size = new System.Drawing.Size(1414, 69);
             this.panel2.TabIndex = 2;
             // 
             // cmdCopyToClipboard
             // 
             this.cmdCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdCopyToClipboard.Location = new System.Drawing.Point(79, 6);
-            this.cmdCopyToClipboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdCopyToClipboard.Location = new System.Drawing.Point(158, 12);
+            this.cmdCopyToClipboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdCopyToClipboard.Name = "cmdCopyToClipboard";
-            this.cmdCopyToClipboard.Size = new System.Drawing.Size(110, 23);
+            this.cmdCopyToClipboard.Size = new System.Drawing.Size(220, 44);
             this.cmdCopyToClipboard.TabIndex = 3;
             this.cmdCopyToClipboard.Text = "Copy To Clipboard";
             this.cmdCopyToClipboard.UseVisualStyleBackColor = true;
@@ -173,10 +172,10 @@
             // cmdClear
             // 
             this.cmdClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdClear.Location = new System.Drawing.Point(14, 7);
-            this.cmdClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdClear.Location = new System.Drawing.Point(28, 13);
+            this.cmdClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdClear.Name = "cmdClear";
-            this.cmdClear.Size = new System.Drawing.Size(56, 22);
+            this.cmdClear.Size = new System.Drawing.Size(112, 42);
             this.cmdClear.TabIndex = 1;
             this.cmdClear.Text = "Clear";
             this.cmdClear.UseVisualStyleBackColor = true;
@@ -185,10 +184,10 @@
             // cmdClose
             // 
             this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdClose.Location = new System.Drawing.Point(295, 8);
-            this.cmdClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdClose.Location = new System.Drawing.Point(590, 15);
+            this.cmdClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(58, 22);
+            this.cmdClose.Size = new System.Drawing.Size(116, 42);
             this.cmdClose.TabIndex = 0;
             this.cmdClose.Text = "Close";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -201,20 +200,20 @@
             this.tabControl1.Controls.Add(this.Basic);
             this.tabControl1.Controls.Add(this.Advaced);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 157);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 302);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(707, 264);
+            this.tabControl1.Size = new System.Drawing.Size(1414, 507);
             this.tabControl1.TabIndex = 1;
             // 
             // Instructions
             // 
             this.Instructions.Controls.Add(this.rtbInstructions);
-            this.Instructions.Location = new System.Drawing.Point(4, 25);
-            this.Instructions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Instructions.Location = new System.Drawing.Point(4, 37);
+            this.Instructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(706, 228);
+            this.Instructions.Size = new System.Drawing.Size(1406, 466);
             this.Instructions.TabIndex = 2;
             this.Instructions.Text = "Instructions";
             this.Instructions.UseVisualStyleBackColor = true;
@@ -224,9 +223,9 @@
             this.rtbInstructions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
-            this.rtbInstructions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbInstructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbInstructions.Name = "rtbInstructions";
-            this.rtbInstructions.Size = new System.Drawing.Size(706, 228);
+            this.rtbInstructions.Size = new System.Drawing.Size(1406, 466);
             this.rtbInstructions.TabIndex = 0;
             this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
@@ -236,11 +235,11 @@
             this.Basic.Controls.Add(this.groupBox5);
             this.Basic.Controls.Add(this.groupBox1);
             this.Basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Basic.Location = new System.Drawing.Point(4, 25);
-            this.Basic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Basic.Location = new System.Drawing.Point(4, 37);
+            this.Basic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Basic.Name = "Basic";
-            this.Basic.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Basic.Size = new System.Drawing.Size(699, 235);
+            this.Basic.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Basic.Size = new System.Drawing.Size(1406, 467);
             this.Basic.TabIndex = 0;
             this.Basic.Text = "Basic";
             this.Basic.Click += new System.EventHandler(this.Basic_Click);
@@ -259,11 +258,11 @@
             this.groupBox5.Controls.Add(this.txtBasic2IpPort);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(7, 12);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(14, 23);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox5.Size = new System.Drawing.Size(216, 153);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(432, 294);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Connection Settings";
@@ -271,10 +270,10 @@
             // cmdRefreshComPorts
             // 
             this.cmdRefreshComPorts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdRefreshComPorts.Location = new System.Drawing.Point(142, 116);
-            this.cmdRefreshComPorts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdRefreshComPorts.Location = new System.Drawing.Point(284, 223);
+            this.cmdRefreshComPorts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdRefreshComPorts.Name = "cmdRefreshComPorts";
-            this.cmdRefreshComPorts.Size = new System.Drawing.Size(70, 25);
+            this.cmdRefreshComPorts.Size = new System.Drawing.Size(140, 48);
             this.cmdRefreshComPorts.TabIndex = 19;
             this.cmdRefreshComPorts.Text = "Refresh";
             this.cmdRefreshComPorts.UseVisualStyleBackColor = true;
@@ -283,10 +282,10 @@
             // cmdFindComPort
             // 
             this.cmdFindComPort.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdFindComPort.Location = new System.Drawing.Point(94, 116);
-            this.cmdFindComPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdFindComPort.Location = new System.Drawing.Point(188, 223);
+            this.cmdFindComPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdFindComPort.Name = "cmdFindComPort";
-            this.cmdFindComPort.Size = new System.Drawing.Size(44, 25);
+            this.cmdFindComPort.Size = new System.Drawing.Size(88, 48);
             this.cmdFindComPort.TabIndex = 18;
             this.cmdFindComPort.Text = "Find";
             this.cmdFindComPort.UseVisualStyleBackColor = true;
@@ -296,10 +295,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 69);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(44, 133);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(79, 26);
             this.label2.TabIndex = 16;
             this.label2.Text = "IP Port";
             // 
@@ -307,10 +306,10 @@
             // 
             this.txtBasic2IpAddress.Enabled = false;
             this.txtBasic2IpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasic2IpAddress.Location = new System.Drawing.Point(97, 43);
-            this.txtBasic2IpAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBasic2IpAddress.Location = new System.Drawing.Point(194, 83);
+            this.txtBasic2IpAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBasic2IpAddress.Name = "txtBasic2IpAddress";
-            this.txtBasic2IpAddress.Size = new System.Drawing.Size(115, 20);
+            this.txtBasic2IpAddress.Size = new System.Drawing.Size(226, 32);
             this.txtBasic2IpAddress.TabIndex = 8;
             this.txtBasic2IpAddress.Text = "192.168.47.1";
             // 
@@ -318,10 +317,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(20, 46);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(40, 88);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.Size = new System.Drawing.Size(119, 26);
             this.label11.TabIndex = 9;
             this.label11.Text = "IP Address";
             // 
@@ -329,10 +328,10 @@
             // 
             this.cmbBasic2SerialPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBasic2SerialPort.FormattingEnabled = true;
-            this.cmbBasic2SerialPort.Location = new System.Drawing.Point(97, 91);
-            this.cmbBasic2SerialPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBasic2SerialPort.Location = new System.Drawing.Point(194, 175);
+            this.cmbBasic2SerialPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbBasic2SerialPort.Name = "cmbBasic2SerialPort";
-            this.cmbBasic2SerialPort.Size = new System.Drawing.Size(115, 21);
+            this.cmbBasic2SerialPort.Size = new System.Drawing.Size(226, 34);
             this.cmbBasic2SerialPort.TabIndex = 15;
             this.toolTip1.SetToolTip(this.cmbBasic2SerialPort, "Please set this before trying to change connection method.");
             // 
@@ -340,20 +339,20 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(20, 22);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(40, 42);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.Size = new System.Drawing.Size(125, 26);
             this.label12.TabIndex = 10;
             this.label12.Text = "Mount Type";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(-88, 99);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Location = new System.Drawing.Point(-176, 190);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 13);
+            this.label18.Size = new System.Drawing.Size(125, 26);
             this.label18.TabIndex = 14;
             this.label18.Text = "Serial Port";
             // 
@@ -365,10 +364,10 @@
             "iExos100",
             "G11",
             "Exos-2"});
-            this.cmbBasic2MountType.Location = new System.Drawing.Point(97, 19);
-            this.cmbBasic2MountType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBasic2MountType.Location = new System.Drawing.Point(194, 37);
+            this.cmbBasic2MountType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbBasic2MountType.Name = "cmbBasic2MountType";
-            this.cmbBasic2MountType.Size = new System.Drawing.Size(115, 21);
+            this.cmbBasic2MountType.Size = new System.Drawing.Size(226, 34);
             this.cmbBasic2MountType.TabIndex = 11;
             this.toolTip1.SetToolTip(this.cmbBasic2MountType, "Please set this before trying to change connection method.\r\n");
             // 
@@ -376,10 +375,10 @@
             // 
             this.txtBasic2IpPort.Enabled = false;
             this.txtBasic2IpPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasic2IpPort.Location = new System.Drawing.Point(97, 66);
-            this.txtBasic2IpPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBasic2IpPort.Location = new System.Drawing.Point(194, 127);
+            this.txtBasic2IpPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBasic2IpPort.Name = "txtBasic2IpPort";
-            this.txtBasic2IpPort.Size = new System.Drawing.Size(115, 20);
+            this.txtBasic2IpPort.Size = new System.Drawing.Size(226, 32);
             this.txtBasic2IpPort.TabIndex = 13;
             this.txtBasic2IpPort.Text = "54372";
             // 
@@ -387,10 +386,10 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(22, 94);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(44, 181);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.Size = new System.Drawing.Size(105, 26);
             this.label13.TabIndex = 12;
             this.label13.Text = "Com Port";
             // 
@@ -406,22 +405,33 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(227, 12);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(454, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(294, 187);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(588, 360);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "How Do You Want To Connect";
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(52, 285);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(486, 79);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "NOTE: To switch from UDP to Serial OR Serial to UDP, you must first switch to TCP" +
+    " then back to UDP OR Serial.";
+            // 
             // cmdBasic2CheckCurrentConnection
             // 
             this.cmdBasic2CheckCurrentConnection.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdBasic2CheckCurrentConnection.Location = new System.Drawing.Point(198, 16);
-            this.cmdBasic2CheckCurrentConnection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdBasic2CheckCurrentConnection.Location = new System.Drawing.Point(396, 31);
+            this.cmdBasic2CheckCurrentConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdBasic2CheckCurrentConnection.Name = "cmdBasic2CheckCurrentConnection";
-            this.cmdBasic2CheckCurrentConnection.Size = new System.Drawing.Size(84, 26);
+            this.cmdBasic2CheckCurrentConnection.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2CheckCurrentConnection.TabIndex = 15;
             this.cmdBasic2CheckCurrentConnection.Text = "Do It";
             this.toolTip1.SetToolTip(this.cmdBasic2CheckCurrentConnection, "Try to find the current connection method.");
@@ -432,10 +442,10 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(26, 21);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Location = new System.Drawing.Point(52, 40);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(149, 16);
+            this.label19.Size = new System.Drawing.Size(292, 30);
             this.label19.TabIndex = 14;
             this.label19.Text = "Find Current Connection";
             // 
@@ -443,10 +453,10 @@
             // 
             this.cmdBasic2ViaUdp.Enabled = false;
             this.cmdBasic2ViaUdp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(198, 106);
-            this.cmdBasic2ViaUdp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(396, 204);
+            this.cmdBasic2ViaUdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdBasic2ViaUdp.Name = "cmdBasic2ViaUdp";
-            this.cmdBasic2ViaUdp.Size = new System.Drawing.Size(84, 26);
+            this.cmdBasic2ViaUdp.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaUdp.TabIndex = 13;
             this.cmdBasic2ViaUdp.Text = "Do It";
             this.cmdBasic2ViaUdp.UseVisualStyleBackColor = true;
@@ -456,10 +466,10 @@
             // 
             this.cmdBasic2ViaTCP.Enabled = false;
             this.cmdBasic2ViaTCP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(198, 76);
-            this.cmdBasic2ViaTCP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(396, 146);
+            this.cmdBasic2ViaTCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdBasic2ViaTCP.Name = "cmdBasic2ViaTCP";
-            this.cmdBasic2ViaTCP.Size = new System.Drawing.Size(84, 26);
+            this.cmdBasic2ViaTCP.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaTCP.TabIndex = 12;
             this.cmdBasic2ViaTCP.Text = "Do It";
             this.cmdBasic2ViaTCP.UseVisualStyleBackColor = true;
@@ -469,10 +479,10 @@
             // 
             this.cmdBasic2ViaAscom.Enabled = false;
             this.cmdBasic2ViaAscom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdBasic2ViaAscom.Location = new System.Drawing.Point(198, 46);
-            this.cmdBasic2ViaAscom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdBasic2ViaAscom.Location = new System.Drawing.Point(396, 88);
+            this.cmdBasic2ViaAscom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdBasic2ViaAscom.Name = "cmdBasic2ViaAscom";
-            this.cmdBasic2ViaAscom.Size = new System.Drawing.Size(84, 26);
+            this.cmdBasic2ViaAscom.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaAscom.TabIndex = 11;
             this.cmdBasic2ViaAscom.Text = "Do It";
             this.cmdBasic2ViaAscom.UseVisualStyleBackColor = true;
@@ -482,10 +492,10 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(57, 113);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Location = new System.Drawing.Point(114, 217);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(116, 13);
+            this.label16.Size = new System.Drawing.Size(242, 26);
             this.label16.TabIndex = 10;
             this.label16.Text = "Via ExploreStars (UDP)";
             // 
@@ -493,10 +503,10 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(39, 83);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Location = new System.Drawing.Point(78, 160);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(136, 13);
+            this.label15.Size = new System.Drawing.Size(284, 26);
             this.label15.TabIndex = 9;
             this.label15.Text = "Via Wireless ASCOM (TCP)";
             // 
@@ -504,10 +514,10 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(77, 53);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(154, 102);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 13);
+            this.label14.Size = new System.Drawing.Size(207, 26);
             this.label14.TabIndex = 8;
             this.label14.Text = "Via ASCOM (Serial)";
             // 
@@ -521,21 +531,33 @@
             this.Advaced.Controls.Add(this.groupBox3);
             this.Advaced.Controls.Add(this.groupBox2);
             this.Advaced.Controls.Add(this.groupBox4);
-            this.Advaced.Location = new System.Drawing.Point(4, 25);
-            this.Advaced.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Advaced.Location = new System.Drawing.Point(4, 37);
+            this.Advaced.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Advaced.Name = "Advaced";
-            this.Advaced.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Advaced.Size = new System.Drawing.Size(699, 235);
+            this.Advaced.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Advaced.Size = new System.Drawing.Size(1406, 466);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
+            // 
+            // cmdUploadRom
+            // 
+            this.cmdUploadRom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdUploadRom.Location = new System.Drawing.Point(88, 333);
+            this.cmdUploadRom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdUploadRom.Name = "cmdUploadRom";
+            this.cmdUploadRom.Size = new System.Drawing.Size(264, 42);
+            this.cmdUploadRom.TabIndex = 3;
+            this.cmdUploadRom.Text = "Upload EEPROM";
+            this.cmdUploadRom.UseVisualStyleBackColor = true;
+            this.cmdUploadRom.Click += new System.EventHandler(this.CmdUploadRom_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 165);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(740, 317);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(296, 13);
+            this.label4.Size = new System.Drawing.Size(597, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "You may need to \"Find\" your mount after sending commands.";
             // 
@@ -545,33 +567,21 @@
             this.groupBox7.Controls.Add(this.txtEepromPath);
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(10, 120);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Location = new System.Drawing.Point(20, 231);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox7.Size = new System.Drawing.Size(280, 47);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Size = new System.Drawing.Size(560, 90);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Load FIRMWARE into PMC-Eight EEPROM";
             // 
-            // cmdUploadRom
-            // 
-            this.cmdUploadRom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdUploadRom.Location = new System.Drawing.Point(44, 173);
-            this.cmdUploadRom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmdUploadRom.Name = "cmdUploadRom";
-            this.cmdUploadRom.Size = new System.Drawing.Size(132, 22);
-            this.cmdUploadRom.TabIndex = 3;
-            this.cmdUploadRom.Text = "Upload EEPROM";
-            this.cmdUploadRom.UseVisualStyleBackColor = true;
-            this.cmdUploadRom.Click += new System.EventHandler(this.CmdUploadRom_Click);
-            // 
             // FindEepromFile
             // 
-            this.FindEepromFile.Location = new System.Drawing.Point(170, 23);
-            this.FindEepromFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FindEepromFile.Location = new System.Drawing.Point(340, 44);
+            this.FindEepromFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FindEepromFile.Name = "FindEepromFile";
-            this.FindEepromFile.Size = new System.Drawing.Size(38, 23);
+            this.FindEepromFile.Size = new System.Drawing.Size(76, 44);
             this.FindEepromFile.TabIndex = 2;
             this.FindEepromFile.Text = "...";
             this.FindEepromFile.UseVisualStyleBackColor = true;
@@ -579,20 +589,20 @@
             // 
             // txtEepromPath
             // 
-            this.txtEepromPath.Location = new System.Drawing.Point(34, 23);
-            this.txtEepromPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEepromPath.Location = new System.Drawing.Point(68, 44);
+            this.txtEepromPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEepromPath.Name = "txtEepromPath";
-            this.txtEepromPath.Size = new System.Drawing.Size(132, 20);
+            this.txtEepromPath.Size = new System.Drawing.Size(260, 32);
             this.txtEepromPath.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 26);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(8, 50);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(53, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "File:";
             // 
@@ -603,11 +613,11 @@
             this.groupBox6.Controls.Add(this.rbDetailedInfo);
             this.groupBox6.Controls.Add(this.rbGeneralInfo);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(199, 3);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Location = new System.Drawing.Point(398, 6);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox6.Size = new System.Drawing.Size(153, 104);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Size = new System.Drawing.Size(306, 200);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Debug Messages";
@@ -616,10 +626,10 @@
             // 
             this.rbDefault.AutoSize = true;
             this.rbDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDefault.Location = new System.Drawing.Point(26, 19);
-            this.rbDefault.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDefault.Location = new System.Drawing.Point(52, 37);
+            this.rbDefault.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDefault.Name = "rbDefault";
-            this.rbDefault.Size = new System.Drawing.Size(94, 17);
+            this.rbDefault.Size = new System.Drawing.Size(184, 30);
             this.rbDefault.TabIndex = 3;
             this.rbDefault.TabStop = true;
             this.rbDefault.Text = "Default (None)";
@@ -629,10 +639,10 @@
             // 
             this.rbDebugInfo.AutoSize = true;
             this.rbDebugInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDebugInfo.Location = new System.Drawing.Point(26, 81);
-            this.rbDebugInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDebugInfo.Location = new System.Drawing.Point(52, 156);
+            this.rbDebugInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDebugInfo.Name = "rbDebugInfo";
-            this.rbDebugInfo.Size = new System.Drawing.Size(127, 17);
+            this.rbDebugInfo.Size = new System.Drawing.Size(250, 30);
             this.rbDebugInfo.TabIndex = 2;
             this.rbDebugInfo.TabStop = true;
             this.rbDebugInfo.Text = "Extensive Debug Info";
@@ -643,10 +653,10 @@
             // 
             this.rbDetailedInfo.AutoSize = true;
             this.rbDetailedInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDetailedInfo.Location = new System.Drawing.Point(26, 61);
-            this.rbDetailedInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDetailedInfo.Location = new System.Drawing.Point(52, 117);
+            this.rbDetailedInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDetailedInfo.Name = "rbDetailedInfo";
-            this.rbDetailedInfo.Size = new System.Drawing.Size(120, 17);
+            this.rbDetailedInfo.Size = new System.Drawing.Size(235, 30);
             this.rbDetailedInfo.TabIndex = 1;
             this.rbDetailedInfo.TabStop = true;
             this.rbDetailedInfo.Text = "Detailed Debug Info";
@@ -657,10 +667,10 @@
             // 
             this.rbGeneralInfo.AutoSize = true;
             this.rbGeneralInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbGeneralInfo.Location = new System.Drawing.Point(26, 40);
-            this.rbGeneralInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbGeneralInfo.Location = new System.Drawing.Point(52, 77);
+            this.rbGeneralInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbGeneralInfo.Name = "rbGeneralInfo";
-            this.rbGeneralInfo.Size = new System.Drawing.Size(118, 17);
+            this.rbGeneralInfo.Size = new System.Drawing.Size(232, 30);
             this.rbGeneralInfo.TabIndex = 0;
             this.rbGeneralInfo.TabStop = true;
             this.rbGeneralInfo.Text = "General Debug Info";
@@ -671,11 +681,11 @@
             // 
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(192, 103);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(384, 198);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Common Commands";
@@ -684,10 +694,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(22, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 75);
+            this.label1.Size = new System.Drawing.Size(364, 145);
             this.label1.TabIndex = 0;
             this.label1.Text = "ESGp0!       Get Parameter 0\r\n###              Disable Debug Mode\r\n%%%         En" +
     "ter Debug Mode\r\nESX!           Toggle Serial/TCP\r\nESY!           Tggle TCP/UDP";
@@ -698,11 +708,11 @@
             this.groupBox2.Controls.Add(this.rbUdp);
             this.groupBox2.Controls.Add(this.rbTcp);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(369, 121);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(738, 233);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(223, 42);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(446, 81);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Communication Method";
@@ -711,10 +721,10 @@
             // 
             this.rbSerial.AutoSize = true;
             this.rbSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSerial.Location = new System.Drawing.Point(10, 17);
-            this.rbSerial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSerial.Location = new System.Drawing.Point(20, 33);
+            this.rbSerial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbSerial.Name = "rbSerial";
-            this.rbSerial.Size = new System.Drawing.Size(51, 17);
+            this.rbSerial.Size = new System.Drawing.Size(99, 30);
             this.rbSerial.TabIndex = 3;
             this.rbSerial.TabStop = true;
             this.rbSerial.Text = "Serial";
@@ -724,10 +734,10 @@
             // 
             this.rbUdp.AutoSize = true;
             this.rbUdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbUdp.Location = new System.Drawing.Point(159, 17);
-            this.rbUdp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbUdp.Location = new System.Drawing.Point(318, 33);
+            this.rbUdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbUdp.Name = "rbUdp";
-            this.rbUdp.Size = new System.Drawing.Size(48, 17);
+            this.rbUdp.Size = new System.Drawing.Size(90, 30);
             this.rbUdp.TabIndex = 2;
             this.rbUdp.TabStop = true;
             this.rbUdp.Text = "UDP";
@@ -737,10 +747,10 @@
             // 
             this.rbTcp.AutoSize = true;
             this.rbTcp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTcp.Location = new System.Drawing.Point(90, 17);
-            this.rbTcp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbTcp.Location = new System.Drawing.Point(180, 33);
+            this.rbTcp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbTcp.Name = "rbTcp";
-            this.rbTcp.Size = new System.Drawing.Size(46, 17);
+            this.rbTcp.Size = new System.Drawing.Size(86, 30);
             this.rbTcp.TabIndex = 1;
             this.rbTcp.TabStop = true;
             this.rbTcp.Text = "TCP";
@@ -755,11 +765,11 @@
             this.groupBox4.Controls.Add(this.txtCommandToSend);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(356, 4);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(712, 8);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(336, 112);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(672, 215);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Custom Command";
@@ -767,10 +777,10 @@
             // cmdAdvancedEsgp0
             // 
             this.cmdAdvancedEsgp0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(246, 49);
-            this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(492, 94);
+            this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
-            this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(88, 54);
+            this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(176, 104);
             this.cmdAdvancedEsgp0.TabIndex = 5;
             this.cmdAdvancedEsgp0.Text = "Get Parameter (ESGp0!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsgp0, "Gets Parameter 0.");
@@ -780,10 +790,10 @@
             // cmdAdvancedESY
             // 
             this.cmdAdvancedESY.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedESY.Location = new System.Drawing.Point(132, 49);
-            this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdAdvancedESY.Location = new System.Drawing.Point(264, 94);
+            this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
-            this.cmdAdvancedESY.Size = new System.Drawing.Size(104, 54);
+            this.cmdAdvancedESY.Size = new System.Drawing.Size(208, 104);
             this.cmdAdvancedESY.TabIndex = 4;
             this.cmdAdvancedESY.Text = "Wireless ASCOM / ExploreStars(ESY!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedESY, "Toggles TCP/UDP.");
@@ -793,10 +803,10 @@
             // cmdAdvancedEsx
             // 
             this.cmdAdvancedEsx.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsx.Location = new System.Drawing.Point(12, 49);
-            this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdAdvancedEsx.Location = new System.Drawing.Point(24, 94);
+            this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdAdvancedEsx.Name = "cmdAdvancedEsx";
-            this.cmdAdvancedEsx.Size = new System.Drawing.Size(106, 54);
+            this.cmdAdvancedEsx.Size = new System.Drawing.Size(212, 104);
             this.cmdAdvancedEsx.TabIndex = 3;
             this.cmdAdvancedEsx.Text = "Wired/Wireless (ESX!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsx, "Toggles wired/wireless.");
@@ -805,10 +815,10 @@
             // 
             // cmdSendCustomCommand
             // 
-            this.cmdSendCustomCommand.Location = new System.Drawing.Point(282, 18);
-            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdSendCustomCommand.Location = new System.Drawing.Point(564, 35);
+            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
-            this.cmdSendCustomCommand.Size = new System.Drawing.Size(54, 22);
+            this.cmdSendCustomCommand.Size = new System.Drawing.Size(108, 42);
             this.cmdSendCustomCommand.TabIndex = 2;
             this.cmdSendCustomCommand.Text = "Send";
             this.cmdSendCustomCommand.UseVisualStyleBackColor = true;
@@ -817,10 +827,10 @@
             // txtCommandToSend
             // 
             this.txtCommandToSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandToSend.Location = new System.Drawing.Point(132, 13);
-            this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCommandToSend.Location = new System.Drawing.Point(264, 25);
+            this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCommandToSend.Name = "txtCommandToSend";
-            this.txtCommandToSend.Size = new System.Drawing.Size(148, 24);
+            this.txtCommandToSend.Size = new System.Drawing.Size(292, 41);
             this.txtCommandToSend.TabIndex = 1;
             this.txtCommandToSend.Text = "ESGp0!";
             // 
@@ -828,10 +838,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 20);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(40, 38);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 13);
+            this.label10.Size = new System.Drawing.Size(201, 26);
             this.label10.TabIndex = 0;
             this.label10.Text = "Command To Send";
             // 
@@ -845,18 +855,43 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 157);
+            this.panel1.Size = new System.Drawing.Size(1414, 302);
             this.panel1.TabIndex = 0;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Gold;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(340, 163);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(470, 37);
+            this.linkLabel1.TabIndex = 13;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "www.explorescientificusa.com";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(342, 219);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(440, 88);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Explore Scientific, LLC.\r\n1010 S. 48th Street, Springdale, AR 72762\r\nCustomer Sup" +
+    "port +1 (866) 252-3811 ext 2";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(409, 2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(818, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 71);
+            this.pictureBox3.Size = new System.Drawing.Size(200, 137);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -864,10 +899,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(161, 149);
+            this.pictureBox2.Size = new System.Drawing.Size(322, 287);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -876,10 +911,10 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(174, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(348, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(480, 156);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -893,10 +928,10 @@
             this.toolStripStatusLabel2,
             this.tsCurrentNetwork,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 173);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 335);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(707, 25);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1414, 46);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -904,7 +939,7 @@
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(203, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(420, 41);
             this.toolStripStatusLabel1.Text = "Current Mount Connection Method";
             // 
             // tsCurrentConnection
@@ -913,7 +948,7 @@
             this.tsCurrentConnection.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsCurrentConnection.ForeColor = System.Drawing.Color.White;
             this.tsCurrentConnection.Name = "tsCurrentConnection";
-            this.tsCurrentConnection.Size = new System.Drawing.Size(76, 20);
+            this.tsCurrentConnection.Size = new System.Drawing.Size(153, 41);
             this.tsCurrentConnection.Text = "Unknown";
             this.tsCurrentConnection.ToolTipText = "Your current connection method.  You may need to refresh this after changing.";
             // 
@@ -921,7 +956,7 @@
             // 
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(130, 20);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(264, 41);
             this.toolStripStatusLabel2.Text = "Current WiFi Network";
             // 
             // tsCurrentNetwork
@@ -930,14 +965,14 @@
             this.tsCurrentNetwork.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsCurrentNetwork.ForeColor = System.Drawing.Color.White;
             this.tsCurrentNetwork.Name = "tsCurrentNetwork";
-            this.tsCurrentNetwork.Size = new System.Drawing.Size(114, 20);
+            this.tsCurrentNetwork.Size = new System.Drawing.Size(230, 41);
             this.tsCurrentNetwork.Text = "Not Connected";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(75, 20);
-            this.toolStripStatusLabel3.Text = "Version: 0.0.3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 41);
+            this.toolStripStatusLabel3.Text = "Version: 0.0.4";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -945,53 +980,20 @@
             this.txtOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutput.Location = new System.Drawing.Point(0, 0);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(707, 198);
+            this.txtOutput.Size = new System.Drawing.Size(1414, 381);
             this.txtOutput.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(171, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 46);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Explore Scientific, LLC.\r\n1010 S. 48th Street, Springdale, AR 72762\r\nCustomer Sup" +
-    "port +1 (866) 252-3811 ext 2";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Gold;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(170, 85);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(246, 20);
-            this.linkLabel1.TabIndex = 13;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "www.explorescientificusa.com";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(243, 41);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "NOTE: To switch from UDP to Serial OR Serial to UDP, you must first switch to TCP" +
-    " then back to UDP OR Serial.";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 621);
+            this.ClientSize = new System.Drawing.Size(1414, 1194);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Explore Scientific PMC-Eight Configuration Manager";
             this.Load += new System.EventHandler(this.Form1_Load);

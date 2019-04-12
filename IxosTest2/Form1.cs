@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -76,7 +77,7 @@ namespace IxosTest2
             {
                 cmbBasic2SerialPort.Items.Add(s);
             }
-            if (cmbBasic2SerialPort.Items.Count>0)
+            if (cmbBasic2SerialPort.Items.Count > 0)
             {
                 cmbBasic2SerialPort.SelectedIndex = 0;
             }
@@ -189,7 +190,7 @@ namespace IxosTest2
             }
             else
             {
-                MessageBox.Show("The PMC-8 is connected on com port: " + comPort +". NOTE - This does not mean your mount is connected via serial.", "Information");
+                MessageBox.Show("The PMC-8 is connected on com port: " + comPort + ". NOTE - This does not mean your mount is connected via serial.", "Information");
             }
         }
 
@@ -426,7 +427,7 @@ namespace IxosTest2
                 return;
             }
             if (rbSerial.Checked && String.IsNullOrWhiteSpace(cmbBasic2SerialPort.Text))
-            {            
+            {
                 MessageBox.Show("Please select a com port first", "ERROR");
                 return;
             }
@@ -567,7 +568,7 @@ namespace IxosTest2
                 Cursor.Current = Cursors.Default;
             }
             UpdateTabStripConnection(mount);
-            
+
         }
 
         private void CmdBasic2ViaTCP_Click(object sender, EventArgs e)
@@ -692,7 +693,9 @@ namespace IxosTest2
                 return;
             }
 
-            DialogResult r = MessageBox.Show("Only perform this operation if you are 100% certain you know the implications.", "Warning - Experimental Feature !!", MessageBoxButtons.OKCancel);
+            string msg = "Only perform this operation if you are 100% certain you know the implications." + Environment.NewLine;
+            msg += "Make sure you PMC-8 is plugged in.";
+            DialogResult r = MessageBox.Show(msg, "Warning - Use Carefully", MessageBoxButtons.OKCancel);
             if (r == DialogResult.Cancel)
             {
                 return;
@@ -700,22 +703,58 @@ namespace IxosTest2
 
             MessageBox.Show("This may take a few moments.  Press OK to start", "Information");
             DumpLine("Attempting to upload ROM");
-            Cursor.Current = Cursors.WaitCursor;
+
+            string file = Environment.CurrentDirectory + "\\Propellent.exe ";
+            string args = txtEepromPath.Text + " /eeprom";
             try
             {
-                InitPropellent(this.Handle, false, Environment.CurrentDirectory);
-                SaveImage(true, openFileDialog.FileName, false);
-                MessageBox.Show("ROM successfully loaded.", "Information");
-                Dump("ROM uploaded.");
+                Console.WriteLine("Tryiny to ececute: " + file + " " + args);
+                ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
+                procStartInfo.RedirectStandardOutput = true;
+                procStartInfo.UseShellExecute = false;
+                procStartInfo.CreateNoWindow = true;
+
+                // wrap IDisposable into using (in order to release hProcess) 
+                using (Process process = new Process())
+                {
+                    process.StartInfo = procStartInfo;
+                    process.Start();
+
+                    // Add this: wait until process does its work
+                    process.WaitForExit();
+
+                    // and only then read the result
+                    string result = process.StandardOutput.ReadToEnd();
+                    DumpLine("Success - results:");
+                    DumpLine(result);
+                }
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
-                Dump("Could not load ROM");
-                string msg = "ROM failed to load" + Environment.NewLine + Environment.NewLine + ex?.ToString();
-                MessageBox.Show(msg, "Error");
+
+                DumpLine("Could not load EEPROM.  Error Code:");
+                DumpLine(ex?.ToString());
             }
-            finally
-            { FinalizePropellent(); }
+
+
+            //Cursor.Current = Cursors.WaitCursor;
+            //try
+            //{
+            //    Console.WriteLine(Environment.CurrentDirectory);
+            //    SetGUIMode(0);
+            //    InitPropellent(this.Handle, false, null);
+            //    SaveImage(true, openFileDialog.FileName, false);
+            //    MessageBox.Show("ROM successfully loaded.", "Information");
+            //    Dump("ROM uploaded.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Dump("Could not load ROM");
+            //    string msg2 = "ROM failed to load" + Environment.NewLine + Environment.NewLine + ex?.ToString();
+            //    MessageBox.Show(msg2, "Error");
+            //}
+            //finally
+            //{ FinalizePropellent(); }
             Cursor.Current = Cursors.Default;
         }
 
