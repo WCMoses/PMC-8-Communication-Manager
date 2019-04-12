@@ -61,6 +61,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Advaced = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cmdUploadRom = new System.Windows.Forms.Button();
             this.FindEepromFile = new System.Windows.Forms.Button();
@@ -96,7 +97,6 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -187,10 +187,11 @@
             this.tabControl1.Controls.Add(this.Instructions);
             this.tabControl1.Controls.Add(this.Basic);
             this.tabControl1.Controls.Add(this.Advaced);
-            this.tabControl1.Location = new System.Drawing.Point(3, 149);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 143);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1517, 428);
+            this.tabControl1.Size = new System.Drawing.Size(1517, 544);
             this.tabControl1.TabIndex = 1;
             // 
             // Instructions
@@ -198,7 +199,7 @@
             this.Instructions.Controls.Add(this.rtbInstructions);
             this.Instructions.Location = new System.Drawing.Point(8, 39);
             this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(1501, 381);
+            this.Instructions.Size = new System.Drawing.Size(1501, 497);
             this.Instructions.TabIndex = 2;
             this.Instructions.Text = "Instructions";
             this.Instructions.UseVisualStyleBackColor = true;
@@ -209,7 +210,7 @@
             this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
             this.rtbInstructions.Name = "rtbInstructions";
-            this.rtbInstructions.Size = new System.Drawing.Size(1501, 381);
+            this.rtbInstructions.Size = new System.Drawing.Size(1501, 497);
             this.rtbInstructions.TabIndex = 0;
             this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
@@ -461,9 +462,18 @@
             this.Advaced.Location = new System.Drawing.Point(8, 39);
             this.Advaced.Name = "Advaced";
             this.Advaced.Padding = new System.Windows.Forms.Padding(3);
-            this.Advaced.Size = new System.Drawing.Size(1501, 381);
+            this.Advaced.Size = new System.Drawing.Size(1501, 497);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(868, 333);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(597, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "You may need to \"Find\" your mount after sending commands.";
             // 
             // groupBox7
             // 
@@ -721,6 +731,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1517, 143);
@@ -818,15 +829,6 @@
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.Size = new System.Drawing.Size(1517, 335);
             this.txtOutput.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(868, 333);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(597, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "You may need to \"Find\" your mount after sending commands.";
             // 
             // Form1
             // 

@@ -686,6 +686,11 @@ namespace IxosTest2
             {
                 return;
             }
+            if (String.IsNullOrWhiteSpace(cmbBasic2SerialPort.Text))
+            {
+                MessageBox.Show("You must have a serial connection in order to upload the eeprom.", "Warning");
+                return;
+            }
 
             DialogResult r = MessageBox.Show("Only perform this operation if you are 100% certain you know the implications.", "Warning - Experimental Feature !!", MessageBoxButtons.OKCancel);
             if (r == DialogResult.Cancel)
@@ -698,7 +703,7 @@ namespace IxosTest2
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                InitPropellent(this.Handle, false, "c:\\");
+                InitPropellent(this.Handle, false, Environment.CurrentDirectory);
                 SaveImage(true, openFileDialog.FileName, false);
                 MessageBox.Show("ROM successfully loaded.", "Information");
                 Dump("ROM uploaded.");
