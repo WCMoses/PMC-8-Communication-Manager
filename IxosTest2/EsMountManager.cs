@@ -35,29 +35,32 @@ namespace IxosTest2
             string serPort = mount.ConnectionSettings.SerPort;
             if (!String.IsNullOrWhiteSpace(serPort))
             {
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Try to Verify - Serial Connection");
                 if (CanVerifySerialConnection(mount))
                 {
-                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Trying to Connect via Serial");
+                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Verified - Serial Connection");
                     result.ConnectionSettings.IsConnected = ConnectionEnum.Serial;
                     return result;
                 }
             }
             if (!String.IsNullOrWhiteSpace(ipaddress))
             {
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Try to Verifiy TCP Connection");
                 if (CanVerifyTcpConnection(mount))
                 {
-                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Trying to Connect via TCP");
+                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Verified - TCP Connection");
                     result.ConnectionSettings.IsConnected = ConnectionEnum.TCP;
                     return result;
                 }
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Try to Verify UDP Connection");
                 if (CanVerifyUdpConnection(mount))
                 {
-                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Trying to Connect via UDP");
+                    EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.GeneralInfo, "Verified - UDP Connection");
                     result.ConnectionSettings.IsConnected = ConnectionEnum.UDP;
                     return result;
                 }
             }
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DetailedInfo, "  Finished Connecting to Mount");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DetailedInfo, "Failed to Verify Connection Method");
 
             return null;
         }
@@ -131,8 +134,8 @@ namespace IxosTest2
 
                 EsException e = new EsException("Error in :" + "CanVerifyUdpConnection", ex);
                 //TODO:
-                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DebugInfo, "    End Verify UDP Connection - Failure. ERROR");
-
+                //EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, EsMessagePriority.DetailedInfo, "    End Verify UDP Connection - Failure. ERROR");
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.EsMountManager, "CanVerifyUdpConnection", EsMessagePriority.DetailedInfo, "", null, ex, null);
                 return false;
             }
         }
@@ -173,7 +176,8 @@ namespace IxosTest2
             string comPort = mount.ConnectionSettings.SerPort;
             if (mount == null)
             {
-                throw new EsException("The mount must be connected before its connection can be changed");
+                //throw new EsException("The mount must be connected before its connection can be changed");
+                throw new EsException("The mount is busy.  Please wait a few seconds and then 'Find Your Current Connection'");
             }
             if (mount.ConnectionSettings.IsConnected == ConnectionEnum.NONE)
             {
@@ -234,7 +238,8 @@ namespace IxosTest2
 
             if (mount == null)
             {
-                throw new EsException("The mount must be connected before its connection can be changed");
+                throw new EsException("The mount is busy.  Please wait a few seconds and then 'Find Your Current Connection'");
+
             }
             if (mount.ConnectionSettings.IsConnected == ConnectionEnum.NONE)
             {

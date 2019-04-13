@@ -9,7 +9,7 @@ namespace IxosTest2
         public EsMessagePriority Priority;
         public string Message;
         public EsException EsException;
-        public ApplicationException Exception;
+        public Exception Exception;
         public string Notes;
 
         public EsEventArgs(EsEventSenderEnum sender,
@@ -17,7 +17,7 @@ namespace IxosTest2
                                            EsMessagePriority priority,
                                            string message,
                                            EsException esException,
-                                           ApplicationException exception,
+                                           Exception exception,
                                            string notes)
         {
             Sender = sender;

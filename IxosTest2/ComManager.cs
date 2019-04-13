@@ -52,8 +52,8 @@ namespace IxosTest2
 
         public string SendTcpMessage(string ipAddr, Int32 ipPort, string msg)
         {
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager,EsMessagePriority.DetailedInfo , "    Start Sending TCP Message..");
             string res = SendTcpMessageOLD(ipAddr, ipPort, msg);
+
             return res;
         }
         public string SendTcpMessageOLD(string ipAddr, Int32 comPort, string msg)
@@ -66,6 +66,7 @@ namespace IxosTest2
             string message;
             try
             {
+                EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Start Sending TCP Message: " + msg);
 
                 // Create TCP client and connect
                 using (var _client = new TcpClient(ipAddr, comPort))
@@ -78,7 +79,7 @@ namespace IxosTest2
                     byte[] dataToSend = System.Text.Encoding.ASCII.GetBytes(message);
                     _client.Client.ReceiveTimeout = 1500;
                     _netStream.Write(dataToSend, 0, dataToSend.Length);
-                    Thread.Sleep(75);
+                    Thread.Sleep(700);
                     // Read server response
                     byte[] recvData = new byte[512];
                     int bytes = _netStream.Read(recvData, 0, recvData.Length);
@@ -103,13 +104,13 @@ namespace IxosTest2
             finally
             {
             }
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Finished Sending TCP Message");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    TCP Response: "+ message);
 
             return message;
         }
         public string SendUdpMessage(string ipAddr, Int32 comPort, string msg)
         {
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Start Sending UDP Message");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Start Sending UDP Message: " +msg);
 
             UdpClient udpClient = new UdpClient(54372);
             udpClient.Client.ReceiveTimeout = 1500;
@@ -154,14 +155,14 @@ namespace IxosTest2
                 EsException e = new EsException("Error in :" + "SendUdpMessage", ex);
                 throw e;
             }
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Finished Sending UDP Message");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    UDP Message Received: "+returnData);
 
             return returnData.ToString();
         }
 
         public string SendSerialMessage(string serialPort, string msg)
         {
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Start Sending Serial Message");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Start Sending Serial Message: " + msg);
 
             Mutex mutex = new Mutex();
             mutex.WaitOne();
@@ -177,7 +178,7 @@ namespace IxosTest2
                 Port.WriteLine(msg);
                 Thread.Sleep(500);
                 newData = Port.ReadExisting().ToString();
-                Console.WriteLine(newData);
+                Console.WriteLine("Received on serial: " +newData);
                 Port.Close();
             }
             catch (Exception ex)
@@ -189,7 +190,7 @@ namespace IxosTest2
             {
                 mutex.ReleaseMutex();
             }
-            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Finished Sending Serial Message");
+            EsEventManager.PublishEsEvent(EsEventSenderEnum.ComManager, EsMessagePriority.DetailedInfo, "    Serial Returned: "+ newData);
 
             return newData;
         }
@@ -200,11 +201,20 @@ namespace IxosTest2
         private bool IsConnectedToPmcNetwork()
         {
             bool result = false;
-            NetworkIdentifier ss = NativeWifi.EnumerateConnectedNetworkSsids().FirstOrDefault();
-            if (ss != null)
+            try
             {
-                result = ss.ToString().Contains("PMC");
+                NetworkIdentifier ss = NativeWifi.EnumerateConnectedNetworkSsids().FirstOrDefault();
+                if (ss != null)
+                {
+                    result = ss.ToString().Contains("PMC");
+                }
             }
+            catch (Exception ex )
+            {
+
+                EsEventManager.PublishEsEvent( EsEventSenderEnum.ComManager, "ERROR", EsMessagePriority.DebugInfo, "error in IsConnectedToPmcNetwork ", null, ex, null);
+            }
+
             return result;
         }
 

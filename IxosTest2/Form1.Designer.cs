@@ -127,7 +127,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -152,7 +152,7 @@
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 740);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1414, 69);
             this.panel2.TabIndex = 2;
@@ -161,7 +161,7 @@
             // 
             this.cmdCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdCopyToClipboard.Location = new System.Drawing.Point(158, 12);
-            this.cmdCopyToClipboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdCopyToClipboard.Margin = new System.Windows.Forms.Padding(4);
             this.cmdCopyToClipboard.Name = "cmdCopyToClipboard";
             this.cmdCopyToClipboard.Size = new System.Drawing.Size(220, 44);
             this.cmdCopyToClipboard.TabIndex = 3;
@@ -173,7 +173,7 @@
             // 
             this.cmdClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdClear.Location = new System.Drawing.Point(28, 13);
-            this.cmdClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdClear.Margin = new System.Windows.Forms.Padding(4);
             this.cmdClear.Name = "cmdClear";
             this.cmdClear.Size = new System.Drawing.Size(112, 42);
             this.cmdClear.TabIndex = 1;
@@ -185,7 +185,7 @@
             // 
             this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdClose.Location = new System.Drawing.Point(590, 15);
-            this.cmdClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdClose.Margin = new System.Windows.Forms.Padding(4);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(116, 42);
             this.cmdClose.TabIndex = 0;
@@ -201,7 +201,7 @@
             this.tabControl1.Controls.Add(this.Advaced);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 302);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1414, 507);
@@ -211,7 +211,7 @@
             // 
             this.Instructions.Controls.Add(this.rtbInstructions);
             this.Instructions.Location = new System.Drawing.Point(4, 37);
-            this.Instructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Instructions.Margin = new System.Windows.Forms.Padding(4);
             this.Instructions.Name = "Instructions";
             this.Instructions.Size = new System.Drawing.Size(1406, 466);
             this.Instructions.TabIndex = 2;
@@ -223,7 +223,7 @@
             this.rtbInstructions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.85F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
-            this.rtbInstructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbInstructions.Margin = new System.Windows.Forms.Padding(4);
             this.rtbInstructions.Name = "rtbInstructions";
             this.rtbInstructions.Size = new System.Drawing.Size(1406, 466);
             this.rtbInstructions.TabIndex = 0;
@@ -236,10 +236,10 @@
             this.Basic.Controls.Add(this.groupBox1);
             this.Basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Basic.Location = new System.Drawing.Point(4, 37);
-            this.Basic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Basic.Margin = new System.Windows.Forms.Padding(4);
             this.Basic.Name = "Basic";
-            this.Basic.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Basic.Size = new System.Drawing.Size(1406, 467);
+            this.Basic.Padding = new System.Windows.Forms.Padding(4);
+            this.Basic.Size = new System.Drawing.Size(1406, 466);
             this.Basic.TabIndex = 0;
             this.Basic.Text = "Basic";
             this.Basic.Click += new System.EventHandler(this.Basic_Click);
@@ -259,9 +259,9 @@
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(14, 23);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(432, 294);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
@@ -271,7 +271,7 @@
             // 
             this.cmdRefreshComPorts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdRefreshComPorts.Location = new System.Drawing.Point(284, 223);
-            this.cmdRefreshComPorts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdRefreshComPorts.Margin = new System.Windows.Forms.Padding(4);
             this.cmdRefreshComPorts.Name = "cmdRefreshComPorts";
             this.cmdRefreshComPorts.Size = new System.Drawing.Size(140, 48);
             this.cmdRefreshComPorts.TabIndex = 19;
@@ -283,7 +283,7 @@
             // 
             this.cmdFindComPort.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdFindComPort.Location = new System.Drawing.Point(188, 223);
-            this.cmdFindComPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdFindComPort.Margin = new System.Windows.Forms.Padding(4);
             this.cmdFindComPort.Name = "cmdFindComPort";
             this.cmdFindComPort.Size = new System.Drawing.Size(88, 48);
             this.cmdFindComPort.TabIndex = 18;
@@ -307,7 +307,7 @@
             this.txtBasic2IpAddress.Enabled = false;
             this.txtBasic2IpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBasic2IpAddress.Location = new System.Drawing.Point(194, 83);
-            this.txtBasic2IpAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBasic2IpAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtBasic2IpAddress.Name = "txtBasic2IpAddress";
             this.txtBasic2IpAddress.Size = new System.Drawing.Size(226, 32);
             this.txtBasic2IpAddress.TabIndex = 8;
@@ -329,7 +329,7 @@
             this.cmbBasic2SerialPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBasic2SerialPort.FormattingEnabled = true;
             this.cmbBasic2SerialPort.Location = new System.Drawing.Point(194, 175);
-            this.cmbBasic2SerialPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBasic2SerialPort.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBasic2SerialPort.Name = "cmbBasic2SerialPort";
             this.cmbBasic2SerialPort.Size = new System.Drawing.Size(226, 34);
             this.cmbBasic2SerialPort.TabIndex = 15;
@@ -365,7 +365,7 @@
             "G11",
             "Exos-2"});
             this.cmbBasic2MountType.Location = new System.Drawing.Point(194, 37);
-            this.cmbBasic2MountType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBasic2MountType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBasic2MountType.Name = "cmbBasic2MountType";
             this.cmbBasic2MountType.Size = new System.Drawing.Size(226, 34);
             this.cmbBasic2MountType.TabIndex = 11;
@@ -376,7 +376,7 @@
             this.txtBasic2IpPort.Enabled = false;
             this.txtBasic2IpPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBasic2IpPort.Location = new System.Drawing.Point(194, 127);
-            this.txtBasic2IpPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBasic2IpPort.Margin = new System.Windows.Forms.Padding(4);
             this.txtBasic2IpPort.Name = "txtBasic2IpPort";
             this.txtBasic2IpPort.Size = new System.Drawing.Size(226, 32);
             this.txtBasic2IpPort.TabIndex = 13;
@@ -406,9 +406,9 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(454, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(588, 360);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -429,7 +429,7 @@
             // 
             this.cmdBasic2CheckCurrentConnection.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdBasic2CheckCurrentConnection.Location = new System.Drawing.Point(396, 31);
-            this.cmdBasic2CheckCurrentConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdBasic2CheckCurrentConnection.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2CheckCurrentConnection.Name = "cmdBasic2CheckCurrentConnection";
             this.cmdBasic2CheckCurrentConnection.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2CheckCurrentConnection.TabIndex = 15;
@@ -454,7 +454,7 @@
             this.cmdBasic2ViaUdp.Enabled = false;
             this.cmdBasic2ViaUdp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(396, 204);
-            this.cmdBasic2ViaUdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdBasic2ViaUdp.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaUdp.Name = "cmdBasic2ViaUdp";
             this.cmdBasic2ViaUdp.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaUdp.TabIndex = 13;
@@ -467,7 +467,7 @@
             this.cmdBasic2ViaTCP.Enabled = false;
             this.cmdBasic2ViaTCP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(396, 146);
-            this.cmdBasic2ViaTCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdBasic2ViaTCP.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaTCP.Name = "cmdBasic2ViaTCP";
             this.cmdBasic2ViaTCP.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaTCP.TabIndex = 12;
@@ -480,7 +480,7 @@
             this.cmdBasic2ViaAscom.Enabled = false;
             this.cmdBasic2ViaAscom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdBasic2ViaAscom.Location = new System.Drawing.Point(396, 88);
-            this.cmdBasic2ViaAscom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdBasic2ViaAscom.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaAscom.Name = "cmdBasic2ViaAscom";
             this.cmdBasic2ViaAscom.Size = new System.Drawing.Size(168, 50);
             this.cmdBasic2ViaAscom.TabIndex = 11;
@@ -532,9 +532,9 @@
             this.Advaced.Controls.Add(this.groupBox2);
             this.Advaced.Controls.Add(this.groupBox4);
             this.Advaced.Location = new System.Drawing.Point(4, 37);
-            this.Advaced.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Advaced.Margin = new System.Windows.Forms.Padding(4);
             this.Advaced.Name = "Advaced";
-            this.Advaced.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Advaced.Padding = new System.Windows.Forms.Padding(4);
             this.Advaced.Size = new System.Drawing.Size(1406, 466);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
@@ -543,7 +543,7 @@
             // 
             this.cmdUploadRom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdUploadRom.Location = new System.Drawing.Point(88, 333);
-            this.cmdUploadRom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdUploadRom.Margin = new System.Windows.Forms.Padding(4);
             this.cmdUploadRom.Name = "cmdUploadRom";
             this.cmdUploadRom.Size = new System.Drawing.Size(264, 42);
             this.cmdUploadRom.TabIndex = 3;
@@ -568,9 +568,9 @@
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(20, 231);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox7.Size = new System.Drawing.Size(560, 90);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
@@ -579,7 +579,7 @@
             // FindEepromFile
             // 
             this.FindEepromFile.Location = new System.Drawing.Point(340, 44);
-            this.FindEepromFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FindEepromFile.Margin = new System.Windows.Forms.Padding(4);
             this.FindEepromFile.Name = "FindEepromFile";
             this.FindEepromFile.Size = new System.Drawing.Size(76, 44);
             this.FindEepromFile.TabIndex = 2;
@@ -590,7 +590,7 @@
             // txtEepromPath
             // 
             this.txtEepromPath.Location = new System.Drawing.Point(68, 44);
-            this.txtEepromPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEepromPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtEepromPath.Name = "txtEepromPath";
             this.txtEepromPath.Size = new System.Drawing.Size(260, 32);
             this.txtEepromPath.TabIndex = 1;
@@ -614,9 +614,9 @@
             this.groupBox6.Controls.Add(this.rbGeneralInfo);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(398, 6);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(306, 200);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
@@ -627,7 +627,7 @@
             this.rbDefault.AutoSize = true;
             this.rbDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDefault.Location = new System.Drawing.Point(52, 37);
-            this.rbDefault.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDefault.Margin = new System.Windows.Forms.Padding(4);
             this.rbDefault.Name = "rbDefault";
             this.rbDefault.Size = new System.Drawing.Size(184, 30);
             this.rbDefault.TabIndex = 3;
@@ -640,7 +640,7 @@
             this.rbDebugInfo.AutoSize = true;
             this.rbDebugInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDebugInfo.Location = new System.Drawing.Point(52, 156);
-            this.rbDebugInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDebugInfo.Margin = new System.Windows.Forms.Padding(4);
             this.rbDebugInfo.Name = "rbDebugInfo";
             this.rbDebugInfo.Size = new System.Drawing.Size(250, 30);
             this.rbDebugInfo.TabIndex = 2;
@@ -654,7 +654,7 @@
             this.rbDetailedInfo.AutoSize = true;
             this.rbDetailedInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDetailedInfo.Location = new System.Drawing.Point(52, 117);
-            this.rbDetailedInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDetailedInfo.Margin = new System.Windows.Forms.Padding(4);
             this.rbDetailedInfo.Name = "rbDetailedInfo";
             this.rbDetailedInfo.Size = new System.Drawing.Size(235, 30);
             this.rbDetailedInfo.TabIndex = 1;
@@ -668,7 +668,7 @@
             this.rbGeneralInfo.AutoSize = true;
             this.rbGeneralInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbGeneralInfo.Location = new System.Drawing.Point(52, 77);
-            this.rbGeneralInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbGeneralInfo.Margin = new System.Windows.Forms.Padding(4);
             this.rbGeneralInfo.Name = "rbGeneralInfo";
             this.rbGeneralInfo.Size = new System.Drawing.Size(232, 30);
             this.rbGeneralInfo.TabIndex = 0;
@@ -682,9 +682,9 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(384, 198);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
@@ -700,7 +700,7 @@
             this.label1.Size = new System.Drawing.Size(364, 145);
             this.label1.TabIndex = 0;
             this.label1.Text = "ESGp0!       Get Parameter 0\r\n###              Disable Debug Mode\r\n%%%         En" +
-    "ter Debug Mode\r\nESX!           Toggle Serial/TCP\r\nESY!           Tggle TCP/UDP";
+    "ter Debug Mode\r\nESX!           Toggle Serial/TCP\r\nESY!           Toggle TCP/UDP";
             // 
             // groupBox2
             // 
@@ -709,9 +709,9 @@
             this.groupBox2.Controls.Add(this.rbTcp);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(738, 233);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(446, 81);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -722,7 +722,7 @@
             this.rbSerial.AutoSize = true;
             this.rbSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbSerial.Location = new System.Drawing.Point(20, 33);
-            this.rbSerial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbSerial.Margin = new System.Windows.Forms.Padding(4);
             this.rbSerial.Name = "rbSerial";
             this.rbSerial.Size = new System.Drawing.Size(99, 30);
             this.rbSerial.TabIndex = 3;
@@ -735,7 +735,7 @@
             this.rbUdp.AutoSize = true;
             this.rbUdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbUdp.Location = new System.Drawing.Point(318, 33);
-            this.rbUdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbUdp.Margin = new System.Windows.Forms.Padding(4);
             this.rbUdp.Name = "rbUdp";
             this.rbUdp.Size = new System.Drawing.Size(90, 30);
             this.rbUdp.TabIndex = 2;
@@ -748,7 +748,7 @@
             this.rbTcp.AutoSize = true;
             this.rbTcp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTcp.Location = new System.Drawing.Point(180, 33);
-            this.rbTcp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbTcp.Margin = new System.Windows.Forms.Padding(4);
             this.rbTcp.Name = "rbTcp";
             this.rbTcp.Size = new System.Drawing.Size(86, 30);
             this.rbTcp.TabIndex = 1;
@@ -766,9 +766,9 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(712, 8);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(672, 215);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
@@ -778,7 +778,7 @@
             // 
             this.cmdAdvancedEsgp0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(492, 94);
-            this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
             this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(176, 104);
             this.cmdAdvancedEsgp0.TabIndex = 5;
@@ -790,10 +790,10 @@
             // cmdAdvancedESY
             // 
             this.cmdAdvancedESY.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedESY.Location = new System.Drawing.Point(264, 94);
-            this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdAdvancedESY.Location = new System.Drawing.Point(244, 94);
+            this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
-            this.cmdAdvancedESY.Size = new System.Drawing.Size(208, 104);
+            this.cmdAdvancedESY.Size = new System.Drawing.Size(240, 104);
             this.cmdAdvancedESY.TabIndex = 4;
             this.cmdAdvancedESY.Text = "Wireless ASCOM / ExploreStars(ESY!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedESY, "Toggles TCP/UDP.");
@@ -804,7 +804,7 @@
             // 
             this.cmdAdvancedEsx.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmdAdvancedEsx.Location = new System.Drawing.Point(24, 94);
-            this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedEsx.Name = "cmdAdvancedEsx";
             this.cmdAdvancedEsx.Size = new System.Drawing.Size(212, 104);
             this.cmdAdvancedEsx.TabIndex = 3;
@@ -816,7 +816,7 @@
             // cmdSendCustomCommand
             // 
             this.cmdSendCustomCommand.Location = new System.Drawing.Point(564, 35);
-            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(4);
             this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
             this.cmdSendCustomCommand.Size = new System.Drawing.Size(108, 42);
             this.cmdSendCustomCommand.TabIndex = 2;
@@ -828,7 +828,7 @@
             // 
             this.txtCommandToSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommandToSend.Location = new System.Drawing.Point(264, 25);
-            this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(4);
             this.txtCommandToSend.Name = "txtCommandToSend";
             this.txtCommandToSend.Size = new System.Drawing.Size(292, 41);
             this.txtCommandToSend.TabIndex = 1;
@@ -855,7 +855,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1414, 302);
             this.panel1.TabIndex = 0;
@@ -889,7 +889,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(818, 4);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 137);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -900,7 +900,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(8, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(322, 287);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -912,7 +912,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(348, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(480, 156);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -972,7 +972,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 41);
-            this.toolStripStatusLabel3.Text = "Version: 0.0.4";
+            this.toolStripStatusLabel3.Text = "Version: 0.0.5";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -980,7 +980,7 @@
             this.txtOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutput.Location = new System.Drawing.Point(0, 0);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(4);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -993,7 +993,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1414, 1194);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Explore Scientific PMC-Eight Configuration Manager";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -13,7 +13,7 @@ namespace IxosTest2
 
         #region Publish Overloads
         public static void PublishEsEvent(EsEventSenderEnum sender, string messageType, EsMessagePriority priority,
-                                           string message, EsException esException, ApplicationException exception,
+                                           string message, EsException esException, Exception exception,
                                            string Notes)
         {
             EsEventArgs e = new EsEventArgs(sender,

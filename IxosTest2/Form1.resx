@@ -118,20 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="rtbInstructions.Text" xml:space="preserve">
-    <value>Chang Log
-1. Numerous checks and warnings added to the gui.
-2. the propellent dll should now be in the same directory as the executable
+    <value>Change Log
+1. The firmware upload should be working even if the firmware is in a directory with spaces in it.
+
 
 Known Issues
-1 - iXOS100 - trying to switch from serial to udp or vice versa results in an error.  This is because the connection is dropped after switching to TCP.
-    I have verified the dropped connection is not an error, but the gui should not allow the user to try it.
-2 - Need to click Get Connection twice sometimes.
-3 - ROM upload needs work
+1 Repeatedly switching between serial and tcp will eventually throw an error.  I am hunting it down, but in the meantime have changed the error message to tell the user
+ to try again.
 
 
 Other Issues
-1 - iXOS100 - Disconnects from network when switching between tcp and udp.  IU have verified that this happens using other programs. It isn't a bug, just behavior
-2 - Scaling/Size and GUI changes - I think Jerry is working on this, so I won't touch the GUI until he is done.</value>
+1- Scaling/Size  - need to make sure it opens with a reasonable size on all resolutions</value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>217, 17</value>
