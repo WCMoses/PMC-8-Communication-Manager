@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASCOM.Utilities;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -67,6 +68,10 @@ namespace IxosTest2
         EsMessagePriority _priorityToShow = EsMessagePriority.GeneralInfo;
         public EsMountManager MountManager { get; set; }
         public ComManager ComManager { get; set; }
+        public bool SsidIsChanging { get; private set; }
+        public System.Timers.Timer SsidTimer { get; set; }
+        const int SSID_CHANGING_TIMEOUT = 10000;
+        //public bool SsIdIsChanging { get; set; }
 
         public Form1()
         {
@@ -85,9 +90,24 @@ namespace IxosTest2
             ComManager.SsidTimerHit += ComManager_SsidTimerHit;
             EsEventManager.EsEventRaised += EsEventManager_EsEventRaised;
             rbDefault.Checked = true;
+            SsidTimer = new System.Timers.Timer(SSID_CHANGING_TIMEOUT);
+            SsidTimer.Elapsed += SsidTimer_Elapsed;
+            rtbInstructions.LoadFile("COnnection Utility Instructions.rtf");
         }
 
+
+
         #region GUI Events
+        private void SsidTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            SsidTimer.Stop();
+            SsidIsChanging = false;
+        }
+        public void TurnOnSsIdTimer()
+        {
+            SsidTimer.Start();
+            SsidIsChanging = true;
+        }
 
         private void UpdateChangeMethodsButtonsAccess(EsMount mount)
         {
@@ -206,7 +226,12 @@ namespace IxosTest2
 
         private void ComManager_SsidTimerHit(object sender, SsidEventArgs e)
         {
-
+            if (SsidIsChanging == true)
+            {
+                tsCurrentNetwork.Text = "Changing";
+                this.BeginInvoke((Action)(() => tsCurrentNetwork.BackColor = Color.Orange));
+                return;
+            }
             lock (_lockObject)
             {
                 //Color oldColor = Color.DarkBlue;
@@ -375,47 +400,43 @@ namespace IxosTest2
 
         public void UpdateTabStripConnection(EsMount mount)
         {
-            //if (mount == null)
-            //{
-            //    tsCurrentConnection.Text = "UNKNOWN";
-            //    tsCurrentConnection.BackColor = Color.Orange;
-            //    return;
-            //}
+            if (mount == null)
+            {
+                tsCurrentConnection.Text = "UNKNOWN";
+                tsCurrentConnection.BackColor = Color.Orange;
+                return;
+            }
             //Color oldColor = tsCurrentConnection.BackColor;
-            //switch (mount?.ConnectionSettings?.IsConnected)
-            //{
-            //    case ConnectionEnum.NONE:
-            //        {
+            switch (mount?.ConnectionSettings?.IsConnected)
+            {
+                case ConnectionEnum.NONE:
+                    {
 
-            //            tsCurrentConnection.Text = "NONE";
-            //            tsCurrentConnection.BackColor = Color.Red;
-            //        }
-            //        break;
-            //    case ConnectionEnum.Serial:
-            //        {
-            //            tsCurrentConnection.Text = "Serial";
-            //            tsCurrentConnection.BackColor = Color.Green;
-            //        }
-            //        break;
-            //    case ConnectionEnum.TCP:
-            //        {
-            //            tsCurrentConnection.Text = "TCP";
-            //            tsCurrentConnection.BackColor = Color.Green;
-            //        }
-            //        break;
-            //    case ConnectionEnum.UDP:
-            //        {
-            //            tsCurrentConnection.Text = "UDP";
-            //            tsCurrentConnection.BackColor = Color.Green;
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
-            //if (oldColor == Color.Green && tsCurrentConnection.BackColor == Color.Red)
-            //{
-            //    MessageBox.Show("Connection to the PMC-8 network has been lost.", "Important");
-            //}
+                        tsCurrentConnection.Text = "NONE";
+                        tsCurrentConnection.BackColor = Color.Red;
+                    }
+                    break;
+                case ConnectionEnum.Serial:
+                    {
+                        tsCurrentConnection.Text = "Serial";
+                        tsCurrentConnection.BackColor = Color.Green;
+                    }
+                    break;
+                case ConnectionEnum.TCP:
+                    {
+                        tsCurrentConnection.Text = "TCP";
+                        tsCurrentConnection.BackColor = Color.Green;
+                    }
+                    break;
+                case ConnectionEnum.UDP:
+                    {
+                        tsCurrentConnection.Text = "UDP";
+                        tsCurrentConnection.BackColor = Color.Green;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CmdClear_Click(object sender, EventArgs e)
@@ -551,15 +572,19 @@ namespace IxosTest2
             try
             {
                 mount = MountManager.ConnectMount(mount);
+                if (mount==null)
+                {
+                    mount = MountManager.ConnectMount(mount);
+                }
                 if (mount == null)
                 {
                     Console.WriteLine("error");
-                    MessageBox.Show("The mount is currently busy. Please try again in a second, or find your current connection if required", "Information",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 if (mount?.ConnectionSettings?.IsConnected == ConnectionEnum.Serial)
                 {
-                    MessageBox.Show("Mount is already connected via serial","Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("Mount is already connected via serial", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     return;
                 }
                 mount = MountManager.ChangeMountConnection(mount, ConnectionEnum.Serial);
@@ -574,7 +599,7 @@ namespace IxosTest2
             catch (Exception ex)
             {
                 Dump("Could not switch.");
-                MessageBox.Show("Could not switch to ASCOM." + Environment.NewLine + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
@@ -587,6 +612,7 @@ namespace IxosTest2
         private void CmdBasic2ViaTCP_Click(object sender, EventArgs e)
         {
             EsMount mount = GetMountFromGUI();
+            bool setSsidTimer = false;
             try
             {
                 if (ComManager.ConnectedToPmcNetwork == false)
@@ -598,8 +624,16 @@ namespace IxosTest2
                 MountManager.ConnectMount(mount);
                 if (mount == null)
                 {
-                    MessageBox.Show("The mount is currently busy. Please try again in a second, or find your current connection if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mount = MountManager.ConnectMount(mount);
+                }
+                if (mount == null)
+                {
+                    MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
+                }
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
+                {
+                    setSsidTimer = true;
                 }
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.TCP)
                 {
@@ -621,16 +655,20 @@ namespace IxosTest2
             catch (EsException esEx)
             {
                 Dump("ERROR - could not switch to TCP");
-                MessageBox.Show("Could not switch to TCP." + Environment.NewLine + esEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 Dump("ERROR - could not switch to TCP");
-                MessageBox.Show("Could not switch to TCP." + Environment.NewLine + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
+            }
+            if (setSsidTimer)
+            {
+                TurnOnSsIdTimer();
             }
             UpdateTabStripConnection(mount);
         }
@@ -638,6 +676,7 @@ namespace IxosTest2
         private void CmdBasic2ViaUdp_Click(object sender, EventArgs e)
         {
             EsMount mount = null;
+            bool setSsidTimer = false;
             try
             {
                 if (cmbBasic2MountType.Text == "G11" || cmbBasic2MountType.Text == "Exos-2")
@@ -655,10 +694,17 @@ namespace IxosTest2
                 MountManager.ConnectMount(mount);
                 if (mount == null)
                 {
-                    MessageBox.Show("The mount is currently busy. Please try again in a second, or find your current connection if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mount = MountManager.ConnectMount(mount);
+                }
+                if (mount == null)
+                {
+                    MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
+                if (mount.ConnectionSettings.IsConnected == ConnectionEnum.TCP)
+                {
+                    setSsidTimer = true;
+                }
                 if (mount.ConnectionSettings.IsConnected == ConnectionEnum.UDP)
                 {
                     Dump("Mount is already on UDP");
@@ -676,12 +722,16 @@ namespace IxosTest2
             catch (EsException esEx)
             {
                 Dump("Could not switch to  UDP");
-                MessageBox.Show("Could not switch to UDP." + Environment.NewLine);
+                MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 Dump("Could not switch to  UDP");
-                MessageBox.Show("Could not switch to UDP." + Environment.NewLine);
+                MessageBox.Show("The mount is currently busy. Please try again in a second, or use 'Find Ccurrent Connection' if required", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (setSsidTimer)
+            {
+                TurnOnSsIdTimer();
             }
             UpdateTabStripConnection(mount);
         }
@@ -690,7 +740,8 @@ namespace IxosTest2
 
         private void CmdClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+              Application.Exit();
+          
         }
 
         #region EEPROM Updating
@@ -785,6 +836,60 @@ namespace IxosTest2
 
         #endregion
 
+        #region Profile Writing
+        private void SaveToProfile()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            string driverID = "ASCOM.ES_PMC8.Telescope";
+            string comPort = null;
+            bool WirelessEnabled = true;
+            string WirelessProtocol = "TCP";
+            string comPortProfileName = "COM Port";
+            string WirelessEnabledProfileName = "Wireless Enabled";
+
+            EsMount mount = GetMountFromGUI();
+            mount = MountManager.ConnectMount(mount);
+            if (mount == null)
+            {
+                mount = MountManager.ConnectMount(mount);
+            }
+            if (mount == null)
+            {
+                DumpLine("Configuration not saved! The mount does not appear to be connected. Please check your settings and network connection.");
+                tsCurrentConnection.Text = "NONE";
+                tsCurrentConnection.BackColor = Color.Red;
+                return;
+            }
+
+
+            // Set wireless
+            if (mount.ConnectionSettings.IsConnected == ConnectionEnum.Serial)
+            {
+                WirelessEnabled = false;
+            }
+            else
+            {
+                Console.WriteLine(mount.ConnectionSettings.IsConnected.ToString());
+                WirelessProtocol = mount.ConnectionSettings.IsConnected.ToString();
+            }
+            comPort = mount.ConnectionSettings.SerPort;
+
+            var driverProfile = new Profile();
+            driverProfile.DeviceType = "Telescope";
+            driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString());
+            driverProfile.WriteValue(driverID, WirelessEnabledProfileName, WirelessEnabled.ToString());
+            driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString());
+            driverProfile.WriteValue(driverID, "Wireless Protocol", WirelessProtocol);
+            driverProfile.Dispose();
+            string msg = "Port: " + comPort + ", Use Wireless: " + WirelessEnabled + ", Protocol: " + WirelessProtocol;
+            DumpLine("Saved Configuration - " + msg);
+            Cursor.Current = Cursors.Default;
+        }
+
+
+        EsMount mount = new EsMount();
+        #endregion
+
         private void Basic_Click(object sender, EventArgs e)
         {
 
@@ -802,6 +907,11 @@ namespace IxosTest2
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            SaveToProfile();
         }
     }
 }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmdCopyToClipboard = new System.Windows.Forms.Button();
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
@@ -142,20 +143,32 @@
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.txtOutput);
             this.splitContainer1.Size = new System.Drawing.Size(1414, 1194);
-            this.splitContainer1.SplitterDistance = 809;
+            this.splitContainer1.SplitterDistance = 867;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.cmdCopyToClipboard);
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 740);
+            this.panel2.Location = new System.Drawing.Point(0, 798);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1414, 69);
             this.panel2.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(660, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // cmdCopyToClipboard
             // 
@@ -184,7 +197,7 @@
             // cmdClose
             // 
             this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdClose.Location = new System.Drawing.Point(590, 15);
+            this.cmdClose.Location = new System.Drawing.Point(1261, 15);
             this.cmdClose.Margin = new System.Windows.Forms.Padding(4);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(116, 42);
@@ -204,7 +217,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1414, 507);
+            this.tabControl1.Size = new System.Drawing.Size(1414, 565);
             this.tabControl1.TabIndex = 1;
             // 
             // Instructions
@@ -213,7 +226,7 @@
             this.Instructions.Location = new System.Drawing.Point(4, 37);
             this.Instructions.Margin = new System.Windows.Forms.Padding(4);
             this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(1406, 466);
+            this.Instructions.Size = new System.Drawing.Size(1406, 524);
             this.Instructions.TabIndex = 2;
             this.Instructions.Text = "Instructions";
             this.Instructions.UseVisualStyleBackColor = true;
@@ -225,7 +238,8 @@
             this.rtbInstructions.Location = new System.Drawing.Point(0, 0);
             this.rtbInstructions.Margin = new System.Windows.Forms.Padding(4);
             this.rtbInstructions.Name = "rtbInstructions";
-            this.rtbInstructions.Size = new System.Drawing.Size(1406, 466);
+            this.rtbInstructions.ReadOnly = true;
+            this.rtbInstructions.Size = new System.Drawing.Size(1406, 524);
             this.rtbInstructions.TabIndex = 0;
             this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
@@ -239,7 +253,7 @@
             this.Basic.Margin = new System.Windows.Forms.Padding(4);
             this.Basic.Name = "Basic";
             this.Basic.Padding = new System.Windows.Forms.Padding(4);
-            this.Basic.Size = new System.Drawing.Size(1406, 466);
+            this.Basic.Size = new System.Drawing.Size(1406, 524);
             this.Basic.TabIndex = 0;
             this.Basic.Text = "Basic";
             this.Basic.Click += new System.EventHandler(this.Basic_Click);
@@ -423,11 +437,11 @@
             this.label5.Size = new System.Drawing.Size(486, 79);
             this.label5.TabIndex = 16;
             this.label5.Text = "NOTE: To switch from UDP to Serial OR Serial to UDP, you must first switch to TCP" +
-    " then back to UDP OR Serial.";
+    " then to UDP OR Serial.";
             // 
             // cmdBasic2CheckCurrentConnection
             // 
-            this.cmdBasic2CheckCurrentConnection.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdBasic2CheckCurrentConnection.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdBasic2CheckCurrentConnection.Location = new System.Drawing.Point(396, 31);
             this.cmdBasic2CheckCurrentConnection.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2CheckCurrentConnection.Name = "cmdBasic2CheckCurrentConnection";
@@ -452,7 +466,7 @@
             // cmdBasic2ViaUdp
             // 
             this.cmdBasic2ViaUdp.Enabled = false;
-            this.cmdBasic2ViaUdp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdBasic2ViaUdp.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdBasic2ViaUdp.Location = new System.Drawing.Point(396, 204);
             this.cmdBasic2ViaUdp.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaUdp.Name = "cmdBasic2ViaUdp";
@@ -465,7 +479,7 @@
             // cmdBasic2ViaTCP
             // 
             this.cmdBasic2ViaTCP.Enabled = false;
-            this.cmdBasic2ViaTCP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdBasic2ViaTCP.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdBasic2ViaTCP.Location = new System.Drawing.Point(396, 146);
             this.cmdBasic2ViaTCP.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaTCP.Name = "cmdBasic2ViaTCP";
@@ -478,7 +492,7 @@
             // cmdBasic2ViaAscom
             // 
             this.cmdBasic2ViaAscom.Enabled = false;
-            this.cmdBasic2ViaAscom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdBasic2ViaAscom.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmdBasic2ViaAscom.Location = new System.Drawing.Point(396, 88);
             this.cmdBasic2ViaAscom.Margin = new System.Windows.Forms.Padding(4);
             this.cmdBasic2ViaAscom.Name = "cmdBasic2ViaAscom";
@@ -535,7 +549,7 @@
             this.Advaced.Margin = new System.Windows.Forms.Padding(4);
             this.Advaced.Name = "Advaced";
             this.Advaced.Padding = new System.Windows.Forms.Padding(4);
-            this.Advaced.Size = new System.Drawing.Size(1406, 466);
+            this.Advaced.Size = new System.Drawing.Size(1406, 524);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
             // 
@@ -777,10 +791,10 @@
             // cmdAdvancedEsgp0
             // 
             this.cmdAdvancedEsgp0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(492, 94);
+            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(504, 94);
             this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
-            this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(176, 104);
+            this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(164, 104);
             this.cmdAdvancedEsgp0.TabIndex = 5;
             this.cmdAdvancedEsgp0.Text = "Get Parameter (ESGp0!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsgp0, "Gets Parameter 0.");
@@ -793,7 +807,7 @@
             this.cmdAdvancedESY.Location = new System.Drawing.Point(244, 94);
             this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
-            this.cmdAdvancedESY.Size = new System.Drawing.Size(240, 104);
+            this.cmdAdvancedESY.Size = new System.Drawing.Size(252, 104);
             this.cmdAdvancedESY.TabIndex = 4;
             this.cmdAdvancedESY.Text = "Wireless ASCOM / ExploreStars(ESY!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedESY, "Toggles TCP/UDP.");
@@ -928,7 +942,7 @@
             this.toolStripStatusLabel2,
             this.tsCurrentNetwork,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 335);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 277);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1414, 46);
@@ -972,7 +986,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 41);
-            this.toolStripStatusLabel3.Text = "Version: 0.0.5";
+            this.toolStripStatusLabel3.Text = "Version: 0.0.6";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -984,7 +998,7 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(1414, 381);
+            this.txtOutput.Size = new System.Drawing.Size(1414, 323);
             this.txtOutput.TabIndex = 0;
             // 
             // Form1
@@ -1105,6 +1119,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
