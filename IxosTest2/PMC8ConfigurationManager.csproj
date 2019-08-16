@@ -7,7 +7,7 @@
     <ProjectGuid>{B9A34306-DA4F-4DAD-901C-71248CF3381B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>IxosTest2</RootNamespace>
-    <AssemblyName>IxosTest2</AssemblyName>
+    <AssemblyName>PMC8ConfigurationManager</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,6 +42,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,10 +67,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPleaseWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPleaseWait.Designer.cs">
+      <DependentUpon>frmPleaseWait.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPleaseWait.resx">
+      <DependentUpon>frmPleaseWait.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

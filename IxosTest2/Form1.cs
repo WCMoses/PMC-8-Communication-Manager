@@ -2,10 +2,14 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-
+using System.IO.Compression;
+using System.Threading;
 namespace IxosTest2
 {
     public partial class Form1 : Form
@@ -93,6 +97,7 @@ namespace IxosTest2
             SsidTimer = new System.Timers.Timer(SSID_CHANGING_TIMEOUT);
             SsidTimer.Elapsed += SsidTimer_Elapsed;
             rtbInstructions.LoadFile("COnnection Utility Instructions.rtf");
+            cmbDrive.Enabled = false;
         }
 
 
@@ -199,8 +204,9 @@ namespace IxosTest2
                 Thread.Sleep(4000);
                 Cursor.Current = Cursors.Default;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                DumpLine(ex.ToString());
                 MessageBox.Show("Could not automatically find the com port for the PMC-8. Please make sure it is connected.", "Information");
             }
             if (string.IsNullOrEmpty(comPort))
@@ -556,6 +562,18 @@ namespace IxosTest2
             SendCustomCommand("ESGp0!");
             Cursor.Current = Cursors.Default;
         }
+        private void CmdAdvancedESGv_Click(object sender, EventArgs e)
+        {
+            if (rbSerial.Checked == false && rbTcp.Checked == false && rbUdp.Checked == false)
+            {
+                MessageBox.Show("Please select a communication method first");
+                return;
+            }
+
+            Cursor.Current = Cursors.WaitCursor;
+            SendCustomCommand("ESGv!");
+            Cursor.Current = Cursors.Default;
+        }
         #endregion
 
         #region Change Connection Methods
@@ -572,7 +590,7 @@ namespace IxosTest2
             try
             {
                 mount = MountManager.ConnectMount(mount);
-                if (mount==null)
+                if (mount == null)
                 {
                     mount = MountManager.ConnectMount(mount);
                 }
@@ -740,8 +758,8 @@ namespace IxosTest2
 
         private void CmdClose_Click(object sender, EventArgs e)
         {
-              Application.Exit();
-          
+            Application.Exit();
+
         }
 
         #region EEPROM Updating
@@ -912,6 +930,343 @@ namespace IxosTest2
         private void Button1_Click_1(object sender, EventArgs e)
         {
             SaveToProfile();
+        }
+
+        #region New Firmware Loader
+
+        public string desinationFolder
+        {
+            get
+            { return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PMC8Firmware"; }
+        }
+
+
+        private void CmdDownloadFirmware_Click(object sender, EventArgs e)
+        {
+            //string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            lsvEepromFileNames.Clear();
+            //string dest = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PMC8Firmware";
+            //string fullPath = dest + @"\Firmware";
+            //String dest = Environment.CurrentDirectory + @"\Firmware";
+            System.IO.DirectoryInfo di = new DirectoryInfo(desinationFolder);
+
+            if (Directory.Exists(desinationFolder))
+            {
+                EmptyFolder(new DirectoryInfo(desinationFolder));
+            }
+
+
+
+            //create directory
+            if (!Directory.Exists(desinationFolder))
+            {
+                Directory.CreateDirectory(desinationFolder);
+            }
+
+
+            string source2 = txtDownloadLocation.Text; // "http://02d3287.netsolhost.com/pmc-eight/FIRMWARE/PMC8_FirmwareEEPROM.zip";
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                //string fullDestination = dest + @"\Firmware.zip";
+                Console.WriteLine(desinationFolder);
+                DumpLine("Downloading firmware");
+                // webClient.DownloadFile(source2, Environment.CurrentDirectory + @"/Firmware" + "/Firmware.zip");
+                webClient.DownloadFile(source2, desinationFolder + @"\Firmware.zip");
+                DumpLine("Firmware files successfully downloaded to " + desinationFolder + @"\Firmware.zip");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Dump("You do not have permissions to use this directory.");
+            }
+            catch (Exception ex)
+            {
+
+                DumpLine("ERROR!!  The firmware files could not be downloaded.  Please check your internet connection and try again");
+                return;
+            }
+
+
+            //Unzip file
+            DumpLine("Unzipping firmware file.");
+            try
+            {
+                ZipFile.ExtractToDirectory(desinationFolder + @"\Firmware.zip", desinationFolder);
+                DumpLine("Firmware sucessfully unzipped");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                DumpLine("ERROR!! The firmware file could not be unzipped.  Please delete the Firmware directory and try again.");
+                return;
+            }
+
+            //Add to listbox
+            if (Directory.Exists(desinationFolder))
+            {
+                di = new DirectoryInfo(desinationFolder);
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    if (file.Extension == ".eeprom")
+                    {
+                        lsvEepromFileNames.Items.Add(file.Name);
+                    }
+                }
+            }
+
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)  //ViewReadme
+        {
+            //String dest = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PMC8Firmware";
+            if (!Directory.Exists(desinationFolder))
+            {
+                MessageBox.Show("Can not find the directory.  Please download the Zip file first", "Information");
+                return;
+            }
+            string[] files = Directory.GetFiles(desinationFolder);
+            var x = from z in files
+                    where z.Substring(z.Length - 4) == @".txt"
+                    select z;
+            string a = x.FirstOrDefault();
+            Console.WriteLine(a);
+            foreach (var item in x)
+            {
+                Console.WriteLine(item);
+            }
+
+            try
+            {
+                Process.Start(a);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not open the Readme.txt file", "Error");
+                DumpLine("Error opening Readme.txt file");
+            }
+
+        }
+        private void Button3_Click(object sender, EventArgs e)  //FLash Selected
+        {
+            if (lsvEepromFileNames.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            string fileName = lsvEepromFileNames.SelectedItems[0].Text;
+
+
+            string msg = "Only perform this operation if you are 100% certain you know the implications." + Environment.NewLine;
+            msg += "Make sure you PMC-8 is plugged in.";
+            DialogResult r = MessageBox.Show(msg, "Warning - Use Carefully", MessageBoxButtons.OKCancel);
+            if (r == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            MessageBox.Show("This may take a few moments.  Press OK to start", "Information");
+            DumpLine("Attempting to upload ROM: " + fileName);
+
+            string file = Environment.CurrentDirectory + @"\Propellent.exe ";
+            //string args = "\"" + txtEepromPath.Text + "\"" + " /eeprom";
+            //string args = @"\Firmware\" + fileName;
+            //string args = desinationFolder + @"\" + fileName;
+            string args = desinationFolder + @"\" + fileName;
+            Console.WriteLine(args);
+
+            //DOUBLE CHECK THAT FILES EXIST
+            if (!File.Exists(file))
+            {
+                DumpLine("The program can not find Propellent.dll. Please reinstall or contact support.");
+            }
+            if (!File.Exists(args))
+            {
+                DumpLine("The program could not find the eeprom file.  Please try again or contact support");
+            }
+
+            try
+            {
+                Console.WriteLine("Tryiny to ececute: " + file + " " + args);
+                ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
+                procStartInfo.RedirectStandardOutput = true;
+                procStartInfo.UseShellExecute = false;
+                procStartInfo.CreateNoWindow = true;
+
+                // wrap IDisposable into using (in order to release hProcess) 
+                using (Process process = new Process())
+                {
+                    process.StartInfo = procStartInfo;
+                    process.Start();
+
+                    // Add this: wait until process does its work
+                    process.WaitForExit();
+
+                    // and only then read the result
+                    string result = process.StandardOutput.ReadToEnd();
+                    DumpLine("Success - results:");
+                    DumpLine(result);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DumpLine("Could not load EEPROM.  Error Code:" + ex?.ToString());
+                DumpLine(ex?.ToString());
+            }
+        }
+
+        #endregion
+
+        #region ExploreStars
+
+        #endregion
+        private void CmdDownloadDatabase_Click(object sender, EventArgs e)
+        {
+            string source = txtDatabaseINternetAddress.Text;
+            string dest = txtDatabaseLocation.Text;
+            //string dataDir = dest + @"/Data";
+
+            //Create directory and make sure it is empty
+            if (!Directory.Exists(dest))
+            {
+                Directory.CreateDirectory(dest);
+                // Directory.CreateDirectory(dataDir);
+            }
+            else
+            {
+                var rootFiles = Directory.GetFiles(dest);
+                foreach (var item in rootFiles)
+                {
+                    File.Delete(item);
+                }
+            }
+
+            //Download DB
+
+
+
+            WebClient webClient = new WebClient();
+            webClient.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
+            try
+            {
+                DumpLine("Downloading File. Please Wait...");
+                MessageBox.Show("This may take a few minutes", "Information");
+                this.Cursor = Cursors.WaitCursor;
+                // webClient.DownloadFile("http://02d3287.netsolhost.com/pmc-eight/DATABASE/ExploreStarsComplete.zip", @"C:\DataBase.zip");
+                webClient.DownloadFile(new Uri(source), dest + @"/ExploreStars.zip");
+                MessageBox.Show("The Database was successfully downloaded.", "Information");
+                DumpLine("The database was sucessfully downloaded.");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                DumpLine("Error!!  Database was not downloaded.  File access exception.");
+                MessageBox.Show("You do not have permission to use this location.  Please use a different location", "Error");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("There was an error downloading the database:" + ex?.ToString(), "Error");
+                DumpLine("Error!!  Database was not downloaded.  Please try again.");
+            }
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void RdoInstallToWindows_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoInstallToWindows.Checked == true)
+            {
+                txtDatabaseINternetAddress.Text = @"http://02d3287.netsolhost.com/pmc-eight/DATABASE/ExploreStarsComplete.zip";
+                cmbDrive.Enabled = false;
+            }
+            else
+            {
+                txtDatabaseINternetAddress.Text = @"http://02d3287.netsolhost.com/pmc-eight/DATABASE/ExploreStars.zip";
+                cmbDrive.Enabled = true;
+                var drives = from drive in DriveInfo.GetDrives()
+                             where drive.DriveType == DriveType.Removable
+                             select drive;
+                foreach (var item in drives)
+                {
+                    cmbDrive.Items.Add(item.Name);
+                }
+            }
+        }
+
+        private void RdoInstallToSdCard_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void CmdInstallDB_Click(object sender, EventArgs e)
+        {
+            string destination = null;
+            if (rdoInstallToWindows.Checked == true)
+            {
+                destination = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            }
+            else
+            {
+                destination = cmbDrive.SelectedItem?.ToString();
+            }
+            Console.WriteLine(destination);
+            if (destination != null)
+            {
+                string source = txtDatabaseLocation.Text + @"/ExploreStars.zip";
+                if (Directory.Exists(destination))
+                {
+                    DumpLine("Deleting existing DB.");
+                    var di = new DirectoryInfo(destination);
+                    EmptyFolder(di);
+                    DumpLine("DB Deleted.");
+                }
+                try
+                {
+
+
+                    DumpLine("Unzipping DB...");
+                    ZipFile.ExtractToDirectory(source, destination);
+                    DumpLine("DB unzipped and installed.");
+                    MessageBox.Show("The database was sucessfully unzipped", "Information");
+                }
+                catch (System.UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("You do not have permission to write to this location.  Please select a different lcation.", "Error");
+                    DumpLine("ERROR!!  The DB could not be unzipped to the specified location. Please make sure you have downloaded it.");
+                }
+
+            }
+        }
+
+        private void CmdDeleteDatabaseZipFile_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(txtDatabaseLocation.Text + @"/Explorestars.zip"))
+            {
+                DumpLine("The DB has already been deleted.");
+                return;
+            }
+            File.Delete(txtDatabaseLocation.Text + @"/Explorestars.zip");
+            var di = new DirectoryInfo(txtDatabaseLocation.Text);
+            EmptyFolder(di);
+            DumpLine("DB deleted");
+        }
+        private void EmptyFolder(DirectoryInfo directoryInfo)
+        {
+            foreach (FileInfo file in directoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
+
+            foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
+            {
+                EmptyFolder(subfolder);
+            }
+        }
+
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.GitHub/WCMoses");
         }
     }
 }

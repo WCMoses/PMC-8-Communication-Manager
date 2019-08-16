@@ -220,9 +220,18 @@ namespace IxosTest2
 
         public string ConnectedSsid()
         {
+            try
+            {
             NetworkIdentifier ss = NativeWifi.EnumerateConnectedNetworkSsids().FirstOrDefault();
             string result = ss?.ToString();
             return result;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
         }
         public bool IsConnectedToWirelessNetwork()
         {

@@ -62,8 +62,36 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.Explorestars = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.cmbDrive = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cmdDeleteDatabaseZipFile = new System.Windows.Forms.Button();
+            this.cmdInstallDB = new System.Windows.Forms.Button();
+            this.rdoInstallToSdCard = new System.Windows.Forms.RadioButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cmdDownloadDatabase = new System.Windows.Forms.Button();
+            this.cmdChooseDatabaseLocation = new System.Windows.Forms.Button();
+            this.txtDatabaseLocation = new System.Windows.Forms.TextBox();
+            this.Location = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.rdoInstallToWindows = new System.Windows.Forms.RadioButton();
+            this.txtDatabaseINternetAddress = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Firmware = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lsvEepromFileNames = new System.Windows.Forms.ListView();
+            this.cmdFlashSelected = new System.Windows.Forms.Button();
+            this.cmdViewReadme = new System.Windows.Forms.Button();
+            this.cmdDownloadFirmware = new System.Windows.Forms.Button();
+            this.txtDownloadLocation = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.Advaced = new System.Windows.Forms.TabPage();
+            this.cmdAdvancedESGv = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.cmdUploadRom = new System.Windows.Forms.Button();
+            this.cmdSendCustomCommand = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.FindEepromFile = new System.Windows.Forms.Button();
@@ -84,7 +112,6 @@
             this.cmdAdvancedEsgp0 = new System.Windows.Forms.Button();
             this.cmdAdvancedESY = new System.Windows.Forms.Button();
             this.cmdAdvancedEsx = new System.Windows.Forms.Button();
-            this.cmdSendCustomCommand = new System.Windows.Forms.Button();
             this.txtCommandToSend = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -101,6 +128,11 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -111,6 +143,10 @@
             this.Basic.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Explorestars.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.Firmware.SuspendLayout();
             this.Advaced.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -122,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -142,8 +179,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.txtOutput);
-            this.splitContainer1.Size = new System.Drawing.Size(1414, 1194);
-            this.splitContainer1.SplitterDistance = 867;
+            this.splitContainer1.Size = new System.Drawing.Size(1546, 1062);
+            this.splitContainer1.SplitterDistance = 769;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel2
@@ -153,18 +190,19 @@
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 798);
+            this.panel2.Location = new System.Drawing.Point(0, 700);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1414, 69);
+            this.panel2.Size = new System.Drawing.Size(1546, 69);
             this.panel2.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(660, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 40);
+            this.button1.Size = new System.Drawing.Size(132, 40);
             this.button1.TabIndex = 4;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
@@ -197,7 +235,7 @@
             // cmdClose
             // 
             this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdClose.Location = new System.Drawing.Point(1261, 15);
+            this.cmdClose.Location = new System.Drawing.Point(1260, 15);
             this.cmdClose.Margin = new System.Windows.Forms.Padding(4);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(116, 42);
@@ -208,25 +246,26 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.Instructions);
             this.tabControl1.Controls.Add(this.Basic);
+            this.tabControl1.Controls.Add(this.Explorestars);
+            this.tabControl1.Controls.Add(this.Firmware);
             this.tabControl1.Controls.Add(this.Advaced);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 302);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1414, 565);
+            this.tabControl1.Size = new System.Drawing.Size(1546, 467);
             this.tabControl1.TabIndex = 1;
             // 
             // Instructions
             // 
             this.Instructions.Controls.Add(this.rtbInstructions);
-            this.Instructions.Location = new System.Drawing.Point(4, 37);
+            this.Instructions.Location = new System.Drawing.Point(8, 39);
             this.Instructions.Margin = new System.Windows.Forms.Padding(4);
             this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(1406, 524);
+            this.Instructions.Size = new System.Drawing.Size(1530, 420);
             this.Instructions.TabIndex = 2;
             this.Instructions.Text = "Instructions";
             this.Instructions.UseVisualStyleBackColor = true;
@@ -239,7 +278,7 @@
             this.rtbInstructions.Margin = new System.Windows.Forms.Padding(4);
             this.rtbInstructions.Name = "rtbInstructions";
             this.rtbInstructions.ReadOnly = true;
-            this.rtbInstructions.Size = new System.Drawing.Size(1406, 524);
+            this.rtbInstructions.Size = new System.Drawing.Size(1530, 420);
             this.rtbInstructions.TabIndex = 0;
             this.rtbInstructions.Text = resources.GetString("rtbInstructions.Text");
             // 
@@ -249,13 +288,13 @@
             this.Basic.Controls.Add(this.groupBox5);
             this.Basic.Controls.Add(this.groupBox1);
             this.Basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Basic.Location = new System.Drawing.Point(4, 37);
+            this.Basic.Location = new System.Drawing.Point(8, 39);
             this.Basic.Margin = new System.Windows.Forms.Padding(4);
             this.Basic.Name = "Basic";
             this.Basic.Padding = new System.Windows.Forms.Padding(4);
-            this.Basic.Size = new System.Drawing.Size(1406, 524);
+            this.Basic.Size = new System.Drawing.Size(1530, 420);
             this.Basic.TabIndex = 0;
-            this.Basic.Text = "Basic";
+            this.Basic.Text = "Connection";
             this.Basic.Click += new System.EventHandler(this.Basic_Click);
             // 
             // groupBox5
@@ -434,7 +473,7 @@
             this.label5.Location = new System.Drawing.Point(52, 285);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(486, 79);
+            this.label5.Size = new System.Drawing.Size(862, 71);
             this.label5.TabIndex = 16;
             this.label5.Text = "NOTE: To switch from UDP to Serial OR Serial to UDP, you must first switch to TCP" +
     " then to UDP OR Serial.";
@@ -535,23 +574,321 @@
             this.label14.TabIndex = 8;
             this.label14.Text = "Via ASCOM (Serial)";
             // 
+            // Explorestars
+            // 
+            this.Explorestars.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Explorestars.Controls.Add(this.groupBox9);
+            this.Explorestars.Controls.Add(this.rdoInstallToSdCard);
+            this.Explorestars.Controls.Add(this.groupBox8);
+            this.Explorestars.Controls.Add(this.rdoInstallToWindows);
+            this.Explorestars.Controls.Add(this.txtDatabaseINternetAddress);
+            this.Explorestars.Controls.Add(this.label7);
+            this.Explorestars.Location = new System.Drawing.Point(8, 39);
+            this.Explorestars.Margin = new System.Windows.Forms.Padding(4);
+            this.Explorestars.Name = "Explorestars";
+            this.Explorestars.Size = new System.Drawing.Size(1530, 420);
+            this.Explorestars.TabIndex = 4;
+            this.Explorestars.Text = "ExploreStars";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.cmbDrive);
+            this.groupBox9.Controls.Add(this.label20);
+            this.groupBox9.Controls.Add(this.cmdDeleteDatabaseZipFile);
+            this.groupBox9.Controls.Add(this.cmdInstallDB);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(894, 121);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(560, 231);
+            this.groupBox9.TabIndex = 3;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Step 2 - Install Database";
+            // 
+            // cmbDrive
+            // 
+            this.cmbDrive.FormattingEnabled = true;
+            this.cmbDrive.Location = new System.Drawing.Point(385, 62);
+            this.cmbDrive.Name = "cmbDrive";
+            this.cmbDrive.Size = new System.Drawing.Size(121, 41);
+            this.cmbDrive.TabIndex = 7;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(27, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(248, 33);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Removable Drive:";
+            // 
+            // cmdDeleteDatabaseZipFile
+            // 
+            this.cmdDeleteDatabaseZipFile.Location = new System.Drawing.Point(218, 122);
+            this.cmdDeleteDatabaseZipFile.Name = "cmdDeleteDatabaseZipFile";
+            this.cmdDeleteDatabaseZipFile.Size = new System.Drawing.Size(162, 93);
+            this.cmdDeleteDatabaseZipFile.TabIndex = 5;
+            this.cmdDeleteDatabaseZipFile.Text = "Delete Zip File";
+            this.cmdDeleteDatabaseZipFile.UseVisualStyleBackColor = true;
+            this.cmdDeleteDatabaseZipFile.Click += new System.EventHandler(this.CmdDeleteDatabaseZipFile_Click);
+            // 
+            // cmdInstallDB
+            // 
+            this.cmdInstallDB.Location = new System.Drawing.Point(24, 122);
+            this.cmdInstallDB.Name = "cmdInstallDB";
+            this.cmdInstallDB.Size = new System.Drawing.Size(148, 93);
+            this.cmdInstallDB.TabIndex = 2;
+            this.cmdInstallDB.Text = "Install";
+            this.cmdInstallDB.UseVisualStyleBackColor = true;
+            this.cmdInstallDB.Click += new System.EventHandler(this.CmdInstallDB_Click);
+            // 
+            // rdoInstallToSdCard
+            // 
+            this.rdoInstallToSdCard.AutoSize = true;
+            this.rdoInstallToSdCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoInstallToSdCard.Location = new System.Drawing.Point(701, 72);
+            this.rdoInstallToSdCard.Name = "rdoInstallToSdCard";
+            this.rdoInstallToSdCard.Size = new System.Drawing.Size(274, 37);
+            this.rdoInstallToSdCard.TabIndex = 1;
+            this.rdoInstallToSdCard.Text = "Install to SD Card";
+            this.rdoInstallToSdCard.UseVisualStyleBackColor = true;
+            this.rdoInstallToSdCard.CheckedChanged += new System.EventHandler(this.RdoInstallToSdCard_CheckedChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.cmdDownloadDatabase);
+            this.groupBox8.Controls.Add(this.cmdChooseDatabaseLocation);
+            this.groupBox8.Controls.Add(this.txtDatabaseLocation);
+            this.groupBox8.Controls.Add(this.Location);
+            this.groupBox8.Controls.Add(this.label17);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(20, 121);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(847, 221);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Step 1 - Download Database";
+            // 
+            // cmdDownloadDatabase
+            // 
+            this.cmdDownloadDatabase.Location = new System.Drawing.Point(347, 161);
+            this.cmdDownloadDatabase.Name = "cmdDownloadDatabase";
+            this.cmdDownloadDatabase.Size = new System.Drawing.Size(166, 54);
+            this.cmdDownloadDatabase.TabIndex = 4;
+            this.cmdDownloadDatabase.Text = "Download";
+            this.cmdDownloadDatabase.UseVisualStyleBackColor = true;
+            this.cmdDownloadDatabase.Click += new System.EventHandler(this.CmdDownloadDatabase_Click);
+            // 
+            // cmdChooseDatabaseLocation
+            // 
+            this.cmdChooseDatabaseLocation.Location = new System.Drawing.Point(748, 81);
+            this.cmdChooseDatabaseLocation.Name = "cmdChooseDatabaseLocation";
+            this.cmdChooseDatabaseLocation.Size = new System.Drawing.Size(75, 44);
+            this.cmdChooseDatabaseLocation.TabIndex = 3;
+            this.cmdChooseDatabaseLocation.Text = "...";
+            this.cmdChooseDatabaseLocation.UseVisualStyleBackColor = true;
+            // 
+            // txtDatabaseLocation
+            // 
+            this.txtDatabaseLocation.Location = new System.Drawing.Point(242, 84);
+            this.txtDatabaseLocation.Name = "txtDatabaseLocation";
+            this.txtDatabaseLocation.Size = new System.Drawing.Size(500, 40);
+            this.txtDatabaseLocation.TabIndex = 2;
+            this.txtDatabaseLocation.Text = "c:\\ESTemp\\ExploreStarsDb";
+            // 
+            // Location
+            // 
+            this.Location.AutoSize = true;
+            this.Location.Location = new System.Drawing.Point(20, 81);
+            this.Location.Name = "Location";
+            this.Location.Size = new System.Drawing.Size(216, 33);
+            this.Location.TabIndex = 1;
+            this.Location.Text = "Temp. Location";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(277, 36);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(431, 33);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Do NOT download to a SD card.";
+            // 
+            // rdoInstallToWindows
+            // 
+            this.rdoInstallToWindows.AutoSize = true;
+            this.rdoInstallToWindows.Checked = true;
+            this.rdoInstallToWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoInstallToWindows.Location = new System.Drawing.Point(322, 78);
+            this.rdoInstallToWindows.Name = "rdoInstallToWindows";
+            this.rdoInstallToWindows.Size = new System.Drawing.Size(291, 37);
+            this.rdoInstallToWindows.TabIndex = 0;
+            this.rdoInstallToWindows.TabStop = true;
+            this.rdoInstallToWindows.Text = "Install To Windows";
+            this.rdoInstallToWindows.UseVisualStyleBackColor = true;
+            this.rdoInstallToWindows.CheckedChanged += new System.EventHandler(this.RdoInstallToWindows_CheckedChanged);
+            // 
+            // txtDatabaseINternetAddress
+            // 
+            this.txtDatabaseINternetAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatabaseINternetAddress.Location = new System.Drawing.Point(322, 26);
+            this.txtDatabaseINternetAddress.Name = "txtDatabaseINternetAddress";
+            this.txtDatabaseINternetAddress.Size = new System.Drawing.Size(1132, 40);
+            this.txtDatabaseINternetAddress.TabIndex = 1;
+            this.txtDatabaseINternetAddress.Text = "http://02d3287.netsolhost.com/pmc-eight/DATABASE/ExploreStarsComplete.zip";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(241, 31);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Database Location";
+            // 
+            // Firmware
+            // 
+            this.Firmware.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Firmware.Controls.Add(this.label9);
+            this.Firmware.Controls.Add(this.checkBox1);
+            this.Firmware.Controls.Add(this.lsvEepromFileNames);
+            this.Firmware.Controls.Add(this.cmdFlashSelected);
+            this.Firmware.Controls.Add(this.cmdViewReadme);
+            this.Firmware.Controls.Add(this.cmdDownloadFirmware);
+            this.Firmware.Controls.Add(this.txtDownloadLocation);
+            this.Firmware.Controls.Add(this.label8);
+            this.Firmware.Location = new System.Drawing.Point(8, 39);
+            this.Firmware.Name = "Firmware";
+            this.Firmware.Padding = new System.Windows.Forms.Padding(3);
+            this.Firmware.Size = new System.Drawing.Size(1530, 420);
+            this.Firmware.TabIndex = 5;
+            this.Firmware.Text = "Firmware";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(352, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(695, 33);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "MAKE SURE YOU ARE CONNETED VIA SERIAL";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(20, 323);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(405, 29);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Delete Old Versions Before Download";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // lsvEepromFileNames
+            // 
+            this.lsvEepromFileNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvEepromFileNames.GridLines = true;
+            this.lsvEepromFileNames.HideSelection = false;
+            this.lsvEepromFileNames.Location = new System.Drawing.Point(447, 123);
+            this.lsvEepromFileNames.MultiSelect = false;
+            this.lsvEepromFileNames.Name = "lsvEepromFileNames";
+            this.lsvEepromFileNames.Size = new System.Drawing.Size(1064, 216);
+            this.lsvEepromFileNames.TabIndex = 5;
+            this.lsvEepromFileNames.UseCompatibleStateImageBehavior = false;
+            this.lsvEepromFileNames.View = System.Windows.Forms.View.List;
+            // 
+            // cmdFlashSelected
+            // 
+            this.cmdFlashSelected.Location = new System.Drawing.Point(20, 255);
+            this.cmdFlashSelected.Name = "cmdFlashSelected";
+            this.cmdFlashSelected.Size = new System.Drawing.Size(242, 40);
+            this.cmdFlashSelected.TabIndex = 4;
+            this.cmdFlashSelected.Text = "Flash Selected EEPROM";
+            this.cmdFlashSelected.UseVisualStyleBackColor = true;
+            this.cmdFlashSelected.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // cmdViewReadme
+            // 
+            this.cmdViewReadme.Location = new System.Drawing.Point(20, 189);
+            this.cmdViewReadme.Name = "cmdViewReadme";
+            this.cmdViewReadme.Size = new System.Drawing.Size(242, 40);
+            this.cmdViewReadme.TabIndex = 3;
+            this.cmdViewReadme.Text = "View ReadMe";
+            this.cmdViewReadme.UseVisualStyleBackColor = true;
+            this.cmdViewReadme.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // cmdDownloadFirmware
+            // 
+            this.cmdDownloadFirmware.Location = new System.Drawing.Point(20, 123);
+            this.cmdDownloadFirmware.Name = "cmdDownloadFirmware";
+            this.cmdDownloadFirmware.Size = new System.Drawing.Size(242, 45);
+            this.cmdDownloadFirmware.TabIndex = 2;
+            this.cmdDownloadFirmware.Text = "Download";
+            this.cmdDownloadFirmware.UseVisualStyleBackColor = true;
+            this.cmdDownloadFirmware.Click += new System.EventHandler(this.CmdDownloadFirmware_Click);
+            // 
+            // txtDownloadLocation
+            // 
+            this.txtDownloadLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDownloadLocation.Location = new System.Drawing.Point(383, 62);
+            this.txtDownloadLocation.Name = "txtDownloadLocation";
+            this.txtDownloadLocation.Size = new System.Drawing.Size(1128, 40);
+            this.txtDownloadLocation.TabIndex = 1;
+            this.txtDownloadLocation.Text = "http://02d3287.netsolhost.com/pmc-eight/FIRMWARE/PMC8_FirmwareEEPROM.zip";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(26, 69);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(262, 33);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Download Location";
+            // 
             // Advaced
             // 
             this.Advaced.BackColor = System.Drawing.Color.Gainsboro;
+            this.Advaced.Controls.Add(this.cmdAdvancedESGv);
+            this.Advaced.Controls.Add(this.button2);
             this.Advaced.Controls.Add(this.cmdUploadRom);
+            this.Advaced.Controls.Add(this.cmdSendCustomCommand);
             this.Advaced.Controls.Add(this.label4);
             this.Advaced.Controls.Add(this.groupBox7);
             this.Advaced.Controls.Add(this.groupBox6);
             this.Advaced.Controls.Add(this.groupBox3);
             this.Advaced.Controls.Add(this.groupBox2);
             this.Advaced.Controls.Add(this.groupBox4);
-            this.Advaced.Location = new System.Drawing.Point(4, 37);
+            this.Advaced.Location = new System.Drawing.Point(8, 39);
             this.Advaced.Margin = new System.Windows.Forms.Padding(4);
             this.Advaced.Name = "Advaced";
             this.Advaced.Padding = new System.Windows.Forms.Padding(4);
-            this.Advaced.Size = new System.Drawing.Size(1406, 524);
+            this.Advaced.Size = new System.Drawing.Size(1530, 420);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
+            // 
+            // cmdAdvancedESGv
+            // 
+            this.cmdAdvancedESGv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdAdvancedESGv.Location = new System.Drawing.Point(1361, 102);
+            this.cmdAdvancedESGv.Name = "cmdAdvancedESGv";
+            this.cmdAdvancedESGv.Size = new System.Drawing.Size(127, 112);
+            this.cmdAdvancedESGv.TabIndex = 13;
+            this.cmdAdvancedESGv.Text = "Version (ESGv!)";
+            this.cmdAdvancedESGv.UseVisualStyleBackColor = true;
+            this.cmdAdvancedESGv.Click += new System.EventHandler(this.CmdAdvancedESGv_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
             // 
             // cmdUploadRom
             // 
@@ -564,6 +901,17 @@
             this.cmdUploadRom.Text = "Upload EEPROM";
             this.cmdUploadRom.UseVisualStyleBackColor = true;
             this.cmdUploadRom.Click += new System.EventHandler(this.CmdUploadRom_Click);
+            // 
+            // cmdSendCustomCommand
+            // 
+            this.cmdSendCustomCommand.Location = new System.Drawing.Point(1380, 46);
+            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(4);
+            this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
+            this.cmdSendCustomCommand.Size = new System.Drawing.Size(108, 42);
+            this.cmdSendCustomCommand.TabIndex = 2;
+            this.cmdSendCustomCommand.Text = "Send";
+            this.cmdSendCustomCommand.UseVisualStyleBackColor = true;
+            this.cmdSendCustomCommand.Click += new System.EventHandler(this.CmdSendCustomCommand_Click);
             // 
             // label4
             // 
@@ -775,7 +1123,6 @@
             this.groupBox4.Controls.Add(this.cmdAdvancedEsgp0);
             this.groupBox4.Controls.Add(this.cmdAdvancedESY);
             this.groupBox4.Controls.Add(this.cmdAdvancedEsx);
-            this.groupBox4.Controls.Add(this.cmdSendCustomCommand);
             this.groupBox4.Controls.Add(this.txtCommandToSend);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -791,12 +1138,12 @@
             // cmdAdvancedEsgp0
             // 
             this.cmdAdvancedEsgp0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(504, 94);
+            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(478, 94);
             this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
             this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(164, 104);
             this.cmdAdvancedEsgp0.TabIndex = 5;
-            this.cmdAdvancedEsgp0.Text = "Get Parameter (ESGp0!)";
+            this.cmdAdvancedEsgp0.Text = "Get RA Position (ESGp0!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsgp0, "Gets Parameter 0.");
             this.cmdAdvancedEsgp0.UseVisualStyleBackColor = true;
             this.cmdAdvancedEsgp0.Click += new System.EventHandler(this.CmdAdvancedEsgp0_Click);
@@ -804,7 +1151,7 @@
             // cmdAdvancedESY
             // 
             this.cmdAdvancedESY.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedESY.Location = new System.Drawing.Point(244, 94);
+            this.cmdAdvancedESY.Location = new System.Drawing.Point(218, 94);
             this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
             this.cmdAdvancedESY.Size = new System.Drawing.Size(252, 104);
@@ -820,23 +1167,12 @@
             this.cmdAdvancedEsx.Location = new System.Drawing.Point(24, 94);
             this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(4);
             this.cmdAdvancedEsx.Name = "cmdAdvancedEsx";
-            this.cmdAdvancedEsx.Size = new System.Drawing.Size(212, 104);
+            this.cmdAdvancedEsx.Size = new System.Drawing.Size(186, 104);
             this.cmdAdvancedEsx.TabIndex = 3;
             this.cmdAdvancedEsx.Text = "Wired/Wireless (ESX!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsx, "Toggles wired/wireless.");
             this.cmdAdvancedEsx.UseVisualStyleBackColor = true;
             this.cmdAdvancedEsx.Click += new System.EventHandler(this.CmdAdvancedEsx_Click);
-            // 
-            // cmdSendCustomCommand
-            // 
-            this.cmdSendCustomCommand.Location = new System.Drawing.Point(564, 35);
-            this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(4);
-            this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
-            this.cmdSendCustomCommand.Size = new System.Drawing.Size(108, 42);
-            this.cmdSendCustomCommand.TabIndex = 2;
-            this.cmdSendCustomCommand.Text = "Send";
-            this.cmdSendCustomCommand.UseVisualStyleBackColor = true;
-            this.cmdSendCustomCommand.Click += new System.EventHandler(this.CmdSendCustomCommand_Click);
             // 
             // txtCommandToSend
             // 
@@ -844,7 +1180,7 @@
             this.txtCommandToSend.Location = new System.Drawing.Point(264, 25);
             this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(4);
             this.txtCommandToSend.Name = "txtCommandToSend";
-            this.txtCommandToSend.Size = new System.Drawing.Size(292, 41);
+            this.txtCommandToSend.Size = new System.Drawing.Size(378, 41);
             this.txtCommandToSend.TabIndex = 1;
             this.txtCommandToSend.Text = "ESGp0!";
             // 
@@ -862,6 +1198,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.groupBox10);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -871,7 +1208,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1414, 302);
+            this.panel1.Size = new System.Drawing.Size(1546, 302);
             this.panel1.TabIndex = 0;
             // 
             // linkLabel1
@@ -942,10 +1279,10 @@
             this.toolStripStatusLabel2,
             this.tsCurrentNetwork,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 277);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 238);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1414, 46);
+            this.statusStrip1.Size = new System.Drawing.Size(1546, 51);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -986,7 +1323,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 41);
-            this.toolStripStatusLabel3.Text = "Version: 0.0.6";
+            this.toolStripStatusLabel3.Text = "Version: 1.0.1";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -998,14 +1335,66 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(1414, 323);
+            this.txtOutput.Size = new System.Drawing.Size(1546, 289);
             this.txtOutput.TabIndex = 0;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.linkLabel2);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.label22);
+            this.groupBox10.Controls.Add(this.label21);
+            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox10.Location = new System.Drawing.Point(1072, 12);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(403, 279);
+            this.groupBox10.TabIndex = 14;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "About";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(25, 69);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(320, 33);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Written By Chris Moses";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 115);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(358, 33);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Chris_Moses@yahoo.com";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(25, 184);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(331, 33);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Source Code on GitHub:";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(2, 226);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(395, 33);
+            this.linkLabel2.TabIndex = 3;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "https://github.com/WCMoses/";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 1194);
+            this.ClientSize = new System.Drawing.Size(1546, 1062);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -1024,6 +1413,14 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Explorestars.ResumeLayout(false);
+            this.Explorestars.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.Firmware.ResumeLayout(false);
+            this.Firmware.PerformLayout();
             this.Advaced.ResumeLayout(false);
             this.Advaced.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -1043,6 +1440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1120,6 +1519,38 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage Explorestars;
+        private System.Windows.Forms.TabPage Firmware;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListView lsvEepromFileNames;
+        private System.Windows.Forms.Button cmdFlashSelected;
+        private System.Windows.Forms.Button cmdViewReadme;
+        private System.Windows.Forms.Button cmdDownloadFirmware;
+        private System.Windows.Forms.TextBox txtDownloadLocation;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button cmdInstallDB;
+        private System.Windows.Forms.RadioButton rdoInstallToSdCard;
+        private System.Windows.Forms.RadioButton rdoInstallToWindows;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button cmdDeleteDatabaseZipFile;
+        private System.Windows.Forms.Button cmdDownloadDatabase;
+        private System.Windows.Forms.Button cmdChooseDatabaseLocation;
+        private System.Windows.Forms.TextBox txtDatabaseLocation;
+        private System.Windows.Forms.Label Location;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtDatabaseINternetAddress;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cmdAdvancedESGv;
+        private System.Windows.Forms.ComboBox cmbDrive;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }
 
