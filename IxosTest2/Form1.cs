@@ -797,37 +797,55 @@ namespace IxosTest2
             MessageBox.Show("This may take a few moments.  Press OK to start", "Information");
             DumpLine("Attempting to upload ROM");
 
+            RomFlasher flasher = new RomFlasher();
+
+            string result = "";
             string file = Environment.CurrentDirectory + "\\Propellent.exe ";
-            string args = "\"" + txtEepromPath.Text + "\"" + " /eeprom";
+            string args = txtEepromPath.Text;
+            DumpLine("Path to Propellent.exe:" + flasher.GetQuotedString(file));
+            DumpLine("Path to EEPROM: " + flasher.GetQuotedString(args));
             try
             {
-                Console.WriteLine("Tryiny to ececute: " + file + " " + args);
-                ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
-                procStartInfo.RedirectStandardOutput = true;
-                procStartInfo.UseShellExecute = false;
-                procStartInfo.CreateNoWindow = true;
 
-                // wrap IDisposable into using (in order to release hProcess) 
-                using (Process process = new Process())
-                {
-                    process.StartInfo = procStartInfo;
-                    process.Start();
-
-                    // Add this: wait until process does its work
-                    process.WaitForExit();
-
-                    // and only then read the result
-                    string result = process.StandardOutput.ReadToEnd();
-                    DumpLine("Success - results:");
-                    DumpLine(result);
-                }
+                result = flasher.FlashRom(file, args);
             }
             catch (Exception ex)
             {
 
-                DumpLine("Could not load EEPROM.  Error Code:");
-                DumpLine(ex?.ToString());
+                DumpLine("An Error Occured" + ex?.ToString());
             }
+            DumpLine(result);
+            //string file = Environment.CurrentDirectory + "\\Propellent.exe ";
+            //string args = "\"" + txtEepromPath.Text + "\"" + " /eeprom";
+            //try
+            //{
+            //    Console.WriteLine("Tryiny to ececute: " + file + " " + args);
+            //    ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
+            //    procStartInfo.RedirectStandardOutput = true;
+            //    procStartInfo.UseShellExecute = false;
+            //    procStartInfo.CreateNoWindow = true;
+
+            //    // wrap IDisposable into using (in order to release hProcess) 
+            //    using (Process process = new Process())
+            //    {
+            //        process.StartInfo = procStartInfo;
+            //        process.Start();
+
+            //        // Add this: wait until process does its work
+            //        process.WaitForExit();
+
+            //        // and only then read the result
+            //        string result = process.StandardOutput.ReadToEnd();
+            //        DumpLine("Success - results:");
+            //        DumpLine(result);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    DumpLine("Could not load EEPROM.  Error Code:");
+            //    DumpLine(ex?.ToString());
+            //}
 
 
             //Cursor.Current = Cursors.WaitCursor;
@@ -848,7 +866,7 @@ namespace IxosTest2
             //}
             //finally
             //{ FinalizePropellent(); }
-            Cursor.Current = Cursors.Default;
+            // Cursor.Current = Cursors.Default;
         }
 
 
@@ -1065,15 +1083,11 @@ namespace IxosTest2
                 return;
             }
 
+            string file = Environment.CurrentDirectory + @"\Propellent.exe ";
+            string args = desinationFolder + @"\" + fileName;
+
             MessageBox.Show("This may take a few moments.  Press OK to start", "Information");
             DumpLine("Attempting to upload ROM: " + fileName);
-
-            string file = Environment.CurrentDirectory + @"\Propellent.exe ";
-            //string args = "\"" + txtEepromPath.Text + "\"" + " /eeprom";
-            //string args = @"\Firmware\" + fileName;
-            //string args = desinationFolder + @"\" + fileName;
-            string args = desinationFolder + @"\" + fileName;
-            Console.WriteLine(args);
 
             //DOUBLE CHECK THAT FILES EXIST
             if (!File.Exists(file))
@@ -1085,35 +1099,48 @@ namespace IxosTest2
                 DumpLine("The program could not find the eeprom file.  Please try again or contact support");
             }
 
+            string result = "";
+            RomFlasher flasher = new RomFlasher();
+            DumpLine("Path to Propellent.exe:" + flasher.GetQuotedString(file));
+            DumpLine("Path to EEPROM: " + flasher.GetQuotedString(args));
             try
             {
-                Console.WriteLine("Tryiny to ececute: " + file + " " + args);
-                ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
-                procStartInfo.RedirectStandardOutput = true;
-                procStartInfo.UseShellExecute = false;
-                procStartInfo.CreateNoWindow = true;
-
-                // wrap IDisposable into using (in order to release hProcess) 
-                using (Process process = new Process())
-                {
-                    process.StartInfo = procStartInfo;
-                    process.Start();
-
-                    // Add this: wait until process does its work
-                    process.WaitForExit();
-
-                    // and only then read the result
-                    string result = process.StandardOutput.ReadToEnd();
-                    DumpLine("Success - results:");
-                    DumpLine(result);
-                }
+                result = flasher.FlashRom(file, args);
             }
             catch (Exception ex)
             {
-
-                DumpLine("Could not load EEPROM.  Error Code:" + ex?.ToString());
-                DumpLine(ex?.ToString());
+                DumpLine("Error Flashing EEPROM: " + ex?.ToString()); ;
             }
+            DumpLine(result);
+            //try
+            //{
+            //    Console.WriteLine("Tryiny to ececute: " + file + " " + args);
+            //    ProcessStartInfo procStartInfo = new ProcessStartInfo(file, args);
+            //    procStartInfo.RedirectStandardOutput = true;
+            //    procStartInfo.UseShellExecute = false;
+            //    procStartInfo.CreateNoWindow = true;
+
+            //    // wrap IDisposable into using (in order to release hProcess) 
+            //    using (Process process = new Process())
+            //    {
+            //        process.StartInfo = procStartInfo;
+            //        process.Start();
+
+            //        // Add this: wait until process does its work
+            //        process.WaitForExit();
+
+            //        // and only then read the result
+            //        string result = process.StandardOutput.ReadToEnd();
+            //        DumpLine("Success - results:");
+            //        DumpLine(result);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    DumpLine("Could not load EEPROM.  Error Code:" + ex?.ToString());
+            //    DumpLine(ex?.ToString());
+            //}
         }
 
         #endregion
@@ -1217,7 +1244,7 @@ namespace IxosTest2
                 if (Directory.Exists(destination))
                 {
                     DumpLine("Deleting existing DB.");
-                    var di = new DirectoryInfo(destination);
+                    var di = new DirectoryInfo(destination + @"\ExploreStars");
                     EmptyFolder(di);
                     DumpLine("DB Deleted.");
                 }
@@ -1266,7 +1293,12 @@ namespace IxosTest2
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.GitHub/WCMoses");
+            System.Diagnostics.Process.Start("http://www.GitHub.com/WCMoses");
+        }
+
+        private void Label23_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

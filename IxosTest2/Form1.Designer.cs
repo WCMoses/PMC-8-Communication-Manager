@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.cmdCopyToClipboard = new System.Windows.Forms.Button();
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
@@ -89,7 +88,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.Advaced = new System.Windows.Forms.TabPage();
             this.cmdAdvancedESGv = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.cmdUploadRom = new System.Windows.Forms.Button();
             this.cmdSendCustomCommand = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -115,6 +113,11 @@
             this.txtCommandToSend = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -128,11 +131,6 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -154,11 +152,11 @@
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -185,7 +183,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.cmdCopyToClipboard);
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
@@ -195,18 +192,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1546, 69);
             this.panel2.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(660, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // cmdCopyToClipboard
             // 
@@ -855,7 +840,6 @@
             // 
             this.Advaced.BackColor = System.Drawing.Color.Gainsboro;
             this.Advaced.Controls.Add(this.cmdAdvancedESGv);
-            this.Advaced.Controls.Add(this.button2);
             this.Advaced.Controls.Add(this.cmdUploadRom);
             this.Advaced.Controls.Add(this.cmdSendCustomCommand);
             this.Advaced.Controls.Add(this.label4);
@@ -883,17 +867,10 @@
             this.cmdAdvancedESGv.UseVisualStyleBackColor = true;
             this.cmdAdvancedESGv.Click += new System.EventHandler(this.CmdAdvancedESGv_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            // 
             // cmdUploadRom
             // 
             this.cmdUploadRom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdUploadRom.Location = new System.Drawing.Point(88, 333);
+            this.cmdUploadRom.Location = new System.Drawing.Point(88, 317);
             this.cmdUploadRom.Margin = new System.Windows.Forms.Padding(4);
             this.cmdUploadRom.Name = "cmdUploadRom";
             this.cmdUploadRom.Size = new System.Drawing.Size(264, 42);
@@ -1211,6 +1188,59 @@
             this.panel1.Size = new System.Drawing.Size(1546, 302);
             this.panel1.TabIndex = 0;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.linkLabel2);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.label22);
+            this.groupBox10.Controls.Add(this.label21);
+            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox10.Location = new System.Drawing.Point(1072, 12);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(403, 279);
+            this.groupBox10.TabIndex = 14;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "About";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(2, 226);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(395, 33);
+            this.linkLabel2.TabIndex = 3;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "https://github.com/WCMoses/";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(25, 184);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(331, 33);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Source Code on GitHub:";
+            this.label23.Click += new System.EventHandler(this.Label23_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 115);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(358, 33);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Chris_Moses@yahoo.com";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(25, 69);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(320, 33);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Written By Chris Moses";
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -1323,7 +1353,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(154, 41);
-            this.toolStripStatusLabel3.Text = "Version: 1.0.1";
+            this.toolStripStatusLabel3.Text = "Version: 1.0.3";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtOutput
@@ -1337,58 +1367,6 @@
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.Size = new System.Drawing.Size(1546, 289);
             this.txtOutput.TabIndex = 0;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.linkLabel2);
-            this.groupBox10.Controls.Add(this.label23);
-            this.groupBox10.Controls.Add(this.label22);
-            this.groupBox10.Controls.Add(this.label21);
-            this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(1072, 12);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(403, 279);
-            this.groupBox10.TabIndex = 14;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "About";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(25, 69);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(320, 33);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Written By Chris Moses";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(16, 115);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(358, 33);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Chris_Moses@yahoo.com";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(25, 184);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(331, 33);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Source Code on GitHub:";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(2, 226);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(395, 33);
-            this.linkLabel2.TabIndex = 3;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "https://github.com/WCMoses/";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
             // 
             // Form1
             // 
@@ -1435,13 +1413,13 @@
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1518,7 +1496,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage Explorestars;
         private System.Windows.Forms.TabPage Firmware;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -1542,7 +1519,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtDatabaseINternetAddress;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button cmdAdvancedESGv;
         private System.Windows.Forms.ComboBox cmbDrive;
         private System.Windows.Forms.Label label20;

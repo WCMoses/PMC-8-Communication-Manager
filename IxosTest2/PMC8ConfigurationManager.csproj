@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RomFlasher.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +113,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\13085-up-down-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdvancedTab\" />
+    <Folder Include="ConnectionTab\" />
+    <Folder Include="ExploreStarsTab\" />
+    <Folder Include="FirmwareTab\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
