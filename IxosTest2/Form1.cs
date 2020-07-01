@@ -924,7 +924,15 @@ namespace IxosTest2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //this.Width = 2300;
+            this.MinimumSize = new Size(800, 800);
+            this.Show();
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            var DialogResult = MessageBox.Show("Would you like the CM to try to automatically detect your mount connection type?", "Detect Mount", buttons);
+            if (DialogResult == DialogResult.Yes)
+            {
+                CmdBasic2CheckCurrentConnection_Click(null, null);
+            }
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -943,6 +951,10 @@ namespace IxosTest2
 
         private void CmdDownloadFirmware_Click(object sender, EventArgs e)
         {
+            if (cmbBasic2MountType.SelectedItem == null)
+            {
+                var x = MessageBox.Show("Please select a mount before downloading firmware", "NOTICE");
+            }
             //string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             lsvEepromFileNames.Clear();
             //string dest = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PMC8Firmware";
@@ -1010,14 +1022,70 @@ namespace IxosTest2
                 {
                     if (file.Extension == ".eeprom")
                     {
-                        lsvEepromFileNames.Items.Add(file.Name);
+                        if (isEepromForSelectedMount(file))
+                        {
+                            lsvEepromFileNames.Items.Add(file.Name);
+                        }
+
                     }
                 }
             }
 
-
         }
 
+        private bool isEepromForSelectedMount(FileInfo file)
+        {
+            string mountInUse = cmbBasic2MountType.SelectedItem.ToString();
+            char underscore = '_';
+            char period = '.';
+            int suffixIndex = GetNthIndex(file.Name,underscore,2);
+            int periodlocation = GetNthIndex(file.Name, period, 1);
+            int length = file.Name.Length - periodlocation-4;
+            string mountSuffix = file.Name.Substring(suffixIndex+1,length);
+            Console.WriteLine(mountSuffix + ":  " + mountSuffix);
+            if (mountInUse == "G11" && mountSuffix == "G11")
+            {
+                return true;
+            }
+          
+            if (mountInUse == "Exos-2" && mountSuffix=="EXO")
+            {
+                return true;
+            }
+
+            if (mountInUse == "Titan" && mountSuffix == "TIT")
+            {
+                return true;
+            }
+
+            if (mountInUse == "iExos100" && mountSuffix.Length == 3 && mountSuffix != "EXO" && mountSuffix != "TIT" && mountSuffix != "G11")
+            {
+                return true;
+            }
+            //if (mountInUse == "iExos100" && mountSuffix.Length == 3)
+            //{
+            //    return true;
+            //}
+
+            return false;
+        }
+
+        public int GetNthIndex(string s, char t, int n)
+        {
+            int count = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == t)
+                {
+                    count++;
+                    if (count == n)
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
         private void Button2_Click(object sender, EventArgs e)  //ViewReadme
         {
             //String dest = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PMC8Firmware";
@@ -1266,7 +1334,19 @@ namespace IxosTest2
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.GitHub/WCMoses");
+            System.Diagnostics.Process.Start("http://www.GitHub.com/WCMoses");
+        }
+
+        private void Label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdRefreshCurrentFirmware_Click(object sender, EventArgs e)
+        {
+            string response = ComManager.SendSerialMessage(cmbBasic2SerialPort.Text, "ESGv!");
+            response = response.Substring(5, response.Length -5);
+            lblFirmwareVersion.Text = response;
         }
     }
 }
