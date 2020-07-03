@@ -93,7 +93,7 @@ namespace IxosTest2
             cmbBasic2MountType.SelectedIndex = 1;
             ComManager.SsidTimerHit += ComManager_SsidTimerHit;
             EsEventManager.EsEventRaised += EsEventManager_EsEventRaised;
-            rbDefault.Checked = true;
+            //rbDefault.Checked = true;
             SsidTimer = new System.Timers.Timer(SSID_CHANGING_TIMEOUT);
             SsidTimer.Elapsed += SsidTimer_Elapsed;
             rtbInstructions.LoadFile("COnnection Utility Instructions.rtf");
@@ -150,25 +150,25 @@ namespace IxosTest2
         }
         private void RbGeneralInfo_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbGeneralInfo.Checked)
-            {
-                _priorityToShow = EsMessagePriority.GeneralInfo;
-            }
+            //if (rbGeneralInfo.Checked)
+            //{
+            //    _priorityToShow = EsMessagePriority.GeneralInfo;
+            //}
         }
 
         private void RbDetailedInfo_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDetailedInfo.Checked)
-            {
-                _priorityToShow = EsMessagePriority.DetailedInfo;
-            }
+            //if (rbDetailedInfo.Checked)
+            //{
+            //    _priorityToShow = EsMessagePriority.DetailedInfo;
+            //}
         }
         private void RbDebugInfo_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDebugInfo.Checked)
-            {
-                _priorityToShow = EsMessagePriority.DebugInfo;
-            }
+            //if (rbDebugInfo.Checked)
+            //{
+            //    _priorityToShow = EsMessagePriority.DebugInfo;
+            //}
         }
 
         private void CmdCopyToClipboard_Click(object sender, EventArgs e)
@@ -336,11 +336,11 @@ namespace IxosTest2
 
         private void EsEventManager_EsEventRaised(object sender, EsEventArgs e)
         {
-            if (rbDefault.Checked)
-            {
-                //don't show any
-                _priorityToShow = EsMessagePriority.None;
-            }
+            //if (rbDefault.Checked)
+            //{
+            //    //don't show any
+            //    _priorityToShow = EsMessagePriority.None;
+            //}
             if (_priorityToShow == EsMessagePriority.GeneralInfo)
             {
                 _priorityToShow = EsMessagePriority.GeneralInfo;
@@ -388,18 +388,18 @@ namespace IxosTest2
         public void DumpLine(EsException ex)
         {
             string msg = null;
-            if (rbGeneralInfo.Checked)
-            {
-                msg = ex?.Message;
-            }
-            if (rbDetailedInfo.Checked)
-            {
-                msg = ex?.Message + " , " + ex?.Source;
-            }
-            if (rbDebugInfo.Checked)
-            {
-                msg = ex?.Message + " , " + ex?.Source + " , " + ex?.StackTrace.ToString();
-            }
+            //if (rbGeneralInfo.Checked)
+            //{
+            //    msg = ex?.Message;
+            //}
+            //if (rbDetailedInfo.Checked)
+            //{
+            //    msg = ex?.Message + " , " + ex?.Source;
+            //}
+            //if (rbDebugInfo.Checked)
+            //{
+            //    msg = ex?.Message + " , " + ex?.Source + " , " + ex?.StackTrace.ToString();
+            //}
 
             DumpLine(msg);
         }
@@ -933,6 +933,15 @@ namespace IxosTest2
             {
                 CmdBasic2CheckCurrentConnection_Click(null, null);
             }
+
+            //Load combo boxes with data from Resources
+            //Properties.Settings.Default.COMPORT = cmbBasic2SerialPort.Text;
+            //Properties.Settings.Default.MOUNT = cmbBasic2MountType.Text;
+            string mount = Properties.Settings.Default.MOUNT;
+            string comport = Properties.Settings.Default.COMPORT;
+
+            cmbBasic2MountType.Text = mount;
+            cmbBasic2SerialPort.Text = comport;
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -1294,6 +1303,7 @@ namespace IxosTest2
 
 
                     DumpLine("Unzipping DB...");
+                    //TODO: Manually creat directory on SD card
                     ZipFile.ExtractToDirectory(source, destination);
                     DumpLine("DB unzipped and installed.");
                     MessageBox.Show("The database was sucessfully unzipped", "Information");
@@ -1347,6 +1357,18 @@ namespace IxosTest2
             string response = ComManager.SendSerialMessage(cmbBasic2SerialPort.Text, "ESGv!");
             response = response.Substring(5, response.Length -5);
             lblFirmwareVersion.Text = response;
+        }
+
+        private void cmdChooseDatabaseLocation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.COMPORT = cmbBasic2SerialPort.Text;
+            Properties.Settings.Default.MOUNT = cmbBasic2MountType.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

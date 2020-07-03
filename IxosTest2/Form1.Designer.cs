@@ -77,6 +77,9 @@
             this.txtDatabaseINternetAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Firmware = new System.Windows.Forms.TabPage();
+            this.cmdRefreshCurrentFirmware = new System.Windows.Forms.Button();
+            this.lblFirmwareVersion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lsvEepromFileNames = new System.Windows.Forms.ListView();
@@ -125,14 +128,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.rbGeneralInfo = new System.Windows.Forms.RadioButton();
-            this.rbDetailedInfo = new System.Windows.Forms.RadioButton();
-            this.rbDebugInfo = new System.Windows.Forms.RadioButton();
-            this.rbDefault = new System.Windows.Forms.RadioButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblFirmwareVersion = new System.Windows.Forms.Label();
-            this.cmdRefreshCurrentFirmware = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -158,7 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -190,10 +186,10 @@
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 773);
+            this.panel2.Location = new System.Drawing.Point(0, 855);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2448, 92);
+            this.panel2.Size = new System.Drawing.Size(2448, 10);
             this.panel2.TabIndex = 2;
             // 
             // cmdCopyToClipboard
@@ -673,6 +669,7 @@
             this.cmdChooseDatabaseLocation.TabIndex = 3;
             this.cmdChooseDatabaseLocation.Text = "...";
             this.cmdChooseDatabaseLocation.UseVisualStyleBackColor = true;
+            this.cmdChooseDatabaseLocation.Click += new System.EventHandler(this.cmdChooseDatabaseLocation_Click);
             // 
             // txtDatabaseLocation
             // 
@@ -762,6 +759,36 @@
             this.Firmware.Size = new System.Drawing.Size(2424, 348);
             this.Firmware.TabIndex = 5;
             this.Firmware.Text = "Firmware";
+            // 
+            // cmdRefreshCurrentFirmware
+            // 
+            this.cmdRefreshCurrentFirmware.Location = new System.Drawing.Point(43, 68);
+            this.cmdRefreshCurrentFirmware.Name = "cmdRefreshCurrentFirmware";
+            this.cmdRefreshCurrentFirmware.Size = new System.Drawing.Size(166, 53);
+            this.cmdRefreshCurrentFirmware.TabIndex = 10;
+            this.cmdRefreshCurrentFirmware.Text = "Refresh";
+            this.cmdRefreshCurrentFirmware.UseVisualStyleBackColor = true;
+            this.cmdRefreshCurrentFirmware.Click += new System.EventHandler(this.cmdRefreshCurrentFirmware_Click);
+            // 
+            // lblFirmwareVersion
+            // 
+            this.lblFirmwareVersion.AutoSize = true;
+            this.lblFirmwareVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirmwareVersion.Location = new System.Drawing.Point(358, 19);
+            this.lblFirmwareVersion.Name = "lblFirmwareVersion";
+            this.lblFirmwareVersion.Size = new System.Drawing.Size(342, 46);
+            this.lblFirmwareVersion.TabIndex = 9;
+            this.lblFirmwareVersion.Text = "FIRMWARE VER.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(328, 46);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Current Firmware";
             // 
             // label9
             // 
@@ -864,7 +891,6 @@
             this.Advaced.Controls.Add(this.cmdSendCustomCommand);
             this.Advaced.Controls.Add(this.label4);
             this.Advaced.Controls.Add(this.groupBox7);
-            this.Advaced.Controls.Add(this.groupBox6);
             this.Advaced.Controls.Add(this.groupBox3);
             this.Advaced.Controls.Add(this.groupBox2);
             this.Advaced.Controls.Add(this.groupBox4);
@@ -1125,6 +1151,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.groupBox10);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label6);
@@ -1324,106 +1351,15 @@
             this.txtOutput.Size = new System.Drawing.Size(2448, 324);
             this.txtOutput.TabIndex = 0;
             // 
-            // rbGeneralInfo
+            // pictureBox4
             // 
-            this.rbGeneralInfo.AutoSize = true;
-            this.rbGeneralInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbGeneralInfo.Location = new System.Drawing.Point(82, 114);
-            this.rbGeneralInfo.Margin = new System.Windows.Forms.Padding(6);
-            this.rbGeneralInfo.Name = "rbGeneralInfo";
-            this.rbGeneralInfo.Size = new System.Drawing.Size(344, 42);
-            this.rbGeneralInfo.TabIndex = 0;
-            this.rbGeneralInfo.TabStop = true;
-            this.rbGeneralInfo.Text = "General Debug Info";
-            this.rbGeneralInfo.UseVisualStyleBackColor = true;
-            this.rbGeneralInfo.CheckedChanged += new System.EventHandler(this.RbGeneralInfo_CheckedChanged);
-            // 
-            // rbDetailedInfo
-            // 
-            this.rbDetailedInfo.AutoSize = true;
-            this.rbDetailedInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDetailedInfo.Location = new System.Drawing.Point(82, 173);
-            this.rbDetailedInfo.Margin = new System.Windows.Forms.Padding(6);
-            this.rbDetailedInfo.Name = "rbDetailedInfo";
-            this.rbDetailedInfo.Size = new System.Drawing.Size(347, 42);
-            this.rbDetailedInfo.TabIndex = 1;
-            this.rbDetailedInfo.TabStop = true;
-            this.rbDetailedInfo.Text = "Detailed Debug Info";
-            this.rbDetailedInfo.UseVisualStyleBackColor = true;
-            this.rbDetailedInfo.CheckedChanged += new System.EventHandler(this.RbDetailedInfo_CheckedChanged);
-            // 
-            // rbDebugInfo
-            // 
-            this.rbDebugInfo.AutoSize = true;
-            this.rbDebugInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDebugInfo.Location = new System.Drawing.Point(82, 231);
-            this.rbDebugInfo.Margin = new System.Windows.Forms.Padding(6);
-            this.rbDebugInfo.Name = "rbDebugInfo";
-            this.rbDebugInfo.Size = new System.Drawing.Size(371, 42);
-            this.rbDebugInfo.TabIndex = 2;
-            this.rbDebugInfo.TabStop = true;
-            this.rbDebugInfo.Text = "Extensive Debug Info";
-            this.rbDebugInfo.UseVisualStyleBackColor = true;
-            this.rbDebugInfo.CheckedChanged += new System.EventHandler(this.RbDebugInfo_CheckedChanged);
-            // 
-            // rbDefault
-            // 
-            this.rbDefault.AutoSize = true;
-            this.rbDefault.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDefault.Location = new System.Drawing.Point(82, 55);
-            this.rbDefault.Margin = new System.Windows.Forms.Padding(6);
-            this.rbDefault.Name = "rbDefault";
-            this.rbDefault.Size = new System.Drawing.Size(273, 42);
-            this.rbDefault.TabIndex = 3;
-            this.rbDefault.TabStop = true;
-            this.rbDefault.Text = "Default (None)";
-            this.rbDefault.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.rbDefault);
-            this.groupBox6.Controls.Add(this.rbDebugInfo);
-            this.groupBox6.Controls.Add(this.rbDetailedInfo);
-            this.groupBox6.Controls.Add(this.rbGeneralInfo);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(630, 9);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox6.Size = new System.Drawing.Size(485, 296);
-            this.groupBox6.TabIndex = 11;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Debug Messages";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(328, 46);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Current Firmware";
-            // 
-            // lblFirmwareVersion
-            // 
-            this.lblFirmwareVersion.AutoSize = true;
-            this.lblFirmwareVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirmwareVersion.Location = new System.Drawing.Point(358, 19);
-            this.lblFirmwareVersion.Name = "lblFirmwareVersion";
-            this.lblFirmwareVersion.Size = new System.Drawing.Size(342, 46);
-            this.lblFirmwareVersion.TabIndex = 9;
-            this.lblFirmwareVersion.Text = "FIRMWARE VER.";
-            // 
-            // cmdRefreshCurrentFirmware
-            // 
-            this.cmdRefreshCurrentFirmware.Location = new System.Drawing.Point(43, 68);
-            this.cmdRefreshCurrentFirmware.Name = "cmdRefreshCurrentFirmware";
-            this.cmdRefreshCurrentFirmware.Size = new System.Drawing.Size(166, 53);
-            this.cmdRefreshCurrentFirmware.TabIndex = 10;
-            this.cmdRefreshCurrentFirmware.Text = "Refresh";
-            this.cmdRefreshCurrentFirmware.UseVisualStyleBackColor = true;
-            this.cmdRefreshCurrentFirmware.Click += new System.EventHandler(this.cmdRefreshCurrentFirmware_Click);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1280, 241);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(367, 190);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
             // 
             // Form1
             // 
@@ -1435,6 +1371,7 @@
             this.MaximumSize = new System.Drawing.Size(2484, 1298);
             this.Name = "Form1";
             this.Text = "Explore Scientific PMC-Eight Configuration Manager V 1.0.4";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1476,8 +1413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1579,14 +1515,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton rbDefault;
-        private System.Windows.Forms.RadioButton rbDebugInfo;
-        private System.Windows.Forms.RadioButton rbDetailedInfo;
-        private System.Windows.Forms.RadioButton rbGeneralInfo;
         private System.Windows.Forms.Button cmdRefreshCurrentFirmware;
         private System.Windows.Forms.Label lblFirmwareVersion;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 

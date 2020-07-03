@@ -121,4 +121,10 @@
   <data name="13085-up-down-arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\13085-up-down-arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MOUNT" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SERIALPORT" xml:space="preserve">
+    <value>COM3</value>
+  </data>
 </root>
