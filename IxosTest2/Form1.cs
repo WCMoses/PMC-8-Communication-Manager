@@ -217,7 +217,18 @@ namespace IxosTest2
             else
             {
                 MessageBox.Show("The PMC-8 is connected on com port: " + comPort + ". NOTE - This does not mean your mount is connected via serial.", "Information");
+                SetComPortDropdown(comPort);
             }
+        }
+
+        private void SetComPortDropdown(string comPort)
+        {
+            int index = cmbBasic2SerialPort.Items.IndexOf(comPort);
+            if (index > -1)
+            {
+                cmbBasic2SerialPort.SelectedIndex = index;
+            }
+
         }
 
         private void CmdRefreshComPorts_Click(object sender, EventArgs e)
@@ -1047,17 +1058,17 @@ namespace IxosTest2
             string mountInUse = cmbBasic2MountType.SelectedItem.ToString();
             char underscore = '_';
             char period = '.';
-            int suffixIndex = GetNthIndex(file.Name,underscore,2);
+            int suffixIndex = GetNthIndex(file.Name, underscore, 2);
             int periodlocation = GetNthIndex(file.Name, period, 1);
-            int length = file.Name.Length - periodlocation-4;
-            string mountSuffix = file.Name.Substring(suffixIndex+1,length);
+            int length = file.Name.Length - periodlocation - 4;
+            string mountSuffix = file.Name.Substring(suffixIndex + 1, length);
             Console.WriteLine(mountSuffix + ":  " + mountSuffix);
             if (mountInUse == "G11" && mountSuffix == "G11")
             {
                 return true;
             }
-          
-            if (mountInUse == "Exos-2" && mountSuffix=="EXO")
+
+            if (mountInUse == "Exos-2" && mountSuffix == "EXO")
             {
                 return true;
             }
@@ -1360,7 +1371,7 @@ namespace IxosTest2
         private void cmdRefreshCurrentFirmware_Click(object sender, EventArgs e)
         {
             string response = ComManager.SendSerialMessage(cmbBasic2SerialPort.Text, "ESGv!");
-            response = response.Substring(5, response.Length -5);
+            response = response.Substring(5, response.Length - 5);
             lblFirmwareVersion.Text = response;
         }
 
