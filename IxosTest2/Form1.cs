@@ -1286,6 +1286,7 @@ namespace IxosTest2
             else
             {
                 destination = cmbDrive.SelectedItem?.ToString();
+                destination += @"\ExploreStars\Images";
             }
             Console.WriteLine(destination);
             if (destination != null)
@@ -1298,9 +1299,13 @@ namespace IxosTest2
                     EmptyFolder(di);
                     DumpLine("DB Deleted.");
                 }
+                else
+                {
+                    var di = new DirectoryInfo(destination);
+                    Directory.CreateDirectory(di.FullName);
+                }
                 try
                 {
-
 
                     DumpLine("Unzipping DB...");
                     //TODO: Manually creat directory on SD card

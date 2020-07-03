@@ -99,10 +99,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbSerial = new System.Windows.Forms.RadioButton();
-            this.rbUdp = new System.Windows.Forms.RadioButton();
-            this.rbTcp = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmdAdvancedEsgp0 = new System.Windows.Forms.Button();
             this.cmdAdvancedESY = new System.Windows.Forms.Button();
@@ -110,6 +106,7 @@
             this.txtCommandToSend = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label23 = new System.Windows.Forms.Label();
@@ -128,7 +125,10 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbSerial = new System.Windows.Forms.RadioButton();
+            this.rbUdp = new System.Windows.Forms.RadioButton();
+            this.rbTcp = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -146,15 +146,15 @@
             this.Advaced.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -175,8 +175,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.txtOutput);
-            this.splitContainer1.Size = new System.Drawing.Size(2448, 1195);
-            this.splitContainer1.SplitterDistance = 865;
+            this.splitContainer1.Size = new System.Drawing.Size(2464, 1655);
+            this.splitContainer1.SplitterDistance = 1197;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -186,10 +186,10 @@
             this.panel2.Controls.Add(this.cmdClear);
             this.panel2.Controls.Add(this.cmdClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 855);
+            this.panel2.Location = new System.Drawing.Point(0, 1064);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2448, 10);
+            this.panel2.Size = new System.Drawing.Size(2464, 133);
             this.panel2.TabIndex = 2;
             // 
             // cmdCopyToClipboard
@@ -240,7 +240,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2448, 418);
+            this.tabControl1.Size = new System.Drawing.Size(2464, 750);
             this.tabControl1.TabIndex = 1;
             // 
             // Instructions
@@ -276,7 +276,7 @@
             this.Basic.Margin = new System.Windows.Forms.Padding(6);
             this.Basic.Name = "Basic";
             this.Basic.Padding = new System.Windows.Forms.Padding(6);
-            this.Basic.Size = new System.Drawing.Size(2424, 348);
+            this.Basic.Size = new System.Drawing.Size(2440, 680);
             this.Basic.TabIndex = 0;
             this.Basic.Text = "Connection";
             this.Basic.Click += new System.EventHandler(this.Basic_Click);
@@ -558,7 +558,7 @@
             this.Explorestars.Location = new System.Drawing.Point(12, 58);
             this.Explorestars.Margin = new System.Windows.Forms.Padding(6);
             this.Explorestars.Name = "Explorestars";
-            this.Explorestars.Size = new System.Drawing.Size(2424, 348);
+            this.Explorestars.Size = new System.Drawing.Size(2440, 680);
             this.Explorestars.TabIndex = 4;
             this.Explorestars.Text = "ExploreStars";
             // 
@@ -602,7 +602,7 @@
             this.cmdDeleteDatabaseZipFile.Location = new System.Drawing.Point(345, 181);
             this.cmdDeleteDatabaseZipFile.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cmdDeleteDatabaseZipFile.Name = "cmdDeleteDatabaseZipFile";
-            this.cmdDeleteDatabaseZipFile.Size = new System.Drawing.Size(257, 138);
+            this.cmdDeleteDatabaseZipFile.Size = new System.Drawing.Size(461, 74);
             this.cmdDeleteDatabaseZipFile.TabIndex = 5;
             this.cmdDeleteDatabaseZipFile.Text = "Delete Zip File";
             this.cmdDeleteDatabaseZipFile.UseVisualStyleBackColor = true;
@@ -613,7 +613,7 @@
             this.cmdInstallDB.Location = new System.Drawing.Point(38, 181);
             this.cmdInstallDB.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cmdInstallDB.Name = "cmdInstallDB";
-            this.cmdInstallDB.Size = new System.Drawing.Size(234, 138);
+            this.cmdInstallDB.Size = new System.Drawing.Size(234, 74);
             this.cmdInstallDB.TabIndex = 2;
             this.cmdInstallDB.Text = "Install";
             this.cmdInstallDB.UseVisualStyleBackColor = true;
@@ -756,7 +756,7 @@
             this.Firmware.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Firmware.Name = "Firmware";
             this.Firmware.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Firmware.Size = new System.Drawing.Size(2424, 348);
+            this.Firmware.Size = new System.Drawing.Size(2440, 680);
             this.Firmware.TabIndex = 5;
             this.Firmware.Text = "Firmware";
             // 
@@ -886,29 +886,26 @@
             // Advaced
             // 
             this.Advaced.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Advaced.Controls.Add(this.cmdAdvancedESGv);
             this.Advaced.Controls.Add(this.cmdUploadRom);
-            this.Advaced.Controls.Add(this.cmdSendCustomCommand);
             this.Advaced.Controls.Add(this.label4);
             this.Advaced.Controls.Add(this.groupBox7);
             this.Advaced.Controls.Add(this.groupBox3);
-            this.Advaced.Controls.Add(this.groupBox2);
             this.Advaced.Controls.Add(this.groupBox4);
             this.Advaced.Location = new System.Drawing.Point(12, 58);
             this.Advaced.Margin = new System.Windows.Forms.Padding(6);
             this.Advaced.Name = "Advaced";
             this.Advaced.Padding = new System.Windows.Forms.Padding(6);
-            this.Advaced.Size = new System.Drawing.Size(2424, 348);
+            this.Advaced.Size = new System.Drawing.Size(2440, 680);
             this.Advaced.TabIndex = 1;
             this.Advaced.Text = "Advanced";
             // 
             // cmdAdvancedESGv
             // 
             this.cmdAdvancedESGv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAdvancedESGv.Location = new System.Drawing.Point(2155, 151);
+            this.cmdAdvancedESGv.Location = new System.Drawing.Point(1039, 275);
             this.cmdAdvancedESGv.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cmdAdvancedESGv.Name = "cmdAdvancedESGv";
-            this.cmdAdvancedESGv.Size = new System.Drawing.Size(201, 166);
+            this.cmdAdvancedESGv.Size = new System.Drawing.Size(201, 165);
             this.cmdAdvancedESGv.TabIndex = 13;
             this.cmdAdvancedESGv.Text = "Version (ESGv!)";
             this.cmdAdvancedESGv.UseVisualStyleBackColor = true;
@@ -928,10 +925,10 @@
             // 
             // cmdSendCustomCommand
             // 
-            this.cmdSendCustomCommand.Location = new System.Drawing.Point(2185, 68);
+            this.cmdSendCustomCommand.Location = new System.Drawing.Point(1046, 119);
             this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(6);
             this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
-            this.cmdSendCustomCommand.Size = new System.Drawing.Size(171, 62);
+            this.cmdSendCustomCommand.Size = new System.Drawing.Size(193, 143);
             this.cmdSendCustomCommand.TabIndex = 2;
             this.cmdSendCustomCommand.Text = "Send";
             this.cmdSendCustomCommand.UseVisualStyleBackColor = true;
@@ -1017,63 +1014,12 @@
             this.label1.Text = "ESGp0!       Get Parameter 0\r\n###              Disable Debug Mode\r\n%%%         En" +
     "ter Debug Mode\r\nESX!           Toggle Serial/TCP\r\nESY!           Toggle TCP/UDP";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbSerial);
-            this.groupBox2.Controls.Add(this.rbUdp);
-            this.groupBox2.Controls.Add(this.rbTcp);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1169, 345);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(706, 120);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Communication Method";
-            // 
-            // rbSerial
-            // 
-            this.rbSerial.AutoSize = true;
-            this.rbSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSerial.Location = new System.Drawing.Point(32, 49);
-            this.rbSerial.Margin = new System.Windows.Forms.Padding(6);
-            this.rbSerial.Name = "rbSerial";
-            this.rbSerial.Size = new System.Drawing.Size(144, 42);
-            this.rbSerial.TabIndex = 3;
-            this.rbSerial.TabStop = true;
-            this.rbSerial.Text = "Serial";
-            this.rbSerial.UseVisualStyleBackColor = true;
-            // 
-            // rbUdp
-            // 
-            this.rbUdp.AutoSize = true;
-            this.rbUdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbUdp.Location = new System.Drawing.Point(504, 49);
-            this.rbUdp.Margin = new System.Windows.Forms.Padding(6);
-            this.rbUdp.Name = "rbUdp";
-            this.rbUdp.Size = new System.Drawing.Size(131, 42);
-            this.rbUdp.TabIndex = 2;
-            this.rbUdp.TabStop = true;
-            this.rbUdp.Text = "UDP";
-            this.rbUdp.UseVisualStyleBackColor = true;
-            // 
-            // rbTcp
-            // 
-            this.rbTcp.AutoSize = true;
-            this.rbTcp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTcp.Location = new System.Drawing.Point(285, 49);
-            this.rbTcp.Margin = new System.Windows.Forms.Padding(6);
-            this.rbTcp.Name = "rbTcp";
-            this.rbTcp.Size = new System.Drawing.Size(127, 42);
-            this.rbTcp.TabIndex = 1;
-            this.rbTcp.TabStop = true;
-            this.rbTcp.Text = "TCP";
-            this.rbTcp.UseVisualStyleBackColor = true;
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cmdAdvancedESGv);
+            this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Controls.Add(this.cmdAdvancedEsgp0);
+            this.groupBox4.Controls.Add(this.cmdSendCustomCommand);
             this.groupBox4.Controls.Add(this.cmdAdvancedESY);
             this.groupBox4.Controls.Add(this.cmdAdvancedEsx);
             this.groupBox4.Controls.Add(this.txtCommandToSend);
@@ -1083,15 +1029,14 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox4.Size = new System.Drawing.Size(1064, 318);
+            this.groupBox4.Size = new System.Drawing.Size(1251, 455);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Custom Command";
             // 
             // cmdAdvancedEsgp0
             // 
-            this.cmdAdvancedEsgp0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(757, 139);
+            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(749, 286);
             this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
             this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(260, 154);
@@ -1103,8 +1048,7 @@
             // 
             // cmdAdvancedESY
             // 
-            this.cmdAdvancedESY.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedESY.Location = new System.Drawing.Point(345, 139);
+            this.cmdAdvancedESY.Location = new System.Drawing.Point(337, 286);
             this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
             this.cmdAdvancedESY.Size = new System.Drawing.Size(399, 154);
@@ -1116,8 +1060,7 @@
             // 
             // cmdAdvancedEsx
             // 
-            this.cmdAdvancedEsx.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdAdvancedEsx.Location = new System.Drawing.Point(38, 139);
+            this.cmdAdvancedEsx.Location = new System.Drawing.Point(30, 286);
             this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedEsx.Name = "cmdAdvancedEsx";
             this.cmdAdvancedEsx.Size = new System.Drawing.Size(295, 154);
@@ -1130,7 +1073,7 @@
             // txtCommandToSend
             // 
             this.txtCommandToSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandToSend.Location = new System.Drawing.Point(418, 37);
+            this.txtCommandToSend.Location = new System.Drawing.Point(410, 184);
             this.txtCommandToSend.Margin = new System.Windows.Forms.Padding(6);
             this.txtCommandToSend.Name = "txtCommandToSend";
             this.txtCommandToSend.Size = new System.Drawing.Size(596, 58);
@@ -1141,7 +1084,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(63, 56);
+            this.label10.Location = new System.Drawing.Point(55, 203);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(299, 38);
@@ -1162,8 +1105,18 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2448, 447);
+            this.panel1.Size = new System.Drawing.Size(2464, 447);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1280, 241);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(367, 190);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
             // 
             // groupBox10
             // 
@@ -1292,10 +1245,10 @@
             this.toolStripStatusLabel2,
             this.tsCurrentNetwork,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 248);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(2448, 76);
+            this.statusStrip1.Size = new System.Drawing.Size(2464, 76);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1348,27 +1301,71 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(2448, 324);
+            this.txtOutput.Size = new System.Drawing.Size(2464, 452);
             this.txtOutput.TabIndex = 0;
             // 
-            // pictureBox4
+            // groupBox2
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1280, 241);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(367, 190);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
+            this.groupBox2.Controls.Add(this.rbSerial);
+            this.groupBox2.Controls.Add(this.rbUdp);
+            this.groupBox2.Controls.Add(this.rbTcp);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(62, 52);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(706, 120);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Communication Method";
+            // 
+            // rbSerial
+            // 
+            this.rbSerial.AutoSize = true;
+            this.rbSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSerial.Location = new System.Drawing.Point(32, 49);
+            this.rbSerial.Margin = new System.Windows.Forms.Padding(6);
+            this.rbSerial.Name = "rbSerial";
+            this.rbSerial.Size = new System.Drawing.Size(144, 42);
+            this.rbSerial.TabIndex = 3;
+            this.rbSerial.TabStop = true;
+            this.rbSerial.Text = "Serial";
+            this.rbSerial.UseVisualStyleBackColor = true;
+            // 
+            // rbUdp
+            // 
+            this.rbUdp.AutoSize = true;
+            this.rbUdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbUdp.Location = new System.Drawing.Point(504, 49);
+            this.rbUdp.Margin = new System.Windows.Forms.Padding(6);
+            this.rbUdp.Name = "rbUdp";
+            this.rbUdp.Size = new System.Drawing.Size(131, 42);
+            this.rbUdp.TabIndex = 2;
+            this.rbUdp.TabStop = true;
+            this.rbUdp.Text = "UDP";
+            this.rbUdp.UseVisualStyleBackColor = true;
+            // 
+            // rbTcp
+            // 
+            this.rbTcp.AutoSize = true;
+            this.rbTcp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTcp.Location = new System.Drawing.Point(285, 49);
+            this.rbTcp.Margin = new System.Windows.Forms.Padding(6);
+            this.rbTcp.Name = "rbTcp";
+            this.rbTcp.Size = new System.Drawing.Size(127, 42);
+            this.rbTcp.TabIndex = 1;
+            this.rbTcp.TabStop = true;
+            this.rbTcp.Text = "TCP";
+            this.rbTcp.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2448, 1195);
+            this.ClientSize = new System.Drawing.Size(2464, 1655);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.MaximumSize = new System.Drawing.Size(2484, 1298);
+            this.MaximumSize = new System.Drawing.Size(2500, 4000);
             this.Name = "Form1";
             this.Text = "Explore Scientific PMC-Eight Configuration Manager V 1.0.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -1400,12 +1397,11 @@
             this.groupBox7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1413,7 +1409,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1445,10 +1442,6 @@
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbSerial;
-        private System.Windows.Forms.RadioButton rbUdp;
-        private System.Windows.Forms.RadioButton rbTcp;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button cmdAdvancedEsgp0;
         private System.Windows.Forms.Button cmdAdvancedESY;
@@ -1519,6 +1512,10 @@
         private System.Windows.Forms.Label lblFirmwareVersion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbSerial;
+        private System.Windows.Forms.RadioButton rbUdp;
+        private System.Windows.Forms.RadioButton rbTcp;
     }
 }
 
