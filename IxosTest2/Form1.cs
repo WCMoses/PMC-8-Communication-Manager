@@ -1290,19 +1290,11 @@ namespace IxosTest2
         private void CmdInstallDB_Click(object sender, EventArgs e)
         {
             string destination = null;
-            if (rdoInstallToWindows.Checked == true)
+            string source = txtDatabaseLocation.Text + @"/ExploreStars.zip";
+
+            if (rdoInstallToWindows.Checked == true)   //Set destinations
             {
                 destination = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            }
-            else
-            {
-                destination = cmbDrive.SelectedItem?.ToString();
-                destination += @"\ExploreStars\Images";
-            }
-            Console.WriteLine(destination);
-            if (destination != null)
-            {
-                string source = txtDatabaseLocation.Text + @"/ExploreStars.zip";
                 if (Directory.Exists(destination))
                 {
                     DumpLine("Deleting existing DB.");
@@ -1330,7 +1322,51 @@ namespace IxosTest2
                     DumpLine("ERROR!!  The DB could not be unzipped to the specified location. Please make sure you have downloaded it.");
                 }
 
+
             }
+            else //From SD Card
+            {
+                if (cmbDrive.SelectedItem==null)
+                {
+                    MessageBox.Show("Please select a removable drive first.", "WARNING");
+                    return;
+                }
+                destination = cmbDrive.SelectedItem?.ToString();
+                destination += @"\ExploreStars\Images";
+                if (Directory.Exists(destination))
+                {
+
+                    DumpLine("Deleting existing DB.");
+                    var di = new DirectoryInfo(destination);
+                    EmptyFolder(di);
+                    DumpLine("DB Deleted.");
+                }
+                else
+                {
+                    //string sdDestination = cmbDrive.SelectedItem?.ToString();
+                    //var di = new DirectoryInfo(sdDestination);
+                    //Directory.CreateDirectory(di.FullName);
+                }
+                try
+                {
+
+                    DumpLine("Unzipping DB...");
+                    string sdDestination = cmbDrive.SelectedItem?.ToString();
+                    //TODO: Manually creat directory on SD card
+                    ZipFile.ExtractToDirectory(source, sdDestination);
+                    DumpLine("DB unzipped and installed.");
+                    MessageBox.Show("The database was sucessfully unzipped", "Information");
+                }
+                catch (System.UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("You do not have permission to write to this location.  Please select a different lcation.", "Error");
+                    DumpLine("ERROR!!  The DB could not be unzipped to the specified location. Please make sure you have downloaded it.");
+                }
+            }
+            Console.WriteLine(destination);
+
+           
+           
         }
 
         private void CmdDeleteDatabaseZipFile_Click(object sender, EventArgs e)
