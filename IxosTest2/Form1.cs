@@ -10,6 +10,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Threading;
+using System.Management;
+
 namespace IxosTest2
 {
     public partial class Form1 : Form
@@ -1436,6 +1438,27 @@ namespace IxosTest2
             Properties.Settings.Default.COMPORT = cmbBasic2SerialPort.Text;
             Properties.Settings.Default.MOUNT = cmbBasic2MountType.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void cmdDetectUSBChipsets_Click(object sender, EventArgs e)
+        {
+            ManagementObjectCollection ManObjReturn;
+            ManagementObjectSearcher ManObjSearch;
+            ManObjSearch = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE ClassGuid=\"{4d36e978-e325-11ce-bfc1-08002be10318}\"");
+            ManObjReturn = ManObjSearch.Get();
+            if (ManObjReturn.Count ==0)
+            {
+                DumpLine("No USB to Serial Devices Found");
+                return;
+            }
+            foreach (ManagementObject ManObj in ManObjReturn)
+            {
+                int s = ManObj.Properties.Count;
+                string name = ManObj["Name"].ToString();
+                string man = ManObj["Manufacturer"].ToString();
+                //Console.WriteLine(name + "    " + man);
+                DumpLine(name + "    " + man);
+            }
         }
     }
 }

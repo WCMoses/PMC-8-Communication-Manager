@@ -129,6 +129,8 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cmdDetectUSBChipsets = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -155,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -886,6 +889,7 @@
             // Advaced
             // 
             this.Advaced.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Advaced.Controls.Add(this.groupBox6);
             this.Advaced.Controls.Add(this.cmdUploadRom);
             this.Advaced.Controls.Add(this.label4);
             this.Advaced.Controls.Add(this.groupBox7);
@@ -1248,10 +1252,10 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(542, 324);
+            this.label6.Location = new System.Drawing.Point(539, 314);
             this.label6.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(697, 130);
+            this.label6.Size = new System.Drawing.Size(697, 117);
             this.label6.TabIndex = 12;
             this.label6.Text = "Explore Scientific, LLC.\r\n1010 S. 48th Street, Springdale, AR 72762\r\nCustomer Sup" +
     "port +1 (866) 252-3811 ext 2";
@@ -1358,6 +1362,27 @@
             this.txtOutput.Size = new System.Drawing.Size(2464, 452);
             this.txtOutput.TabIndex = 0;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.cmdDetectUSBChipsets);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(707, 14);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(401, 302);
+            this.groupBox6.TabIndex = 13;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Detect USB Chipsets";
+            // 
+            // cmdDetectUSBChipsets
+            // 
+            this.cmdDetectUSBChipsets.Location = new System.Drawing.Point(39, 143);
+            this.cmdDetectUSBChipsets.Name = "cmdDetectUSBChipsets";
+            this.cmdDetectUSBChipsets.Size = new System.Drawing.Size(304, 69);
+            this.cmdDetectUSBChipsets.TabIndex = 0;
+            this.cmdDetectUSBChipsets.Text = "Detect";
+            this.cmdDetectUSBChipsets.UseVisualStyleBackColor = true;
+            this.cmdDetectUSBChipsets.Click += new System.EventHandler(this.cmdDetectUSBChipsets_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
@@ -1367,7 +1392,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximumSize = new System.Drawing.Size(2500, 4000);
             this.Name = "Form1";
-            this.Text = "Explore Scientific PMC-Eight Configuration Manager V 1.0.4";
+            this.Text = "Explore Scientific PMC-Eight Configuration Manager V 1.0.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1411,6 +1436,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1516,6 +1542,8 @@
         private System.Windows.Forms.RadioButton rbSerial;
         private System.Windows.Forms.RadioButton rbUdp;
         private System.Windows.Forms.RadioButton rbTcp;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button cmdDetectUSBChipsets;
     }
 }
 
