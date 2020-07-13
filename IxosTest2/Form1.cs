@@ -938,12 +938,12 @@ namespace IxosTest2
             //this.Width = 2300;
             this.MinimumSize = new Size(800, 800);
             this.Show();
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            var DialogResult = MessageBox.Show("Would you like the CM to try to automatically detect your mount connection type?", "Detect Mount", buttons);
-            if (DialogResult == DialogResult.Yes)
-            {
-                CmdBasic2CheckCurrentConnection_Click(null, null);
-            }
+            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            //var DialogResult = MessageBox.Show("Would you like the CM to try to automatically detect your mount connection type?", "Detect Mount", buttons);
+            //if (DialogResult == DialogResult.Yes)
+            //{
+            //    CmdBasic2CheckCurrentConnection_Click(null, null);
+            //}
 
             //Load combo boxes with data from Resources
             //Properties.Settings.Default.COMPORT = cmbBasic2SerialPort.Text;
@@ -1326,7 +1326,7 @@ namespace IxosTest2
             }
             else //From SD Card
             {
-                if (cmbDrive.SelectedItem==null)
+                if (cmbDrive.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a removable drive first.", "WARNING");
                     return;
@@ -1353,6 +1353,11 @@ namespace IxosTest2
                     DumpLine("Unzipping DB...");
                     string sdDestination = cmbDrive.SelectedItem?.ToString();
                     //TODO: Manually creat directory on SD card
+                    if (File.Exists(sdDestination + "\\ExploreStars\\ExploreStars.sqlite"))
+                    {
+                        File.Delete(sdDestination + "\\ExploreStars\\ExploreStars.sqlite");
+                    }
+
                     ZipFile.ExtractToDirectory(source, sdDestination);
                     DumpLine("DB unzipped and installed.");
                     MessageBox.Show("The database was sucessfully unzipped", "Information");
@@ -1365,8 +1370,8 @@ namespace IxosTest2
             }
             Console.WriteLine(destination);
 
-           
-           
+
+
         }
 
         private void CmdDeleteDatabaseZipFile_Click(object sender, EventArgs e)
@@ -1383,15 +1388,16 @@ namespace IxosTest2
         }
         private void EmptyFolder(DirectoryInfo directoryInfo)
         {
-            foreach (FileInfo file in directoryInfo.GetFiles())
-            {
-                file.Delete();
-            }
+            Directory.Delete(directoryInfo.FullName, true);
+            //foreach (FileInfo file in directoryInfo.GetFiles())
+            //{
+            //    file.Delete();
+            //}
 
-            foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
-            {
-                EmptyFolder(subfolder);
-            }
+            //foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
+            //{
+            //    EmptyFolder(subfolder);
+            //}
         }
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1406,9 +1412,18 @@ namespace IxosTest2
 
         private void cmdRefreshCurrentFirmware_Click(object sender, EventArgs e)
         {
-            string response = ComManager.SendSerialMessage(cmbBasic2SerialPort.Text, "ESGv!");
-            response = response.Substring(5, response.Length - 5);
-            lblFirmwareVersion.Text = response;
+            try
+            {
+                string response = ComManager.SendSerialMessage(cmbBasic2SerialPort.Text, "ESGv!");
+                response = response.Substring(5, response.Length - 5);
+                lblFirmwareVersion.Text = response;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please connect via serial to see the firmware version", "Message");
+            }
+
         }
 
         private void cmdChooseDatabaseLocation_Click(object sender, EventArgs e)

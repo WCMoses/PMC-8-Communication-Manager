@@ -931,7 +931,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox7.Size = new System.Drawing.Size(887, 133);
+            this.groupBox7.Size = new System.Drawing.Size(1046, 133);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Manually Load FIRMWARE into PMC-Eight EEPROM";
@@ -1014,7 +1014,7 @@
             // cmdAdvancedESGv
             // 
             this.cmdAdvancedESGv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAdvancedESGv.Location = new System.Drawing.Point(1039, 275);
+            this.cmdAdvancedESGv.Location = new System.Drawing.Point(1058, 277);
             this.cmdAdvancedESGv.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cmdAdvancedESGv.Name = "cmdAdvancedESGv";
             this.cmdAdvancedESGv.Size = new System.Drawing.Size(201, 165);
@@ -1079,7 +1079,7 @@
             // 
             // cmdAdvancedEsgp0
             // 
-            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(749, 286);
+            this.cmdAdvancedEsgp0.Location = new System.Drawing.Point(787, 286);
             this.cmdAdvancedEsgp0.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedEsgp0.Name = "cmdAdvancedEsgp0";
             this.cmdAdvancedEsgp0.Size = new System.Drawing.Size(260, 154);
@@ -1091,7 +1091,7 @@
             // 
             // cmdSendCustomCommand
             // 
-            this.cmdSendCustomCommand.Location = new System.Drawing.Point(1046, 119);
+            this.cmdSendCustomCommand.Location = new System.Drawing.Point(1058, 122);
             this.cmdSendCustomCommand.Margin = new System.Windows.Forms.Padding(6);
             this.cmdSendCustomCommand.Name = "cmdSendCustomCommand";
             this.cmdSendCustomCommand.Size = new System.Drawing.Size(193, 143);
@@ -1102,10 +1102,10 @@
             // 
             // cmdAdvancedESY
             // 
-            this.cmdAdvancedESY.Location = new System.Drawing.Point(337, 286);
+            this.cmdAdvancedESY.Location = new System.Drawing.Point(384, 283);
             this.cmdAdvancedESY.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedESY.Name = "cmdAdvancedESY";
-            this.cmdAdvancedESY.Size = new System.Drawing.Size(399, 154);
+            this.cmdAdvancedESY.Size = new System.Drawing.Size(391, 154);
             this.cmdAdvancedESY.TabIndex = 4;
             this.cmdAdvancedESY.Text = "Wireless ASCOM / ExploreStars(ESY!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedESY, "Toggles TCP/UDP.");
@@ -1117,7 +1117,7 @@
             this.cmdAdvancedEsx.Location = new System.Drawing.Point(30, 286);
             this.cmdAdvancedEsx.Margin = new System.Windows.Forms.Padding(6);
             this.cmdAdvancedEsx.Name = "cmdAdvancedEsx";
-            this.cmdAdvancedEsx.Size = new System.Drawing.Size(295, 154);
+            this.cmdAdvancedEsx.Size = new System.Drawing.Size(335, 154);
             this.cmdAdvancedEsx.TabIndex = 3;
             this.cmdAdvancedEsx.Text = "Wired/Wireless (ESX!)";
             this.toolTip1.SetToolTip(this.cmdAdvancedEsx, "Toggles wired/wireless.");
